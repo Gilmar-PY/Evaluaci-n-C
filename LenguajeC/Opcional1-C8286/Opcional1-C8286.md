@@ -25,8 +25,6 @@ Las macros tienen varias aplicaciones como:
 - Compilador condicional
 
 
-
-
 ### Definiendo una macro
 
 Las macros se definen usando la directiva `#define`. Cada macro tiene un nombre y una posible lista de parámetros. Una macro también puede ser indefinida con la directiva `#undef`.
@@ -166,7 +164,7 @@ int main(int argc, char** argv) {
 
 ```
 
-Comparar el origen antes y después del preprocesamiento le ayuda a darse cuenta de cómo se aplican los operadores # y ## a los argumentos de la macro. Ten en cuenta que en el código final preprocesado, todas las líneas expandidas desde la misma definición de macro están en la misma línea.
+Comparar el origen antes y después del preprocesamiento te ayuda a darte cuenta de cómo se aplican los operadores # y ## a los argumentos de la macro. Ten en cuenta que en el código final preprocesado, todas las líneas expandidas desde la misma definición de macro están en la misma línea.
 
 
 ### Macros variables
@@ -250,7 +248,7 @@ printf("%s\n", "copy"); printf("%s\n", "paste");
 }
 ```
 
-- Si observas el código preprocesado cuidadosamente, verá que la macro LOOP se ha expandido a múltiples instrucciones printf en lugar de instrucciones en bucle como for o while.
+- Si observas el código preprocesado cuidadosamente, verás que la macro LOOP se ha expandido a múltiples instrucciones printf en lugar de instrucciones en bucle como for o while.
 
 - La única forma de crear un bucle con una macro es simplemente poner las instrucciones de iteración una tras otra, y con algunas instrucciones separadas.
 
@@ -330,7 +328,7 @@ int _notas();
 ## Variables puntero
 
 
-La idea detrás de cualquier tipo de puntero es muy simple, es solo una variable simple que mantiene una dirección de memoria. Lo primero que puede recordar acerca de ellos es el carácter asterisco, `*`, que se utiliza para declarar un puntero en C:
+La idea detrás de cualquier tipo de puntero es muy simple, es solo una variable simple que mantiene una dirección de memoria. Lo primero que puedes recordar acerca de ellos es el carácter asterisco, `*`, que se utiliza para declarar un puntero en C:
 
 ```
 Ejemplo9.c
@@ -470,13 +468,13 @@ En C, las funciones actúan como procedimientos, y son bloques de construcción 
 
 Las funciones siempre son blocking en C. Esto significa que el agente que llama, tiene que esperar a que termine la función que se llamada y solo entonces puede recopilar el resultado devuelto. Frente a una función blocking, podemos tener una función non-blocking. Al llamar a una función así, el agente que llama no espera a que termine la función y puede continuar su ejecución.
 
-En este esquema, generalmente hay un mecanismo de devolución de llamada (callback) que se activa cuando finaliza la función llamada. Una función non-blocking, también puede denominarse función asincrónica o simplemente una función asincrónica (asynchronous function o async function). Como no tenemos funciones asíncronas en C, necesitamos implementarlas usando soluciones de múltiples hilos.
+En este esquema, generalmente hay un mecanismo de devolución de llamada (callback) que se activa cuando finaliza la función llamada. Una función non-blocking, también puede denominarse `función asincrónica` o simplemente una función asincrónica (asynchronous function o async function). Como no tenemos funciones asíncronas en C, necesitamos implementarlas usando soluciones de múltiples hilos.
 
 Es interesante agregar que hoy en día, existe un creciente interés en el uso de funciones non-blocking. Suele denominarse programación orientada a eventos y estas funciones son centrales en este enfoque de programación, y la mayoría de las funciones escritas son non-blocking.
 
 En la programación orientada a eventos, las llamadas a funciones reales suceden dentro de un bucle de eventos, y los callbacks se activan cuando se produce un evento. Los frameworks como *libuv* y *libev* promueven esta forma de codificación y permiten diseñar  software en torno a uno o varios bucles de eventos.
 
-## **Gestión de la pila**
+## Gestión de la pila
 
 El diseño de memoria de un proceso que se ejecuta en un sistema operativo similar a Unix, todos los procesos comparten un diseño similar.
 
@@ -621,7 +619,7 @@ Puedes definir fácilmente una estructura que esté empaquetada. En el siguiente
 
 #### Ejercicio
 
-* Completar  y ejecuta el código:
+* Completa  y ejecuta el código:
 
 ```c
 #include <stdio.h>
