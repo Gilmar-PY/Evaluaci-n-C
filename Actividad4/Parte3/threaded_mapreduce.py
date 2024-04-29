@@ -67,7 +67,7 @@ a = map_reduce_less_naive(words, emitter, counter, reporter)
 for i in sorted(a, key=lambda x: x[1]):
     print(i)
 
-#words = 'Python is great Python rocks'.split(' ')
+#words = 'Python es super Python rocks'.split(' ')
 
 #with Executor(max_workers=4) as executor:
 #    maps = map_less_naive(executor, words, emitter)
@@ -78,4 +78,4 @@ for i in sorted(a, key=lambda x: x[1]):
 #        for fut in maps:
 #            not_done += 1 if not fut.done() else 0
 #        sleep(1)
-#        print(f'Still not finalized: {not_done}')
+#        print(f'Aun no ha finalizado: {not_done}')
