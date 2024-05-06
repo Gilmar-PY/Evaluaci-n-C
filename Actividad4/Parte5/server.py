@@ -22,11 +22,11 @@ async def submit_job(job_id, reader, writer):
     my_code = marshal.loads(await reader.read(code_size))
     data_size = int.from_bytes(await reader.read(4), 'little')
     data = pickle.loads(await reader.read(data_size))
-    work_queue.put_nowait((job_id, my_code, data))  # Data not very efficient, no_wait and queue size
+    work_queue.put_nowait((job_id, my_code, data))  
 
 
 def get_results_queue():
-    while results_queue.qsize() > 0:   # Not assured
+    while results_queue.qsize() > 0: 
         try:
             job_id, data = results_queue.get_nowait()
             results[job_id] = data

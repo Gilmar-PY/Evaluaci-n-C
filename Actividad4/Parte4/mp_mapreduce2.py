@@ -20,7 +20,7 @@ def async_map(pool, mapper, data):
     async_returns = []
     for datum in data:
         async_returns.append(pool.apply_async(
-            mapper, (datum, )))  #The tuple
+            mapper, (datum, ))) 
     return async_returns
 
 

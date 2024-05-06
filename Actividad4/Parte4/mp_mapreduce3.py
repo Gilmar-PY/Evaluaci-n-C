@@ -43,7 +43,7 @@ def chunked_async_map(pool, mapper, data, chunk_size):
     async_returns = []
     for data_part in chunk(data, chunk_size):
         async_returns.append(pool.apply_async(
-            chunk_runner, (mapper, data_part)))  #RUNNER
+            chunk_runner, (mapper, data_part)))  
     return async_returns
 
 
@@ -52,7 +52,7 @@ def map_reduce(pool, my_input, mapper, reducer, chunk_size, callback=None):
     report_progress(map_returns, 'map', callback)
     map_results = []
     for ret in map_returns:
-        map_results.extend(ret.get())   # EXTEND
+        map_results.extend(ret.get()) 
     distributor = defaultdict(list)
     for key, value in map_results:
         distributor[key].append(value)

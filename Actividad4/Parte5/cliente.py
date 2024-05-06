@@ -36,7 +36,7 @@ def do_request(my_funs, data):
         result = pickle.loads(conn.recv(result_size))
         conn.close()
         sleep(1)
-    print(f'Result is {result}')
+    print(f'El resultado es {result}')
 
 
 if __name__ == '__main__':
