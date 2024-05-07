@@ -15,8 +15,6 @@ words = 'Python es lo mejor Python rocks'.split(' ')
 
 emiter = lambda word: (word, 1)
 counter = lambda emitted: (emitted[0], sum(emitted[1]))
-
-
 a = list(map_reduce_ultra_naive(words, emiter, counter))
 
 print(a)
