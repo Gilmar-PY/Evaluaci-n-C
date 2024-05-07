@@ -89,7 +89,7 @@ def run_map_reduce(words, chunk_size):
 if __name__ == '__main__':
     words = [word
              for word in map(lambda x: x.strip().rstrip(),
-                             ' '.join(open('texto.txt', 'rt', encoding='utf-8').readlines()).split(' '))
+                 ' '.join(open('tempestad.txt', 'rt', encoding='utf-8').readlines()).split(' '))
              if word != '' ]
 
     chunk_sizes = [1, 10, 100, 1000, 10000]
