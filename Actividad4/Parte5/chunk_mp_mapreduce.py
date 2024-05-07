@@ -21,7 +21,7 @@ def report_progress(map_returns, tag, callback):
 
 
 def chunk0(my_list, chunk_size):
-    for i in range(0, len(my_list), chunk_size):   #requires a list
+    for i in range(0, len(my_list), chunk_size):   
         yield my_list[i:i + chunk_size]
 
 
@@ -57,7 +57,7 @@ def map_reduce(pool, my_input, mapper, reducer, chunk_size, callback=None):
     report_progress(map_returns, 'map', callback)
     map_results = []
     for ret in map_returns:
-        map_results.extend(ret.get())   # EXTEND
+        map_results.extend(ret.get()) 
     distributor = defaultdict(list)
     for key, value in map_results:
         distributor[key].append(value)
