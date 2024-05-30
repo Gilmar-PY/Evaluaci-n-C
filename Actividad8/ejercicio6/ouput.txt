@@ -1,1 +1,0 @@
-{'file1.txt': 10, 'file2.txt': 8, 'file3.txt': 9}
