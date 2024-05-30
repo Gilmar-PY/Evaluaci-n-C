@@ -1,3 +1,6 @@
+#6 . Implementa un programa en Python que simule un predictor de bifurcaciones simple. Use un historial para predecir si una bifurcación será tomada o no y ajuste las predicciones basadas en los resultados.
+
+
 class BranchPredictor:
     def __init__(self):
         self.history = {}
