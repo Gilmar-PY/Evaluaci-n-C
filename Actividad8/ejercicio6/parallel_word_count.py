@@ -32,7 +32,7 @@ def parallel_word_count(file_paths):
                 print(f"{file_path} generated an exception: {exc}")
     return results
 
-file_paths = ["file1.txt", "file2.txt", "file3.txt"]
+file_paths = ["file1_long.txt", "file2_long.txt", "file3_long.txt"]
 word_counts = parallel_word_count(file_paths)
 print(word_counts)
 
