@@ -1,3 +1,12 @@
+
+//Ejercicio 5: Suma paralela de un vector con Pthreads
+//Descripción: Implementa la suma de los elementos de un vector utilizando pthread para paralelizar el cálculo.
+//Tareas:
+//    Crear un vector grande.
+//    Dividir el vector en segmentos y asignar cada segmento a un hilo diferente.
+//    Utilizar pthread para realizar la suma en paralelo y combinar los resultados.
+//Pistas:
+//    Usa pthread_create y pthread_join para gestionar los hilos.
 #include <stdio.h>
 #include <stdlib.h>
 #include <pthread.h>
