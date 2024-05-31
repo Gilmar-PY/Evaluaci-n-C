@@ -1,4 +1,7 @@
-#7 . Implementa un programa en Python que demuestre el paralelismo de instrucciones utilizando hilos. Crea un conjunto de tareas independientes que se ejecuten en paralelo utilizando el módulo threading.
+#7 . Implementa un programa en Python que demuestre el 
+#paralelismo de instrucciones utilizando hilos.
+# Crea un conjunto de tareas independientes
+# que se ejecuten en paralelo utilizando el módulo threading.
 import threading
 
 def task_1():
