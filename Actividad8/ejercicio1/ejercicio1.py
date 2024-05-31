@@ -5,16 +5,6 @@
  #   Dividir la imagen en segmentos.
  #   Aplicar un filtro de desenfoque a cada segmento en paralelo.
  #   Unir los segmentos procesados y guardar la imagen resultante.
-
-
-
-
-
-
-
-
-
-
 import cv2
 import numpy as np
 from multiprocessing import Pool
