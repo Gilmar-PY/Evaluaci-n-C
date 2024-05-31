@@ -1,3 +1,14 @@
+
+
+//Ejercicio 4: Multiplicación de matrices paralela con OpenMP Descripción: Implementa la multiplicación de matrices utilizando
+// OpenMP para paralelizar el cálculo.
+//Tareas:
+//    Crear dos matrices grandes.
+//    Paralelizar la multiplicación de matrices utilizando directivas de OpenMP.
+//    Compilar y ejecutar el programa en un sistema con múltiples núcleos.
+//Pistas:
+//    Usa #pragma omp parallel for para paralelizar los bucles.
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <omp.h>
