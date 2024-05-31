@@ -1,3 +1,20 @@
+#Ejercicio 1: Procesamiento paralelo de imágenes con OpenCV y Multiprocessing Descripción: Divide una imagen en varios segmentos y aplica un filtro (por ejemplo, filtro de desenfoque) a cada segmento en paralelo usando el módulo multiprocessing.
+#Tareas:
+
+#    Cargar una imagen utilizando OpenCV.
+ #   Dividir la imagen en segmentos.
+ #   Aplicar un filtro de desenfoque a cada segmento en paralelo.
+ #   Unir los segmentos procesados y guardar la imagen resultante.
+
+
+
+
+
+
+
+
+
+
 import cv2
 import numpy as np
 from multiprocessing import Pool
