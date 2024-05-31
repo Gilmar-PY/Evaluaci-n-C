@@ -1,3 +1,16 @@
+
+
+#Ejercicio 2: Paralelización de operaciones matriciales con NumPy y Joblib
+#Descripción: Paraleliza una serie de operaciones matriciales (multiplicación de matrices) utilizando Joblib.
+#Tareas:
+#    Crear dos matrices grandes con numpy.
+#    Dividir las matrices en sub-matrices.
+#    Multiplicar las sub-matrices en paralelo utilizando Joblib.
+#    Reunir los resultados y formar la matriz resultante.
+#Pistas:
+#    Usa numpy.split para dividir las matrices.
+#    Usa joblib.Parallel y joblib.delayed para el procesamiento paralelo.
+
 import numpy as np
 from joblib import Parallel, delayed
 
