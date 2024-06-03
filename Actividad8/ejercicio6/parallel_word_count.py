@@ -1,14 +1,13 @@
-#Ejercicio 6: Procesamiento paralelo de archivos con concurrent.futures
+'''Ejercicio 6: Procesamiento paralelo de archivos con concurrent.futures
+Descripción: Implementa un sistema para procesar múltiples archivos de texto en paralelo, donde cada archivo se lee y se realiza una operación de conteo de palabras.
 
-#Descripción: Implementa un sistema para procesar múltiples archivos de texto en paralelo, donde cada archivo se lee y se realiza una operación de conteo de palabras.
+Tareas:
 
-#Tareas:
+  Crear una lista de archivos de texto.
+  Usar concurrent.futures.ThreadPoolExecutor para procesar los archivos en paralelo.
+  Contar las palabras en cada archivo y almacenar los resultados en un diccionario.
 
- #   Crear una lista de archivos de texto.
-  #  Usar concurrent.futures.ThreadPoolExecutor para procesar los archivos en paralelo.
-   # Contar las palabras en cada archivo y almacenar los resultados en un diccionario.
-
-#Pistas:
+Pistas:'''
 
 import concurrent.futures
 import os
@@ -16,19 +15,19 @@ import os
 def count_words_in_file(file_path):
     with open(file_path, 'r') as file:
         text = file.read()
-    word_count = len(text.split())
+    word_count = len(text.split())## Divide el texto en palabras y cuenta cuántas hay
     return (file_path, word_count)
 
-def parallel_word_count(file_paths):
+def parallel_word_count(file_paths):#conteo de palabras en paralelo
     results = {}
-    with concurrent.futures.ThreadPoolExecutor() as executor:
+    with concurrent.futures.ThreadPoolExecutor() as executor:# funciones en hilos separados
         future_to_file = {executor.submit(count_words_in_file, file_path): file_path for file_path in file_paths}
         for future in concurrent.futures.as_completed(future_to_file):
             file_path = future_to_file[future]
             try:
-                file_path, count = future.result()
-                results[file_path] = count
-            except Exception as exc:
+                file_path, count = future.result()## Obtén el resultado de la tarea
+                results[file_path] = count#
+            except Exception as exc:#manejo de exepciones 
                 print(f"{file_path} generated an exception: {exc}")
     return results
 
