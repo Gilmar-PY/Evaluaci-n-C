@@ -1,5 +1,5 @@
 
-//*Implementa un programa en C utilizando POSIX threads (pthread) que demuestre el 
+//**Implementa un programa en C utilizando POSIX threads (pthread) que demuestre el 
 uso de mutexes para proteger una variable compartida. El programa debe crear 
 varios hilos que incrementen una variable global compartida de manera segura.*//
 
