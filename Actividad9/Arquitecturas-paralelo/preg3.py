@@ -1,12 +1,16 @@
-from mpi4py import MPI
+
+
+
+
+from mpi4py import MPI    #comunicacion proccess
 from threading import Thread
 
 def thread_task(rank):
     print(f"Thread in rank {rank} is running")
 
-comm = MPI.COMM_WORLD
-rank = comm.Get_rank()
-size = comm.Get_size()
+comm = MPI.COMM_WORLD # incluye todos los procesos
+rank = comm.Get_rank()#proceso actual
+size = comm.Get_size()# número total 
 
 threads = []
 for _ in range(4):
