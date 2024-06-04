@@ -4,7 +4,7 @@ distribuye entre nodos y luego se paraleliza dentro de cada nodo.'''
 
 
 
-from mpi4py import MPI    #comunicacion proccess
+from mpi4py import MPI    #comunicacion  entre proccess MPI
 from threading import Thread
 
 def thread_task(rank):
