@@ -1,3 +1,9 @@
+'''
+4 . Analiza el código que implementa una forma sencilla de prefetching 
+de datos, cargando datos en la caché antes de que sean necesarios.'''
+
+
+
 def prefetch_data(array, indices, prefetch_distance):
     for i in range(len(indices) - prefetch_distance):
         _ = array[indices[i + prefetch_distance]]  # Prefetch
@@ -9,7 +15,7 @@ indices = list(range(size))
 random.shuffle(indices)
 prefetch_distance = 10
 
-start_time = time.perf_counter()
+start_time = time.perf_counter()#guarda el tiempo actual
 prefetch_data(array, indices, prefetch_distance)
 end_time = time.perf_counter()
 
