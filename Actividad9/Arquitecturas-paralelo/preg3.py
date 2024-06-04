@@ -27,6 +27,12 @@ if rank == 0:
     print("All threads completed.")
 
 '''   
+sudo apt update
+sudo apt install openmpi-bin openmpi-common libopenmpi-dev
+pip install mpi4py
+pip3 install mpi4py
+
+
 sudo apt-get install -y openmpi-bin openmpi-common libopenmpi-dev
 pip3 install mpi4py
 mpirun -np 4 python3 preg3.py
