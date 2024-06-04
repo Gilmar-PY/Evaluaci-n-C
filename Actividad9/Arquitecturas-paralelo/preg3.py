@@ -8,8 +8,8 @@ from threading import Thread
 def thread_task(rank):
     print(f"Thread in rank {rank} is running")
 
-comm = MPI.COMM_WORLD # incluye todos los procesos
-rank = comm.Get_rank()#proceso actual
+comm = MPI.COMM_WORLD # obt el copmunicador global 
+rank = comm.Get_rank()#proceso actual identificador
 size = comm.Get_size()# número total 
 
 threads = []
