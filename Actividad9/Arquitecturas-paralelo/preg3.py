@@ -19,3 +19,12 @@ for t in threads:
 
 if rank == 0:
     print("All threads completed.")
+
+'''   
+sudo apt-get install -y openmpi-bin openmpi-common libopenmpi-dev
+pip3 install mpi4py
+mpirun -np 4 python3 preg3.py
+'''
+
+
+
