@@ -1,4 +1,6 @@
-
+'''3 . Combina MPI y OpenMP en un programa Python
+utilizando mpi4py y threading. Simula una tarea que se 
+distribuye entre nodos y luego se paraleliza dentro de cada nodo.'''
 
 
 
