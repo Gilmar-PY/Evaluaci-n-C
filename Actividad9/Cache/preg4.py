@@ -2,7 +2,9 @@
 4 . Analiza el código que implementa una forma sencilla de prefetching 
 de datos, cargando datos en la caché antes de que sean necesarios.'''
 
-
+import numpy as np
+import random
+import time
 
 def prefetch_data(array, indices, prefetch_distance):
     for i in range(len(indices) - prefetch_distance):
