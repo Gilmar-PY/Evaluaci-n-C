@@ -1,7 +1,7 @@
 ## Codigo inicial del algoritmo de Lamport
 import threading  # Importa el módulo threading para manejar hilos
 import time  # Importa el módulo time para manejar tiempos de espera
-import random  # Importa el módulo random para generar tiempos aleatorios
+import random  
 
 # Clase para el reloj de Lamport
 class LamportClock:
