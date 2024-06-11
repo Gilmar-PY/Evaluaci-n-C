@@ -95,3 +95,20 @@ for thread in threads:
 for thread in threads:
     thread.join()
 
+''' 
+Algoritmo de Ricart-Agrawala:
+
+    La clase RicartAgrawala implementa el algoritmo, gestionando solicitudes de acceso a recursos mediante un reloj lógico y una cola de solicitudes.
+
+Solicitudes y Respuestas:
+
+    Los métodos request_resource, receive_request y release_resource manejan las solicitudes y liberaciones de recursos, así como la actualización del reloj lógico y las respuestas diferidas.
+
+Simulación de Procesos:
+
+    La función simulate_process simula el comportamiento de un proceso, solicitando recursos, manejando solicitudes de otros procesos y entrando en la sección crítica cuando es posible.
+
+Hilos:
+
+    Se crean múltiples hilos para simular la ejecución concurrente de varios procesos, cada uno utilizando el algoritmo de Ricart-Agrawala para gestionar el acceso a recursos compartidos.
+'''
