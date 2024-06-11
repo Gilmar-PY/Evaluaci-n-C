@@ -84,3 +84,28 @@ for thread in threads:
 for thread in threads:
     thread.join()
 
+''' 
+    Reloj de Lamport:
+        Un algoritmo para asignar tiempos a eventos en sistemas distribuidos, asegurando un orden lógico de eventos.
+
+    Hilos (Threads):
+        Permiten la ejecución concurrente de múltiples partes de un programa, simulando múltiples procesos.
+
+    Sección Crítica:
+        Parte del código que solo puede ser ejecutada por un proceso a la vez, para evitar conflictos en el acceso a recursos compartidos.
+
+Funcionamiento del Código
+
+    Reloj de Lamport:
+        La clase LamportClock gestiona el reloj lógico, incrementando su valor y actualizándolo basado en eventos recibidos.
+
+    Proceso:
+        La clase Process representa un proceso que utiliza el reloj de Lamport para coordinar el acceso a recursos.
+        Métodos como request_resource, receive_request y release_resource manejan la solicitud y liberación de recursos, así como la actualización del reloj.
+
+    Simulación:
+        La función simulate_process simula el comportamiento de un proceso, solicitando recursos, manejando solicitudes de otros procesos y entrando en la sección crítica cuando es posible.
+
+    Hilos:
+        Se crean múltiples hilos para simular la ejecución concurrente de varios procesos, cada uno con su propio reloj de Lamport y cola de solicitudes.
+'''
