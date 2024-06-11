@@ -1,0 +1,6 @@
+
+
+    Explica, utilizando tus propias palabras, ¿qué es un deadlock y bajo qué condiciones puede ocurrir en un sistema multihilo?
+    Describe un escenario teórico en un sistema de manejo de base de datos donde los livelocks podrían ocurrir. ¿Cómo se podrían prevenir?
+    ¿Por qué son problemáticas las condiciones de carrera y qué estrategias podrían utilizarse para evitarlas en el diseño de software?
+
