@@ -1,25 +1,26 @@
-from multiprocessing import Process, Queue
+
+from multiprocessing import Process, Queue #creación de procesos concurrentes
 import time
 import random
-
+#Proporciona una cola que permite la comunicación segura entre procesos.
 def producer(queue):
     for _ in range(10):
         item = random.randint(1, 100)
-        queue.put(item)
+        queue.put(item) #Cada valor generado se coloca en la cola compartida
         print(f"Produced {item}")
         time.sleep(random.random())
 
 def consumer(queue):
     while True:
         item = queue.get()
-        if item is None:  # Sentinel value to indicate end of processing
+        if item is None: 
             break
         print(f"Consumed {item}")
         time.sleep(random.random())
 
 if __name__ == "__main__":
-    queue = Queue()
-
+    queue = Queue()   #cola compartida
+# Crea dos procesos
     producers = [Process(target=producer, args=(queue,)) for _ in range(2)]
     consumers = [Process(target=consumer, args=(queue,)) for _ in range(2)]
 
@@ -32,7 +33,7 @@ if __name__ == "__main__":
     for p in producers:
         p.join()
 
-    # Add sentinel values to the queue to signal consumers to exit
+    ## Añade valores de terminación (None) a la cola para señalizar a los consumidores que deben terminar
     for _ in consumers:
         queue.put(None)
 

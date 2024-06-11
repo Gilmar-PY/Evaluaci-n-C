@@ -1,0 +1,19 @@
+
+Ejercicios
+
+    Crea un programa que lance cinco hilos. Cada hilo debe imprimir diez veces su identificador único y luego terminar.
+    Desarrolla un programa que cree tres hilos. Cada hilo debe incrementar un contador compartido 100 veces. Implementa una forma de esperar a que todos los hilos terminen antes de imprimir el valor final del contador.
+    Implementa un programa que use semáforos para controlar el acceso a un recurso compartido por tres hilos.
+    Utiliza mutexes para proteger la escritura a una variable compartida en un entorno multihilo. Asegúrate de que cada hilo pueda actualizar la variable de forma segura.
+    Explica la diferencia entre un semáforo binario y un mutex. ¿En qué situaciones es preferible usar cada uno?
+    Describe un escenario en el que el uso de una barrera sería crítico en un sistema de procesamiento de datos distribuido. ¿Cómo asegurarías que todos los hilos alcancen la barrera de manera eficiente sin desperdiciar recursos del CPU?
+    Propón un algoritmo de detección de deadlock para un sistema con múltiples tipos de recursos. Considera cómo podrías implementar este algoritmo en un sistema operativo real.
+    Describe un escenario donde un sistema de intentos de recuperación automática podría llevar a un livelock. Propón una solución basada en el diseño del software.
+    Crea un escenario de deadlock utilizando dos mutexes y dos hilos. Cada hilo intenta adquirir los mutexes en orden diferente.
+    Desarrolla un ejemplo de condición de carrera donde dos hilos incrementan y decrementan, respectivamente, un contador compartido sin sincronización adecuada.
+    Considera un sistema de votación online donde se esperan múltiples accesos concurrentes. Describe cómo podrías diseñar el sistema para evitar condiciones de carrera sin degradar el rendimiento.
+    Describe cómo el algoritmo de Lamport para la exclusión mutua puede ser aplicado en un sistema de reserva de entradas en línea. ¿Qué desafíos podrían surgir y cómo los resolverías?
+    Analiza el algoritmo de Ricart-Agrawala en el contexto de un sistema de control de tráfico aéreo. ¿Cómo se manejarían las prioridades de los mensajes?
+    Implementa el algoritmo del productor-consumidor usando colas bloqueantes y semáforos.
+    Escribe un programa que simule el problema de los filósofos comensales utilizando semáforos para evitar deadlocks y asegurar que todos los filósofos puedan comer sin interferir entre ellos.
+

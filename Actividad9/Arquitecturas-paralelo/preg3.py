@@ -19,3 +19,4 @@ for t in threads:
 
 if rank == 0:
     print("All threads completed.")
+

@@ -1,3 +1,7 @@
+import numpy as np
+import random
+import time
+
 def prefetch_data(array, indices, prefetch_distance):
     for i in range(len(indices) - prefetch_distance):
         _ = array[indices[i + prefetch_distance]]  # Prefetch
@@ -15,3 +19,4 @@ end_time = time.perf_counter()
 
 total_time = end_time - start_time
 print(f"Tiempo con prefetching: {total_time:.6f} segundos")
+
