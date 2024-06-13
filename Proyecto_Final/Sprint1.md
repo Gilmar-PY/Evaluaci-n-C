@@ -1,3 +1,64 @@
+<!-- CARÁTULA -->
+**C8286-20241 - COMPUTACIÓN PARALELA Y DISTRIBUIDA**
+
+![Image](https://lh7-us.googleusercontent.com/docsz/AD_4nXfrF5z2SZXfh0QVGOUAUsQIRgev3J93RP_tghpuiExazSEneb_iP3RK1A9x0MlTeqOylm_7txn9c7yhX-cdXED7Qj6CJ-ThAPvAmDHeSp4Sj8d4Hbxv-oSuYOV85ldqw57AVVIZzToar2gCcXNett_2C1V1?key=CgRdnKUJcB5u-lHC6I5GQg)
+
+#### PROYECTO FINAL:
+  
+
+#### SISTEMA DE ALMACENAMIENTO DISTRIBUIDO SEGURO
+  
+
+#### NOMBRE:
+  
+
+#### GILMAR RONY OVIEDO CHAHUA
+  
+
+#### PROFESOR:
+  
+
+#### CESAR JESUS LARA AVILA
+  
+  
+#### CURSO:
+  
+
+#### COMPUTACIÓN PARALELA Y DISTRIBUIDA
+  
+---
+
+<!-- ÍNDICE -->
+#### Índice
+
+- [Sprint 1](#sprint-1)
+  - [Introducción](#introducción)
+  - [Investigación](#investigación)
+  - [Configuración del Entorno Distribuido](#configuración-del-entorno-distribuido)
+
+---
+
+<!-- FIN DE LA CARÁTULA -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+--------------------------------------------------------------------------------------------------
+
 **C8286-20241 -COMPUTACIÓN PARALELA Y DISTRIBUIDA** 
 
 ![](https://lh7-us.googleusercontent.com/docsz/AD_4nXfrF5z2SZXfh0QVGOUAUsQIRgev3J93RP_tghpuiExazSEneb_iP3RK1A9x0MlTeqOylm_7txn9c7yhX-cdXED7Qj6CJ-ThAPvAmDHeSp4Sj8d4Hbxv-oSuYOV85ldqw57AVVIZzToar2gCcXNett_2C1V1?key=CgRdnKUJcB5u-lHC6I5GQg)
