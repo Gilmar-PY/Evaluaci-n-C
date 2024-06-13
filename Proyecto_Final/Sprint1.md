@@ -236,14 +236,38 @@ Transferencia de Archivos y Metadatos:
 
 Se Configura endpoints para manejar la sincronización y transferencia de archivos entre diferentes nodos utilizando Flask o Fast API.
 
-  
-  
-  
-  
-  
-  
-  
+ --------------------------------------------------------------------------------------------------------
+ <!-- REFERENCIAS -->
+Bibliotecas de Criptografía en Python
 
+    PyCryptodome
+        PyCryptodome — PyCryptodome 3.160b1 documentation. (n.d.). Retrieved from https://www.pycryptodome.org/src/introduction
+        Eijs, H. (2022, December 6). Legrandin/pycryptodome. GitHub. Retrieved from https://github.com/Legrandin/pycryptodome
+
+    Cryptography
+        Cryptography with Python - Quick Guide. (n.d.). Tutorialspoint. Retrieved from https://www.tutorialspoint.com/cryptography_with_python/cryptography_with_python_quick_guide.htm
+
+Configuración del Entorno Distribuido con Docker
+
+    Docker Documentation. (2019, October 31). Docker. Retrieved from https://docs.docker.com/
+
+Implementación del Sistema de Almacenamiento de Archivos
+
+    Flask Documentation. (2010). Welcome to Flask — Flask Documentation (3.0.x). Retrieved from https://flask.palletsprojects.com/en/3.0.x/
+    pallets. (2019, October 18). pallets/flask. GitHub. Retrieved from https://github.com/pallets/flask
+
+Comunicación entre Nodos
+
+    FastAPI. (n.d.). FastAPI Documentation. Retrieved from https://fastapi.tiangolo.com/
+
+<!-- FIN DE REFERENCIAS -->
+  
+  
+  
+  
+  
+  
+------------------------------------------------------------------------------------------
 ### Referencias:
 
 #### Bibliotecas de Criptografía en Python
