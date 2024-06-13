@@ -24,7 +24,7 @@
 <!-- FIN DE LA CARÁTULA -->
 
 
---------------------------------------------------------------------------------------------------
+
 <!-- ÍNDICE -->
 #### Índice
 
@@ -50,55 +50,8 @@
 <!-- FIN DEL ÍNDICE -->
 
 
-  
-------------------------------------------------------------------------------------------------------------
-#### Índice
 
-Sprint 1
 
-#### Introducción
-
--   Objetivo del proyecto
-    
--   Alcance del Sprint 1
-    
-
-#### Investigación
-
--   Técnicas de Almacenamiento Distribuido
-    
--   Bibliotecas de Criptografía en Python
-    
-
-#### Configuración del Entorno Distribuido
-
--   Instalación y Configuración de Docker
-    
--   Creación de Imágenes Docker Personalizadas
-    
-
-#### Implementación del Sistema de Almacenamiento
-
--   Sistema Básico de Almacenamiento de Archivos
-    
--   API RESTful
-    
--   Comunicación entre Nodos
-    
-
-#### Sprint 2
-
-  
-
-#### Sprint 3
-
-  
-  
-  
-  
-  
-  
-  
 
 #### Introducción:
 
