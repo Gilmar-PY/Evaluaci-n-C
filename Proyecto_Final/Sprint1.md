@@ -4,110 +4,54 @@
 ![Image](https://lh7-us.googleusercontent.com/docsz/AD_4nXfrF5z2SZXfh0QVGOUAUsQIRgev3J93RP_tghpuiExazSEneb_iP3RK1A9x0MlTeqOylm_7txn9c7yhX-cdXED7Qj6CJ-ThAPvAmDHeSp4Sj8d4Hbxv-oSuYOV85ldqw57AVVIZzToar2gCcXNett_2C1V1?key=CgRdnKUJcB5u-lHC6I5GQg)
 
 #### PROYECTO FINAL:
-  
 
 #### SISTEMA DE ALMACENAMIENTO DISTRIBUIDO SEGURO
-  
 
 #### NOMBRE:
-  
 
 #### GILMAR RONY OVIEDO CHAHUA
-  
 
 #### PROFESOR:
-  
 
 #### CESAR JESUS LARA AVILA
-  
-  
+
 #### CURSO:
-  
 
 #### COMPUTACIÓN PARALELA Y DISTRIBUIDA
-  
----
-
-<!-- ÍNDICE -->
-#### Índice
-
-- [Sprint 1](#sprint-1)
-  - [Introducción](#introducción)
-  - [Investigación](#investigación)
-  - [Configuración del Entorno Distribuido](#configuración-del-entorno-distribuido)
 
 ---
 
 <!-- FIN DE LA CARÁTULA -->
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 --------------------------------------------------------------------------------------------------
+<!-- ÍNDICE -->
+#### Índice
 
-**C8286-20241 -COMPUTACIÓN PARALELA Y DISTRIBUIDA** 
+- [Sprint 1](#sprint-1)
+  - [Introducción](#introducción)
+    - [Objetivo del proyecto](#objetivo-del-proyecto)
+    - [Alcance del Sprint 1](#alcance-del-sprint-1)
+  - [Investigación](#investigación)
+    - [Técnicas de Almacenamiento Distribuido](#técnicas-de-almacenamiento-distribuido)
+    - [Bibliotecas de Criptografía en Python](#bibliotecas-de-criptografía-en-python)
+  - [Configuración del Entorno Distribuido](#configuración-del-entorno-distribuido)
+    - [Instalación y Configuración de Docker](#instalación-y-configuración-de-docker)
+    - [Creación de Imágenes Docker Personalizadas](#creación-de-imágenes-docker-personalizadas)
+  - [Implementación del Sistema de Almacenamiento](#implementación-del-sistema-de-almacenamiento)
+    - [Sistema Básico de Almacenamiento de Archivos](#sistema-básico-de-almacenamiento-de-archivos)
+    - [API RESTful](#api-restful)
+    - [Comunicación entre Nodos](#comunicación-entre-nodos)
+- [Sprint 2](#sprint-2)
+- [Sprint 3](#sprint-3)
 
-![](https://lh7-us.googleusercontent.com/docsz/AD_4nXfrF5z2SZXfh0QVGOUAUsQIRgev3J93RP_tghpuiExazSEneb_iP3RK1A9x0MlTeqOylm_7txn9c7yhX-cdXED7Qj6CJ-ThAPvAmDHeSp4Sj8d4Hbxv-oSuYOV85ldqw57AVVIZzToar2gCcXNett_2C1V1?key=CgRdnKUJcB5u-lHC6I5GQg)
+---
 
+<!-- FIN DEL ÍNDICE -->
 
-#### PROYECTO FINAL:
-
-  
-
-#### SISTEMA DE ALMACENAMIENTO DISTRIBUIDO SEGURO
-
-  
-
-#### NOMBRE:
-
-  
-
-#### GILMAR RONY OVIEDO CHAHUA
-
-  
-
-#### PROFESOR:
-
-  
-
-#### CESAR JESUS LARA AVILA
 
   
-  
-
-#### CURSO:
-
-  
-
-#### COMPUTACIÓN PARALELA Y DISTRIBUIDA
-
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
- 
-
+------------------------------------------------------------------------------------------------------------
 #### Índice
 
 Sprint 1
