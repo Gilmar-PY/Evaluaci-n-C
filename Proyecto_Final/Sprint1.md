@@ -46,28 +46,28 @@
 
 Sprint 1
 
-Introducción
+#### Introducción
 
 -   Objetivo del proyecto
     
 -   Alcance del Sprint 1
     
 
-Investigación
+#### Investigación
 
 -   Técnicas de Almacenamiento Distribuido
     
 -   Bibliotecas de Criptografía en Python
     
 
-Configuración del Entorno Distribuido
+#### Configuración del Entorno Distribuido
 
 -   Instalación y Configuración de Docker
     
 -   Creación de Imágenes Docker Personalizadas
     
 
-Implementación del Sistema de Almacenamiento
+#### Implementación del Sistema de Almacenamiento
 
 -   Sistema Básico de Almacenamiento de Archivos
     
@@ -76,11 +76,11 @@ Implementación del Sistema de Almacenamiento
 -   Comunicación entre Nodos
     
 
-Sprint 2
+#### Sprint 2
 
   
 
-Sprint 3
+#### Sprint 3
 
   
   
@@ -90,25 +90,25 @@ Sprint 3
   
   
 
-Introducción:
+#### Introducción:
 
   
 
-Objetivo del Proyecto:
+#### Objetivo del Proyecto:
 
 El objetivo general del proyecto es desarrollar un sistema de almacenamiento distribuido que asegure la disponibilidad y la seguridad de los datos mediante técnicas de criptografía y replicación, optimizado para funcionar en un entorno de múltiples nodos. Esto garantizará que los datos estén siempre accesibles y protegidos contra accesos no autorizados, incluso en caso de fallos en algunos de los nodos del sistema.
 
   
 
-Alcance del Sprint 1:
+#### Alcance del Sprint 1:
 
   
 
 En este primer sprint, está enfocada en la investigación y configuración inicial del sistema. Los objetivos específicos incluyen investigar técnicas de almacenamiento distribuido y criptografía, donde se  configura un entorno distribuido con múltiples nodos utilizando Docker, e implementar un sistema básico de almacenamiento de archivos. Estos pasos sentarán las bases para los sprints siguientes, donde se añadirán capas adicionales de seguridad y replicación de datos.
 
-Técnicas de Almacenamiento Distribuido
+#### Técnicas de Almacenamiento Distribuido
 
-HDFS (Hadoop Distributed File System)
+#### HDFS (Hadoop Distributed File System)
 
 HDFS es un sistema de archivos distribuido diseñado para ejecutarse en hardware común y soportar grandes volúmenes de datos. Está compuesto por un NameNode, que gestiona la metadata del sistema de archivos, y múltiples DataNodes, que almacenan los datos reales.
 
@@ -124,7 +124,7 @@ Ventajas.-Eficiencia en el manejo de grandes volúmenes de datos,robustez ante f
 
 Desventajas.-Complejidad en la administración y configuración,latencia en la escritura de datos.
 
-Ceph
+#### Ceph
 
 Ceph es una plataforma de almacenamiento distribuido que ofrece almacenamiento de objetos, bloques y archivos en un único clúster unificado. Es conocido por su escalabilidad y resiliencia.
 
@@ -152,7 +152,7 @@ b.-Alta demanda de recursos de hardware.
 
 Bibliotecas de Criptografía en Python
 
-PyCryptodome
+#### PyCryptodome
 
 PyCryptodome es una biblioteca de criptografía en Python que proporciona una amplia gama de funcionalidades criptográficas, incluyendo cifrado y descifrado de datos.
 
@@ -177,7 +177,7 @@ Puede ser menos eficiente en términos de rendimiento comparado con bibliotecas 
   
   
 
-2.-cryptography
+#### 2.-cryptography
 
 Cryptography es una biblioteca que proporciona herramientas criptográficas para desarrolladores en Python. Es conocida por su facilidad de uso y documentación extensiva.
 
@@ -203,11 +203,11 @@ en un comienzo puede ser compleja en comparación con PyCryptodome.
   
   
 
-Configuración del Entorno Distribuido con Docker
+#### Configuración del Entorno Distribuido con Docker
 
 ![](https://lh7-us.googleusercontent.com/docsz/AD_4nXcUNtySyNTXL_FyHkCofQxiKKi4kSnXyPp5-t9y0As2xX7h7HimrShISDPmoQSVi4YGEGBza4mazqT1PMNbpwS-LNj-cE0abYfW2czthuSendFkDZY6LWrh8BphW5kFMQk3K6e0cqOBzaa44AiDsHHMFKc?key=CgRdnKUJcB5u-lHC6I5GQg)
 
-Paso 3: Construir y Ejecutar la Imagen Docker
+#### Paso 3: Construir y Ejecutar la Imagen Docker
 
 Construir la imagen Docker
 
@@ -217,7 +217,7 @@ Ejecutar el contenedor Docker
 
 ![](https://lh7-us.googleusercontent.com/docsz/AD_4nXckv8hJDx-8X90ObYr-W4Ve_quto7m2BV7D0siBAnibFpCfOhCU07VSRESrYI4bjWw1a9rjotlTPl0iMzNC708xOKOhAdTP8ZjQ789pFuLPu3RL7D8bXGTbqqQGtpjVEvvl9JKUwryYQ-qZvYELcgeTCz0?key=CgRdnKUJcB5u-lHC6I5GQg)
 
-Pruebas del Sistema de Almacenamiento
+#### Pruebas del Sistema de Almacenamiento
 
 Subir un archivo
 
@@ -231,13 +231,13 @@ Eliminar un archivo
 
 ![](https://lh7-us.googleusercontent.com/docsz/AD_4nXdoYt-HqB8qN7x6YicaXRKYhVNvBVu0p9mAOPH4RcFqIXBm3Fb3PkO7BcUVPnfg_s6qCOqWDZIYV-B3E7OPfgI5MdlzR_hMDYLjI4fZk6yPoEQu1B1xtjCSugGb7GFQ6rEmqAMuNpz42IEOruveP7tIp1c?key=CgRdnKUJcB5u-lHC6I5GQg)
 
-Construcción y Ejecución de la Imagen:
+#### Construcción y Ejecución de la Imagen:
 
 Este Dockerfile configura un entorno con Python y Flask, instalando las bibliotecas necesarias lo cual estará en el contenedor. Esto permite desplegar el sistema de almacenamiento de archivos en múltiples nodos de manera uniforme.
 
-Implementación del Sistema de Almacenamiento de Archivos
+#### Implementación del Sistema de Almacenamiento de Archivos
 
-Desarrollo del Sistema Básico
+Desarrollo del Sistema 
 
 Cargar, Descargar y Eliminar Archivos:
 
@@ -249,7 +249,7 @@ Este código implementa un sistema de almacenamiento de archivos usando Flask. P
 
   
 
-API RESTful con Flask
+#### API RESTful con Flask
 
 a.-Cargar archivos: Endpoint /upload para recibir y guardar archivos.
 
