@@ -247,15 +247,14 @@ c.-Eliminar archivos: Endpoint /delete/<filename> para borrar archivos del servi
 
 ![](https://lh7-us.googleusercontent.com/docsz/AD_4nXd8Zy6M53NGE0AZ8W4e2SpxVlvTg0mhmr8-BdxgFKAMh2KyY-s3p9wYU8-4L9CkkBdZFIG8CzD-IR7ZzenTyx9yAjHcmESLIrRmOf3yNANvnebbuNLThYCKx5AFGuNsuuNJG6jN2KMqQIO7vW9Ww73za-w?key=CgRdnKUJcB5u-lHC6I5GQg)
 
-Descripción:
 
 La API RESTful facilita la interacción con el sistema de almacenamiento, permitiendo operaciones CRUD (Crear, Leer, Actualizar, Eliminar) sobre los archivos almacenados.
 
-Comunicación entre Nodos
+#### Comunicación entre Nodos
 
 Transferencia de Archivos y Metadatos:
 
-Se Configura endpoints para manejar la sincronización y transferencia de archivos entre diferentes nodos utilizando Flask o Fast API.
+Se Configurara endpoints para manejar la sincronización y transferencia de archivos entre diferentes nodos utilizando Flask o Fast API.
 
 
   
