@@ -1,3 +1,8 @@
+**C8286-20241 -COMPUTACIÓN PARALELA Y DISTRIBUIDA** 
+
+![](https://lh7-us.googleusercontent.com/docsz/AD_4nXfrF5z2SZXfh0QVGOUAUsQIRgev3J93RP_tghpuiExazSEneb_iP3RK1A9x0MlTeqOylm_7txn9c7yhX-cdXED7Qj6CJ-ThAPvAmDHeSp4Sj8d4Hbxv-oSuYOV85ldqw57AVVIZzToar2gCcXNett_2C1V1?key=CgRdnKUJcB5u-lHC6I5GQg)
+
+
 #### PROYECTO FINAL:
 
   
