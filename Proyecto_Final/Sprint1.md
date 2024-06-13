@@ -173,7 +173,12 @@ en un comienzo puede ser compleja en comparación con PyCryptodome.
 #### Paso 3: Construir y Ejecutar la Imagen Docker
 
 Construir la imagen Docker
+
+
 ![](https://lh7-us.googleusercontent.com/docsz/AD_4nXc4cYIPb4HDTGgzdD9aPuOEduvR2QP9tIYPFVDW84SxkuoeS-Z9iVs34O3wJS1xvtjhTw1KwehxMNFhyKo1Z2640fSSAW5nc8L_BvhtNU4D6X9cJMINmShtCPCUktI7bx8dcBVl4m9y5ZTMPjzgHWrfXILF?key=CgRdnKUJcB5u-lHC6I5GQg)
+
+
+
 
 ![](https://lh7-us.googleusercontent.com/docsz/AD_4nXeE-Dkct0nAY07TCss0rN8kH2E57GlAS9HHsOxD-qkin-nDhwG0nAZF65ejEVeVlX6B4dGKfpgzBgtOgp8Yyrv_1zJhWxpURsrxSvtEwomn2ESJizcEpDm8-32gmIrFTboVDhV85KHD6Lb4t80K2w0dImiT?key=CgRdnKUJcB5u-lHC6I5GQg)
 
@@ -204,11 +209,20 @@ Este Dockerfile configura un entorno con Python y Flask, instalando las bibliote
 Desarrollo del Sistema 
 
 Cargar, Descargar y Eliminar Archivos:
+
+
+
 ![](https://lh7-us.googleusercontent.com/docsz/AD_4nXdNEh1CYPibnPir3cGC8OGdUb6qc1h6pBNK7u8pJK4CnNZnGE-txq5ODVy3s6qaCOZ3Hk5iKr-JXs1SpesqN8FTstJXSKc6Scg2Qis6lbohz2-ilDMvucOqW5emCMlO_xw64KLM4elco3VGkmPLNb6pHaNW?key=CgRdnKUJcB5u-lHC6I5GQg)
+
+
+
 
 “app/__init__.py”
 
+
 ![](https://lh7-us.googleusercontent.com/docsz/AD_4nXeMSIZ1vIiYgFIzA45WYuepRm2QC4HiCGZDGUpNWBC4D8ZQpWK0Ih2JtLvreLCnPSXjNCi_t6tnicDmKy09UEzc_3ilV7-QzvonJuy_4BlljiSVFKnqTHcCuArWZ5QKUVugV1-3gIeMqylweqi6ndiimcQX?key=CgRdnKUJcB5u-lHC6I5GQg)
+
+
 
 ![](https://lh7-us.googleusercontent.com/docsz/AD_4nXcdG6iq-TxkyYWx4VcAITPBJ3MAVhJ1EUF4X6irktvrqswmghK6QsbixDB27XqgEQOY7fY8u5jA9pdPDuQt0nLpVueGAOC5kiJ2-70Hemp_0czZCGqVi5f8kcoYAuJz2HFB5lv-5w4nzxi4Ai8q0icWO56k?key=CgRdnKUJcB5u-lHC6I5GQg)
   
