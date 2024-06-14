@@ -1,3 +1,16 @@
+''' 
+4 . Implementa un programa MPI que sincroniza múltiples procesos utilizando barreras.
+Instrucciones
+    Configura un entorno MPI.
+    Implementa la sincronización de procesos con MPI_Barrier.
+    Haz que cada proceso realice una tarea antes y después de la barrera.
+Tareas:
+    Implementa y completa el código base.
+    Ejecuta el programa en un entorno MPI con múltiples procesos.
+    Evalua la sincronización y el comportamiento de los procesos.
+
+'''
+
 from mpi4py import MPI
 import time
 import random
