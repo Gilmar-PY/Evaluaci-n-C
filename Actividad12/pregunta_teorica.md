@@ -1,8 +1,8 @@
 
-#### nvestigación y Descripción de los Principales Desafíos en la Implementación de Estructuras de Datos Lock-Free
+## nvestigación y Descripción de los Principales Desafíos en la Implementación de Estructuras de Datos Lock-Free
 ## Desafíos Principales:
 
-   ##  Correctitud y Consistencia:
+   ####  Correctitud y Consistencia:
         Garantizar la correcta ejecución de las operaciones concurrentes sin corromper la estructura de datos es un gran desafío. Las estructuras lock-free deben manejar condiciones de carrera y asegurar que todas las operaciones sean atómicas y consistentes.
         Afecta: La complejidad del código aumenta significativamente porque se deben implementar mecanismos como CAS (Compare-And-Swap) para asegurar la atomicidad y consistencia.
 
@@ -49,7 +49,7 @@ Métricas Propuestas:
         Cantidad de memoria utilizada por la estructura de datos.
         Por qué: Permite evaluar la eficiencia en el uso de la memoria.
 
-Comparación con Estructuras Tradicionales con Bloqueo:
+## Comparación con Estructuras Tradicionales con Bloqueo:
 
     Latencia: Las estructuras lock-free pueden tener menor latencia en operaciones individuales, pero bajo alta contención, la latencia puede aumentar debido a fallos en CAS.
     Throughput: Generalmente, las estructuras lock-free tienen un mayor throughput en sistemas con baja a moderada contención.
