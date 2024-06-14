@@ -3,7 +3,7 @@ import time
 import random
 
 def main():
-    comm = MPI.COMM_WORLD  # Comienza el comunicador mundial
+    comm = MPI.COMM_WORLD  # Comienza el comunicador 
     rank = comm.Get_rank()  # Obtiene el rango del proceso actual
     size = comm.Get_size()  # Obtiene el tamaño total del comunicador
 
@@ -39,4 +39,22 @@ def segunda_tarea_despues_de_barrera(rank):
 if __name__ == "__main__":
     main()
 
+''' # Verificar la instalación de MPI
+mpiexec --version
 
+# Instalar MPI si no está instalado
+sudo apt update
+sudo apt install mpich
+
+# Crear un entorno virtual de Python
+python3 -m venv mpi_env
+
+# Activar el entorno virtual
+source mpi_env/bin/activate
+
+# Instalar mpi4py
+pip install mpi4py
+
+# Ejecutar el script MPI
+mpiexec -n 4 python3 preg4_comunicacionMPI.py
+'''
