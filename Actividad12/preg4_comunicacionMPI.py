@@ -8,7 +8,6 @@ Tareas:
     Implementa y completa el código base.
     Ejecuta el programa en un entorno MPI con múltiples procesos.
     Evalua la sincronización y el comportamiento de los procesos.
-
 '''
 
 from mpi4py import MPI
