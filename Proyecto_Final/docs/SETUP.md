@@ -1,6 +1,6 @@
 # Configuración del Entorno
 
-Este documento proporciona las instrucciones necesarias para configurar el entorno del proyecto "Sistema de Almacenamiento Distribuido Seguro". Sigue estos pasos para asegurarte de que el entorno esté correctamente configurado y el sistema esté operativo.
+Este documento proporciona las instrucciones necesarias para configurar el entorno del proyecto "Sistema de Almacenamiento Distribuido Seguro". Estos pasos son  configurar  el sistema.
 
 ## Requisitos
 
@@ -13,7 +13,7 @@ Este documento proporciona las instrucciones necesarias para configurar el entor
 
 Primero, clona el repositorio del proyecto en tu máquina local:
 
-```bash
 git clone <URL_DEL_REPOSITORIO>
 cd Proyecto_Final/sprint1/src
+
 
