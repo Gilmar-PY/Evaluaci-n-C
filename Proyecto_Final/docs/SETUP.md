@@ -4,7 +4,7 @@ Este documento proporciona las instrucciones necesarias para configurar el entor
 
 ## Requisitos
 
-- **Docker**: Asegúrate de tener Docker instalado en tu sistema.
+- **Docker**: Inastalcion de Docker en el sistema.
 - **Python 3.8+**: Necesario para ejecutar el código fuente.
 
 ## Pasos para Configurar el Entorno
