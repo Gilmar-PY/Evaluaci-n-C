@@ -1,5 +1,8 @@
-<!doctype html>
-<html lang=en>
-<title>404 Not Found</title>
-<h1>Not Found</h1>
-<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>
+# Pruebas para cargar un archivo
+curl -X POST -F 'archivo=@path/to/your/file' http://localhost:5000/cargar
+
+# Pruebas para descargar un archivo
+curl http://localhost:5000/descargar/nombre_archivo
+
+# Pruebas para eliminar un archivo
+curl -X DELETE http://localhost:5000/eliminar/nombre_archivo
