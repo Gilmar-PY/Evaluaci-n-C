@@ -80,8 +80,6 @@ Desventajas:
 
 Puede ser menos eficiente en términos de rendimiento comparado con bibliotecas nativas.
 
-  
-  
 
 #### 2.-cryptography
 
@@ -89,42 +87,51 @@ Cryptography es una biblioteca que proporciona herramientas criptográficas para
 
 Características:
 
-a.-Cifrado simétrico y asimétrico: Soporte para AES, RSA, DSA y más.
+- a.-Cifrado simétrico y asimétrico: Soporte para AES, RSA, DSA y más.
 
-b.-Hashing: Soporte para algoritmos como SHA-256 y SHA-512.
+- b.-Hashing: Soporte para algoritmos como SHA-256 y SHA-512.
 
-c.-Protocolos: Soporte para TLS/SSL, Fernet, etc.
+- c.-Protocolos: Soporte para TLS/SSL, Fernet, etc.
 
 Ventajas:
 
-Interfaz moderna y fácil de usar.
+- Interfaz moderna y fácil de usar.
 
-bien mantenida y documentada.
+- bien mantenida y documentada.
 
 Desventajas:
 
-en un comienzo puede ser compleja en comparación con PyCryptodome.
+- en un comienzo puede ser compleja en comparación con PyCryptodome.
 
-  
-  
-  
 
 #### Configuración del Entorno Distribuido con Docker
 
 
 ## Progreso y Logros
-- **Investigación Completa**: Se investigaron HDFS y Ceph para almacenamiento distribuido y se exploraron las bibliotecas pycryptodome y cryptography para criptografía.
+- **Investigación**: Se investigaron HDFS y Ceph para almacenamiento distribuido y se exploraron las bibliotecas pycryptodome y cryptography para criptografía.
 - **Configuración del Entorno con Docker**: Se configuraron nodos Docker y se crearon imágenes personalizadas.
 - **Implementación del Sistema de Almacenamiento**: Se desarrolló una API RESTful para cargar, descargar y eliminar archivos, incluyendo funcionalidad de cifrado.
 
-## Desafíos y Soluciones
-- **Configuración Inicial de Docker**: Superado mediante la creación de Dockerfiles detallados.
-- **Cifrado y Descifrado de Archivos**: Implementado con éxito utilizando la biblioteca pycryptodome.
 
-## Próximos Pasos
-- **Implementar Replicación de Datos**: Asegurar la disponibilidad de los datos replicándolos en múltiples nodos.
-- **Mejorar la Gestión de Claves**: Implementar un sistema seguro para la gestión y almacenamiento de claves.
-- **Pruebas Adicionales**: Realizar pruebas de carga y estrés para validar la robustez del sistema.
+
+# Conclusiones y Siguientes Pasos
+
+## Logros del Sprint 1
+
+- Configuración del entorno distribuido con Docker.
+- Implementación de un sistema básico de almacenamiento de archivos.
+- Creación de una API RESTful para interactuar con el sistema de almacenamiento.
+
+## Desafíos Encontrados
+
+- Configuración Inicial de Docker: Superado mediante la creación de Dockerfiles detallados.
+- Cifrado y Descifrado de Archivos: Implementado con éxito utilizando la biblioteca pycryptodome.
+
+## Próximos Pasos para el Sprint 2
+
+- Implementar cifrado de datos utilizando bibliotecas de criptografía.
+- Desarrollar técnicas de replicación de datos para garantizar la disponibilidad.
+- Mejorar la sincronización entre nodos utilizando `asyncio` y threading.
 
 
 
