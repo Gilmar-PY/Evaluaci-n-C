@@ -34,3 +34,8 @@ print(f"Asignado el obj1 en: {addr1}")
 collector.collect()
 print("Recolección de basura completa")
 
+'''
+
+Este algoritmo de recolección de basura tipo Cheney utiliza dos espacios 
+de memoria (from_space y to_space) para alternar entre ellos durante la recolección de basura, permitiendo 
+así mantener la integridad de los objetos válidos y liberar la memoria no utilizada de manera eficiente.'''
