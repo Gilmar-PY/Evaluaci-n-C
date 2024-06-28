@@ -46,3 +46,9 @@ print(f"Asignado al obj1 en: {addr1}")
 collector.collect()
 print("Recolección de basura completa")
 
+
+'''
+colector de basura implementa el algoritmo Mark-Sweep, que marca todos los objetos alcanzables
+desde las raíces y luego barrido la memoria para liberar
+los objetos no marcados, asegurando así la gestión eficiente de la memoria y evitando fugas de memoria en el sistema.
+'''
