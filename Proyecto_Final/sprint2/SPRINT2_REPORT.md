@@ -46,6 +46,7 @@ def replicar_archivo(nodo, ruta_archivo):
     loop.close()
 
 
+
 #### Sincronización entre Nodos
 
 - Uso de `asyncio` para gestionar la comunicación asíncrona entre nodos y manejar la replicación en tiempo real.
@@ -78,7 +79,8 @@ def cargar_archivo():
         logging.error(f"Error al cargar y cifrar el archivo: {e}")
         return jsonify({'error': f'Error al cargar y cifrar el archivo: {e}'}), 500
 
-    ## Desafíos y Soluciones
+
+## Desafíos y Soluciones
 
 - **Gestión de Concurrencia**:
   - Superado utilizando `threading` para manejar múltiples operaciones simultáneas de entrada/salida.
