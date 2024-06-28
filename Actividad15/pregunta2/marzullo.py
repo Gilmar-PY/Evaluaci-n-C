@@ -32,3 +32,7 @@ best_time = marzullo_algorithm(nodes)
 print(best_time)
 
 
+'''
+Este algoritmo es útil para situaciones donde se deben coordinar eventos 
+temporales entre múltiples nodos con incertidumbres en sus tiempos, 
+permitiendo encontrar un momento óptimo que maximice la superposición de intervalos.'''
