@@ -28,15 +28,15 @@ Este informe documenta el progreso del Sprint 2 del proyecto "Sistema de almacen
 - Desarrollo de un mecanismo de replicación que copia los archivos en varios nodos para garantizar la alta disponibilidad y la tolerancia a fallos.
 - Implementación de políticas de replicación para optimizar el rendimiento y la redundancia.
 
-```python
-async def replicar_archivo_async(nodo, ruta_archivo):
-    try:
-        form = aiohttp.FormData()
-        form.add_field('archivo', open(ruta_archivo, 'rb'), filename=os.path.basename(ruta_archivo))
-        async with aiohttp.ClientSession() as session:
-            async with session.post(f"{nodo}/cargar", data=form) as response:
-                logging.debug(f"Replicación en {nodo} completada con estado {response.status}")
-    except Exception as e:
+  ```python
+  async def replicar_archivo_async(nodo, ruta_archivo):
+      try:
+          form = aiohttp.FormData()
+          form.add_field('archivo', open(ruta_archivo, 'rb'), filename=os.path.basename(ruta_archivo))
+          async with aiohttp.ClientSession() as session:
+              async with session.post(f"{nodo}/cargar", data=form) as response:
+                  logging.debug(f"Replicación en {nodo} completada con estado {response.status}")
+        except Exception as e:
         logging.error(f"Error replicando en {nodo}: {e}")
 
 def replicar_archivo(nodo, ruta_archivo):
