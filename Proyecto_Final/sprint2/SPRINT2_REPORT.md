@@ -52,32 +52,34 @@ def replicar_archivo(nodo, ruta_archivo):
 - Uso de `asyncio` para gestionar la comunicación asíncrona entre nodos y manejar la replicación en tiempo real.
 - Implementación de `threading` para permitir la concurrencia y la ejecución de múltiples operaciones de entrada/salida simultáneamente.
 
-```python
-@app.route('/cargar', methods=['POST'])
-def cargar_archivo():
-    archivo = request.files['archivo']
-    ruta_archivo = os.path.join(UPLOAD_FOLDER, archivo.filename)
+  ```python
+  @app.route('/cargar', methods=['POST'])
+  def cargar_archivo():
+      archivo = request.files['archivo']
+      ruta_archivo = os.path.join(UPLOAD_FOLDER, archivo.filename)
     
-    try:
-        data = archivo.read()
-        nonce, tag, ciphertext = cifrar_archivo(data)
+      try:
+          data = archivo.read()
+          nonce, tag, ciphertext = cifrar_archivo(data)
         
-        with open(ruta_archivo, 'wb') as file_enc:
-            file_enc.write(nonce)
-            file_enc.write(tag)
-            file_enc.write(ciphertext)
+          with open(ruta_archivo, 'wb') as file_enc:
+              file_enc.write(nonce)
+              file_enc.write(tag)
+              file_enc.write(ciphertext)
         
-        threads = [threading.Thread(target=replicar_archivo, args=(nodo, ruta_archivo)) for nodo in NODOS]
-        for thread in threads:
-            thread.start()
-        for thread in threads:
-            thread.join()
+          threads = [threading.Thread(target=replicar_archivo, args=(nodo, ruta_archivo)) for nodo in NODOS]
+          for thread in threads:
+              thread.start()
+          for thread in threads:
+              thread.join()
         
-        logging.debug(f"Archivo {archivo.filename} cargado y cifrado exitosamente en {ruta_archivo}.")
-        return 'Archivo cargado y cifrado exitosamente', 200
-    except Exception as e:
-        logging.error(f"Error al cargar y cifrar el archivo: {e}")
-        return jsonify({'error': f'Error al cargar y cifrar el archivo: {e}'}), 500
+          logging.debug(f"Archivo {archivo.filename} cargado y cifrado exitosamente en {ruta_archivo}.")
+          return 'Archivo cargado y cifrado exitosamente', 200
+      except Exception as e:
+          logging.error(f"Error al cargar y cifrar el archivo: {e}")
+          return jsonify({'error': f'Error al cargar y cifrar el archivo: {e}'}), 500
+
+
 
 
 ## Desafíos y Soluciones
