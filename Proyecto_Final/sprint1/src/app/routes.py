@@ -1,17 +1,18 @@
-from flask import request, send_from_directory, jsonify
+from flask import request, send_file, jsonify
 from app import app
 import os
 from Crypto.Cipher import AES
-from Crypto.Random import get_random_bytes
 import logging
 
 UPLOAD_FOLDER = 'cargas'
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
-# Clave de cifrado (para producción,para gestionarse de manera segura)
-key = get_random_bytes(16)
+# Clave de cifrado de 16 bytes
+key = b'This_is_a16b_key'  # Asegúrate de que esta clave sea de exactamente 16 bytes
+assert len(key) == 16, f"Longitud de la clave AES incorrecta: {len(key)}"
 
-logging.basicConfig(level=logging.INFO)
+logging.basicConfig(level=logging.DEBUG)
+logging.debug(f"Longitud de la clave AES: {len(key)}")  # Esto debe imprimir 16
 
 @app.route('/cargar', methods=['POST'])
 def cargar_archivo():
@@ -34,7 +35,7 @@ def cargar_archivo():
         return 'Archivo cargado y cifrado exitosamente', 200
     except Exception as e:
         logging.error(f"Error al cargar y cifrar el archivo: {e}")
-        return jsonify({'error': 'Error al cargar y cifrar el archivo'}), 500
+        return jsonify({'error': f'Error al cargar y cifrar el archivo: {e}'}), 500
 
 @app.route('/descargar/<nombre_archivo>', methods=['GET'])
 def descargar_archivo(nombre_archivo):
@@ -48,10 +49,14 @@ def descargar_archivo(nombre_archivo):
         cipher = AES.new(key, AES.MODE_EAX, nonce=nonce)
         data = cipher.decrypt_and_verify(ciphertext, tag)
         
-        return send_from_directory(UPLOAD_FOLDER, nombre_archivo)
+        temp_file_path = os.path.join(UPLOAD_FOLDER, f"temp_{nombre_archivo}")
+        with open(temp_file_path, 'wb') as temp_file:
+            temp_file.write(data)
+        
+        return send_file(temp_file_path, as_attachment=True, download_name=nombre_archivo)
     except Exception as e:
         logging.error(f"Error al descargar y descifrar el archivo: {e}")
-        return jsonify({'error': 'Error al descargar y descifrar el archivo'}), 500
+        return jsonify({'error': f'Error al descargar y descifrar el archivo: {e}'}), 500
 
 @app.route('/eliminar/<nombre_archivo>', methods=['DELETE'])
 def eliminar_archivo(nombre_archivo):
@@ -63,3 +68,4 @@ def eliminar_archivo(nombre_archivo):
     except Exception as e:
         logging.error(f"Error al eliminar el archivo: {e}")
         return jsonify({'error': 'Error al eliminar el archivo'}), 500
+
