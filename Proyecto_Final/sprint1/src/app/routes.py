@@ -71,4 +71,3 @@ def eliminar_archivo(nombre_archivo):
         logging.error(f"Error al eliminar el archivo: {e}")
         return jsonify({'error': 'Error al eliminar el archivo'}), 500
 
-
