@@ -1,5 +1,5 @@
 
-from app import app, num_worker_threads, queue, threads  # Importa la aplicación y los hilos desde el paquete 'app'
+from app import app, num_worker_threads, queue, threads   # Importa la aplicación y los hilos desde el paquete 'app'
 
 if __name__ == "__main__":
     try:
