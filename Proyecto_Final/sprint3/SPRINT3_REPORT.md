@@ -22,7 +22,7 @@ El objetivo principal del Sprint 3 fue optimizar el sistema de almacenamiento di
 
 ### Cronograma
 
-- **Inicio:**  de Junio
+- **Inicio:** 
 - **Fin:** 30 de Junio
 
 ## 3. Implementación
@@ -32,68 +32,44 @@ El objetivo principal del Sprint 3 fue optimizar el sistema de almacenamiento di
 #### Pruebas de seguridad
 Se implementaron pruebas para garantizar que los datos cifrados no pudieran ser accedidos sin la clave adecuada. Estas pruebas confirmaron la efectividad del cifrado AES implementado.
 
-### Explicación del script
+#### Explicación del script
 
 Este script se utiliza para probar la seguridad del sistema de almacenamiento distribuido asegurándose de que los datos cifrados no se puedan acceder sin la clave correcta. A continuación, se presenta una explicación general del código:
 
-#### Importar Librerías
-
-- `requests`: Para realizar solicitudes HTTP.
-- `Crypto.Cipher.AES`: Para cifrar y descifrar datos utilizando el algoritmo AES.
-- `os`: Para manipular rutas y directorios del sistema de archivos.
-
-#### Configuración
-
-- `key`: Clave de cifrado utilizada para cifrar los datos (debe ser de 16 bytes).
-- `UPLOAD_FOLDER`: Carpeta donde se almacenan los archivos cargados. Se crea si no existe.
-- `url_cargar`: URL para cargar archivos en el sistema de almacenamiento distribuido.
-
-#### Cargar Archivo
-
-- `files`: Se abre el archivo `Actividad.txt` en modo lectura binaria.
-- `response`: Se envía una solicitud POST para cargar el archivo en el sistema.
-- Mensaje de confirmación de carga exitosa.
-
-#### Intentar Descifrar sin Clave Correcta
-
-- `ruta_archivo`: Ruta del archivo cifrado en la carpeta de cargas.
-- Intentar descifrar el archivo utilizando una clave incorrecta.
-- Si la descifrada es exitosa, se muestra un mensaje indicando que la prueba de seguridad falló.
-- Si ocurre una excepción, se muestra un mensaje indicando que la prueba de seguridad fue exitosa porque no se pudo descifrar el archivo con una clave incorrecta.
-
-### Código Completo
+#### Código Completo
 
      ```python
-import requests
-from Crypto.Cipher import AES
-import os
+     import requests
+     from Crypto.Cipher import AES
+     import os
 
-# Configuración
-key = b'This_is_a16b_key'
-UPLOAD_FOLDER = 'cargas'
-os.makedirs(UPLOAD_FOLDER, exist_ok=True)
-url_cargar = 'http://localhost:5000/cargar'
+     # Configuración
+     key = b'This_is_a16b_key'
+     UPLOAD_FOLDER = 'cargas'
+     os.makedirs(UPLOAD_FOLDER, exist_ok=True)
+     url_cargar = 'http://localhost:5000/cargar'
 
-# Cargar archivo
-files = {'archivo': open('Actividad.txt', 'rb')}
-response = requests.post(url_cargar, files=files)
-print(response.text)
+     # Cargar archivo
+      files = {'archivo': open('Actividad.txt', 'rb')}
+     response = requests.post(url_cargar, files=files)
+     print(response.text)
 
-print("Carga exitosa. Probando acceso sin clave...")
+     print("Carga exitosa. Probando acceso sin clave...")
 
-# Intentar descifrar sin clave correcta
-ruta_archivo = os.path.join(UPLOAD_FOLDER, 'Actividad.txt')
-try:
-    with open(ruta_archivo, 'rb') as file_enc:
-        nonce = file_enc.read(16)
-        tag = file_enc.read(16)
-        ciphertext = file_enc.read()
+     # Intentar descifrar sin clave correcta
+     ruta_archivo = os.path.join(UPLOAD_FOLDER, 'Actividad.txt')
+     try:
+        with open(ruta_archivo, 'rb') as file_enc:
+            nonce = file_enc.read(16)
+            tag = file_enc.read(16)
+            ciphertext = file_enc.read()
     
-    cipher = AES.new(b'Incorrect_Key123', AES.MODE_EAX, nonce=nonce)
-    data = cipher.decrypt_and_verify(ciphertext, tag)
-    print("Prueba de seguridad fallida: Se pudo descifrar el archivo con una clave incorrecta.")
-except Exception as e:
-    print("Prueba de seguridad exitosa: No se pudo descifrar el archivo con una clave incorrecta.")
+         cipher = AES.new(b'Incorrect_Key123', AES.MODE_EAX, nonce=nonce)
+         data = cipher.decrypt_and_verify(ciphertext, tag)
+         print("Prueba de seguridad fallida: Se pudo descifrar el archivo con una clave incorrecta.")
+     except Exception as e:
+         print("Prueba de seguridad exitosa: No se pudo descifrar el archivo con una clave incorrecta.")
+
 
 
 #### Pruebas de resiliencia
@@ -104,31 +80,7 @@ Se simularon fallos en los nodos para verificar que los datos pudieran ser recup
 
 Este script `test_resiliencia.py` se utiliza para probar la resiliencia del sistema de almacenamiento distribuido simulando un fallo en uno de los nodos y verificando que el sistema sigue siendo capaz de descargar los archivos replicados desde otros nodos. A continuación, se presenta una explicación detallada del código:
 
-#### Simular Fallo de Nodo
-
-- **Detener el nodo:**
-  - `container`: Obtiene el contenedor `storage-node-1`.
-  - `container.stop()`: Detiene el contenedor.
-  - Mensaje de confirmación de detención del nodo.
-
-- **Esperar:**
-  - `time.sleep(5)`: Espera 5 segundos para simular el tiempo de inactividad del nodo.
-
-- **Descargar Archivo:**
-  - `response`: Se envía una solicitud GET para descargar el archivo desde el sistema.
-  - `with open('descargado_resiliencia.txt', 'wb') as f`: Se guarda el contenido del archivo descargado en `descargado_resiliencia.txt`.
-  - Mensaje de confirmación de descarga exitosa.
-
-- **Reiniciar el nodo:**
-  - `container.start()`: Reinicia el contenedor detenido.
-  - Mensaje de confirmación de reinicio del nodo.
-
-- **Manejo de errores:**
-  - `except Exception as e`: Captura y muestra cualquier error ocurrido durante la prueba de fallo del nodo.
-
-
-
-     ```python
+```python
 # test_resiliencia.py
 
 import requests
@@ -167,6 +119,7 @@ try:
 except Exception as e:
     print(f"Error durante la prueba de fallo de nodo: {e}")
 
+
 ---------------------------------------
 
 #### Optimización del Sistema
@@ -179,26 +132,26 @@ Se realizaron mejoras en el algoritmo de replicación para reducir la latencia y
 - Pruebas de resiliencia para asegurar la disponibilidad de datos en caso de fallos de nodo.
 - Optimización del algoritmo de replicación para mejorar el rendimiento.
 
-## 4. Resultados
+#### 4. Resultados
 
-### Demostración de funcionalidades
+#### Demostración de funcionalidades
 
 
 ![](https://lh7-us.googleusercontent.com/docsz/AD_4nXfA_lz9I6ro0eq6YKkqTt8JMvaafec7Ntj6fU8mDVKniwx-QWfBPgJx4dHeqL9Xx9cBTeCeAhpBybLznXal31fzEGJl62dbu6SNO-iOlBA-HLI3hy_STbAyqkX9pcKr7KJNwWHVZpCsBFoEkPIrg44cdjo?key=nQL0RT6dNr_BeWtx8fgyhA)
 
-### Pruebas de Resiliencia
+#### Pruebas de Resiliencia
 
-### ejecutamos docker-compose 
+#### ejecutamos docker-compose 
 
-## node1
+#### node1
 
 ![](https://lh7-us.googleusercontent.com/docsz/AD_4nXdH4KDwoLZXf2PCmou8N-wpk8BXpX-dpKweq77nV58K_Ou3T6RfGdx_xioHBPinArSglmpnj0P0HTsdoEaKywOA1-rlE_PFEgKSGeKyys1jEYu22OggnHbc4ppL8Kn0LO7jikcDIgOdsWeOAU4uwyApVD5U?key=nQL0RT6dNr_BeWtx8fgyhA)
 
-## node2
+#### node2
 
 ![](https://lh7-us.googleusercontent.com/docsz/AD_4nXdy65xYCNimIFP8olKgo5TZeH6laWYGV89kPxpZxUw9kC36TfdVHl_5gmXeDmqVy8rkTp-x8pY_3TB1lFRaEkD07vFGcsml9koMXIwZZGfp2UHJfkDY9RQHwrGaIDIL6JV9LqppeEl85fxFaR-knhx9g84S?key=nQL0RT6dNr_BeWtx8fgyhA)
 
-## node3
+#### node3
 
 ![](https://lh7-us.googleusercontent.com/docsz/AD_4nXfcodrdPXXlolfBeAe_vYTy1-QPIg5Wa2CIaejhruXgsTG8XKGV0YlYIiB6RWTULaNjgbxGk0dFJ7KzpFNc54ZNQZBd8QYnujKA7ffToVdTlLbj63DTmpHcIGBZiMeBOTbOg49G3jmgWs4BIxhPYcmKegma?key=nQL0RT6dNr_BeWtx8fgyhA)
 
@@ -208,11 +161,11 @@ Se realizaron mejoras en el algoritmo de replicación para reducir la latencia y
 
   
 
-### prueba de tes_recilencia:
+####  prueba de tes_recilencia:
 
 ![](https://lh7-us.googleusercontent.com/docsz/AD_4nXfFmoGprJlawg2w4srL3RHF2aM3T1bbBsNWaDMh1M0nvC2UtZ2gO0YlgjAcpJavN9J2uf_pQHF-rKQHD6C79v_6ZjpMvpT_Bs-qvhaYIWNDiOwjNvF_vwptetgBsDWIirUnfhS_lIL8_QhW_U2oOPOcRwA?key=nQL0RT6dNr_BeWtx8fgyhA)
 
-### verificación en los nodos
+#### verificación en los nodos
 
 ![](https://lh7-us.googleusercontent.com/docsz/AD_4nXd_dCC3-yW9bQs1yrdCTfx22IaJVZdoWWJsUG4v0nLexiHgBHHNTc1geqCchJwjg3pvaeUt1ZG4Ry8fvATAo6Qhr7ePaTewfpCOCdd8B7e3Y5q3QXaQwc8yc8BHPXfDaWIE3qJDUDKRbdw_g8fMly5I55vC?key=nQL0RT6dNr_BeWtx8fgyhA)
 
@@ -230,22 +183,22 @@ Se realizaron mejoras en el algoritmo de replicación para reducir la latencia y
 ![](https://lh7-us.googleusercontent.com/docsz/AD_4nXfpzw0Mfl3enkeUi8EOLy4VOXLGhagoau3clQcqQTgg3r8PmrZ8cN9NdzYL-aGqylm2DhU8OmGWANr2AzEKU_wMTcv69kojc79y9Va9ALqaHF2c-9dYeB0xXTcVx3KhjiWUg9BLYzc8HT6LToERqnVQ2K6Y?key=nQL0RT6dNr_BeWtx8fgyhA)
 
 
-## 5. Análisis y Evaluación
+#### 5. Análisis y Evaluación
 
-### Comparación con los objetivos del Sprint
+#### Comparación con los objetivos del Sprint
 
 El trabajo realizado Se lograron implementar las funcionalidades de pruebas de seguridad y resiliencia, así como la optimización del sistema no fue completamente, pero si mejoro.
 
-### Lecciones aprendidas
+#### Lecciones aprendidas
 
 - **Gestión de excepciones:** La importancia de manejar adecuadamente las excepciones en sistemas distribuidos para garantizar la recuperación de fallos sin comprometer la integridad de los datos.
 - **Optimización de recursos:** La necesidad de optimizar el uso de recursos para manejar grandes volúmenes de datos de manera eficiente.
 - **Seguridad en la gestión de claves:** La importancia de gestionar las claves de cifrado de manera segura.
 
 
-## 6. Plan para el próximo Sprint
+#### 6. Plan para el próximo Sprint
 
-### Objetivos del próximo Sprint
+#### Objetivos del próximo Sprint
 
 El siguiente sprint se enfocará en consolidar y finalizar todas las funcionalidades del sistema de almacenamiento distribuido. Los objetivos específicos incluyen:
 
