@@ -16,29 +16,27 @@ El objetivo principal del Sprint 2 fue implementar funciones de seguridad y repl
 - Desarrollar funciones de replicación de archivos entre nodos.
 - Configurar la sincronización asíncrona y concurrente.
 - Realizar pruebas de carga, descarga y eliminación de archivos.
-  
+
 ### Asignación de tareas
-- **Cifrado de datos:** 
-- **Replicación de datos:** 
-- **Sincronización entre nodos:** 
-- **Pruebas y documentación:**
-
-
+- **Cifrado de datos:** Implementación del cifrado y descifrado utilizando AES.
+- **Replicación de datos:** Desarrollo de funciones para replicar archivos entre nodos utilizando asyncio y aiohttp.
+- **Sincronización entre nodos:** Configuración de threading para manejar la concurrencia.
+- **Pruebas y documentación:** Realización de pruebas de carga, descarga y eliminación, y documentación del proceso.
 
 ## 3. Implementación
 
 ### Descripción del trabajo realizado
 Durante este sprint, se implementaron las funciones de cifrado y replicación de datos. Se tomó la decisión de utilizar AES para el cifrado debido a su eficiencia y seguridad. La replicación de archivos entre nodos se manejó mediante una combinación de asyncio y threading para asegurar la concurrencia y la comunicación asíncrona.
 
-## Cifrado de datos
+### Cifrado de datos
 
-### Descripción
+#### Descripción
 El cifrado de datos es fundamental para garantizar la seguridad de los archivos almacenados en el sistema distribuido. En este sprint, implementamos funciones para cifrar y descifrar archivos antes de almacenarlos en los nodos, utilizando el algoritmo de cifrado simétrico AES (Advanced Encryption Standard).
 
-### Implementación
+#### Implementación
 Las funciones de cifrado y descifrado se integraron en el proceso de carga y descarga de archivos. Esto asegura que los archivos sean cifrados antes de ser almacenados y descifrados al ser recuperados.
 
-#### Código
+##### Código
 
 - **Función para cifrar archivos:**
   ```python
@@ -47,6 +45,7 @@ Las funciones de cifrado y descifrado se integraron en el proceso de carga y des
       ciphertext, tag = cipher.encrypt_and_digest(data)
       return cipher.nonce, tag, ciphertext
 
+----------------------------------------------------------------------------------------
 ## Replicación de datos
 
 ### Descripción
@@ -78,15 +77,14 @@ Las funciones de replicación se diseñaron para copiar los archivos cifrados a 
       except Exception as e:
           logging.error(f"Error replicando en {nodo}: {e}")
 
+### Sincronización entre nodos
 
+#### Descripción
 
-
-## Sincronización entre nodos
-
-### Descripción
 La sincronización entre nodos es crucial para garantizar que los datos estén disponibles y actualizados en todos los nodos del sistema distribuido. En este sprint, implementamos la sincronización utilizando `asyncio` para manejar la comunicación asíncrona entre nodos y `threading` para permitir la concurrencia y la ejecución de múltiples operaciones de entrada/salida simultáneamente.
 
-### Implementación
+#### Implementación
+
 Para lograr la sincronización, se crearon funciones que permiten replicar los archivos cargados en el nodo principal a otros nodos del sistema. Esto se hace en tiempo real para asegurar la alta disponibilidad y la redundancia de los datos.
 
 #### Código
@@ -120,29 +118,11 @@ Para lograr la sincronización, se crearon funciones que permiten replicar los a
           logging.error(f"Error al cargar y cifrar el archivo: {e}")
           return jsonify({'error': f'Error al cargar y cifrar el archivo: {e}'}), 500
 
-
-
 ## Desafíos encontrados
 
 - **Gestión de claves de cifrado:** Se encontró que la gestión de claves debía ser segura y no estar almacenada en texto plano.
 - **Sincronización de nodos:** La configuración de la comunicación asíncrona presentó desafíos de manejo de excepciones y errores de red.
-
-### Descripción del Desafío
-
-Durante la replicación de archivos, se encontró que el contenido del archivo `Actividad.txt` era inconsistente entre los nodos `storage-node-1` y `storage-node-2`. Este problema se evidenció al calcular el checksum MD5 del archivo en ambos nodos, obteniendo resultados diferentes:
-
-- **Nodo 1:** `33c210fb18c6dd9418a42c4d94317e59`
-- **Nodo 2:** `dc5ae6fdb818cfaea820390e7539fa46`
-
-Este problema puede deberse a múltiples factores, incluyendo errores en la transmisión de datos, problemas de concurrencia, o fallos en el manejo de excepciones durante la replicación.
-
-### Solución Propuesta
-
-Para abordar este desafío, se deben considerar las siguientes acciones:
-
-- **Revisar y mejorar la lógica de replicación:** Asegurarse de que los datos se transmiten correctamente y que se manejan todas las excepciones posibles.
-- **Implementar mecanismos de verificación:** Utilizar checksums o hashes para verificar la integridad de los archivos después de la replicación.
-- **Optimizar la gestión de concurrencia:** Asegurarse de que las operaciones de replicación no interfieren entre sí, utilizando técnicas adecuadas de sincronización.
+- **Integridad de archivos replicados:** Se identificó la necesidad de verificar la integridad de los archivos replicados.
 
 ## Resultados
 
@@ -152,38 +132,35 @@ Para abordar este desafío, se deben considerar las siguientes acciones:
 - Replicación de archivos entre nodos utilizando asyncio y threading.
 - Sincronización de archivos en tiempo real.
 
+### Pruebas realizadas
+
+- **Pruebas de carga:** Verificación del rendimiento del sistema al cargar archivos.
+- **Pruebas de descarga:** Aseguramiento de que los archivos cifrados se pueden descargar y descifrar correctamente.
+- **Pruebas de eliminación:** Confirmación de que los archivos se eliminan correctamente y se replica esta acción en todos los nodos.
+------------------------------------------------------------------------------------------------------------------------------
 ### Demostración de funcionalidades
 
-  - **Carga de archivos:**
-
-      ```bash
-     curl -X POST -F 'archivo=@Actividad.txt' http://localhost:5000/cargar
-
-  - **Descarga de archivos:**
+- **Carga de archivos:**
+  ```bash
+  curl -X POST -F 'archivo=@Actividad.txt' http://localhost:5000/cargar
 
     ```bash
     curl -O http://localhost:5000/descargar/Actividad.txt
 
-  **Eliminación de archivos:**
+- **Eliminar archivos:**
+  ```bash
+  curl -X DELETE http://localhost:5000/eliminar/Actividad.txt
 
-     ```bash
-     curl -X DELETE http://localhost:5000/eliminar/Actividad.txt
-
-
+-----------------------------------------------------------------------------------------------------------------------------
 ## Análisis y evaluación
 
-### Comparación con los objetivos del Sprint
-
-El trabajo realizado se alinea bien con los objetivos del sprint. Se lograron implementar las funcionalidades de cifrado y replicación, aunque se identificaron áreas para mejorar la eficiencia del algoritmo de replicación.
+Se lograron implementar las funcionalidades de cifrado y replicación, y se comprobó que la sincronización y la disponibilidad de los datos son efectivas. Se identificaron áreas de mejora para la eficiencia del algoritmo de replicación y la gestión de claves de cifrado.
 
 ### Lecciones aprendidas
 
-### Lecciones aprendidas
-
-- **Gestión de excepciones:** La importancia de manejar adecuadamente las excepciones en sistemas distribuidos. Al enfrentar varios errores de red y problemas de concurrencia, aprendí que es crucial implementar un manejo de excepciones robusto para garantizar que el sistema pueda recuperarse de fallos inesperados sin comprometer la integridad de los datos.
-- **Optimización de recursos:** Necesidad de optimizar el uso de recursos para manejar  datos. A través de la implementación y pruebas de la replicación de archivos, comprendí la importancia de optimizar tanto el uso de la CPU como la memoria. Implementar técnicas de programación concurrente y asíncrona me permitió mejorar significativamente el rendimiento del sistema bajo carga.
-- **Seguridad en la gestión de claves:** La experiencia me enseñó la importancia de gestionar las claves de cifrado de manera segura. Al trabajar con datos cifrados, es esencial asegurar que las claves no se almacenen en texto plano y que se implementen medidas adicionales para protegerlas, si embargo tengo en cuenta que el resultado no fue  como lo esperaba.
-
+- **Gestión de excepciones:** Es crucial implementar un manejo de excepciones robusto para garantizar que el sistema pueda recuperarse de fallos inesperados sin comprometer la integridad de los datos.
+- **Optimización de recursos:** La importancia de optimizar tanto el uso de la CPU como la memoria para manejar grandes volúmenes de datos de manera eficiente.
+- **Seguridad en la gestión de claves:** Es esencial asegurar que las claves de cifrado no se almacenen en texto plano y que se implementen medidas adicionales para protegerlas.
 
 ## Plan para el próximo Sprint
 
@@ -191,19 +168,8 @@ El trabajo realizado se alinea bien con los objetivos del sprint. Se lograron im
 
 - Realizar pruebas de seguridad y resiliencia del sistema.
 - Optimizar la replicación y recuperación de datos.
-- Preparar una presentación detallada del proyecto.
-
-### Tareas planificadas
-
-- **Pruebas de seguridad:** Identificación de vulnerabilidades y prueba de acceso a datos cifrados.
-- **Pruebas de resiliencia:** Simulación de fallos de nodo y evaluación del rendimiento del sistema.
-- **Optimización del sistema:** Mejora del algoritmo de replicación y uso de recursos.
-- **Preparación de presentación:** Creación de una presentación que detalle objetivos, metodología, resultados y conclusiones del proyecto.
 
 ### Ajustes necesarios
 
 - Mejorar la gestión de claves de cifrado para mayor seguridad.
 - Optimizar la replicación de datos para reducir la latencia.
-- Documentar más detalladamente el código y los procesos implementados.
-
-
