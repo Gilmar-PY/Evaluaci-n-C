@@ -1,4 +1,5 @@
 
+
 import requests
 
 def simular_fallo_nodo(nodo):
@@ -22,5 +23,6 @@ def verificar_recuperacion_datos(nodo, archivo):
         print(f"Error: {e}")
 
 if __name__ == "__main__":
-    simular_fallo_nodo("http://storage-node-2:5000")
-    verificar_recuperacion_datos("http://storage-node-1:5000", "Actividad.txt")
+    simular_fallo_nodo("http://localhost:5001")
+    verificar_recuperacion_datos("http://localhost:5000", "Actividad.txt")
+
