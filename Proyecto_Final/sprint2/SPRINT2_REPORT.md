@@ -1,7 +1,5 @@
 # Reporte del Sprint 2
 
-## 1. Introducción
-
 ### Objetivos del Sprint
 ## 1. Introducción
 
