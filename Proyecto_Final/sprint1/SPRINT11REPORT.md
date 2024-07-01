@@ -105,7 +105,61 @@ Desventajas:
 
 
 #### Configuración del Entorno Distribuido con Docker
+Construcción de la imagen Docker:
 
+docker build -t storage-system .
+
+![](https://lh7-us.googleusercontent.com/docsz/AD_4nXfXaW8o3BQJcakM_856YcE-HweiDjL-h0qqMIEM2Mf_qkIcsmUlMC8n8aUf_Q96VkOY-hkXc5GlyNjc3xLf6ax1D4JUjC7dp-dFhAg4mXq5deq-QwLWKuYxZQJXbcpJaO2SnDrP_FtwkjofeDWb19T-i_dR?key=nQL0RT6dNr_BeWtx8fgyhA)
+creacion de la rede de docker 👍
+
+![](https://lh7-us.googleusercontent.com/docsz/AD_4nXcFUJtLOgDyr8kynCaT4_IaZyaDlJwFYT4KAk0QlFx70JAq8AgzclNtTlpqJJhdysUSH8foS5vrJkbwib08UGeR6nFouBbIbz4-W9kS2igRwign-rz59GGSSuqA5a0mw-YQiFffh-762dvNmOdvGlPLv0ec?key=nQL0RT6dNr_BeWtx8fgyhA)
+  
+
+Ejecución del contenedor:
+
+docker run -d --name storage-node-1 -p 5000:5000 storage-system
+
+  
+
+![](https://lh7-us.googleusercontent.com/docsz/AD_4nXf0mXs_4STvIK96ppUBUEYfTdGkBwDRkN8-NyJmsklj0p69RYwY7NytwsjdjTPaTn3cm9c1QV6hwTRCo2p6kXx3VrsFM3uZ_qO32zQk9IBrn7W4js7FynCYVrmaRPdr87Rn85HHSab1zmC7Lv4smrb9qX6F?key=nQL0RT6dNr_BeWtx8fgyhA)
+
+  
+
+Carga del archivo:
+
+curl -X POST -F 'archivo=@Algoritmos.txt' http://localhost:5000/cargar
+
+  
+
+![](https://lh7-us.googleusercontent.com/docsz/AD_4nXfM9ERn_0F1Pdb9kwcsKKfrnqLnM3Zo_-6poAfMklqNLlC8kQ1NvIfCGEi0-yY40xcuRpTWFwoFVtKMsQSHvJ5J5Qvg2KMqbcT-v3PIPpdXy1vF1OvNIuT_dqf9_Uig5dli1xkNm7fvZr18YT0aP2Aqhxq7?key=nQL0RT6dNr_BeWtx8fgyhA)
+
+  
+
+Descarga del archivo:
+
+curl -O http://localhost:5000/descargar/Algoritmos.txt
+
+  
+
+![](https://lh7-us.googleusercontent.com/docsz/AD_4nXdGAG0ER6au7T54brjCCX9DvH6rJAYNYl-am1iG5gZCsQ7eUsR_jXaT-d9mZWKICv7EOS6SAqAf9fxkXqfMeD_D9Iac0p7WwGZC3v5yRxWIur2egN5RiJ3YNybW2_FJeED3IxxqdsKJ_OEq_7ncPGX3vdjg?key=nQL0RT6dNr_BeWtx8fgyhA)
+
+  
+
+Eliminación del archivo:
+
+curl -X DELETE [http://localhost:5000/eliminar/Algoritmos.txt](http://localhost:5000/eliminar/Algoritmos.txt)
+
+![](https://lh7-us.googleusercontent.com/docsz/AD_4nXfJe_BFkGEErGCUSYLVC2uFutjSq16aviU7Kymth_x4BbMzYll6I3rwKlkPqTVq4tfvsQyXhDWp6ZIZ4EYxbSHVSV6jSEJfI-_lv1Eul7CKnB4nwjQVPRCeG3o8m37NCrt-SN5MTRFe4Rv-fQJXaTcNFrzl?key=nQL0RT6dNr_BeWtx8fgyhA)
+
+  
+
+![](https://lh7-us.googleusercontent.com/docsz/AD_4nXei9uToL_d6WYSqj30Z4LcCVV8vbhaXvHdshGCu2vzUkxK9YtGUPDFKoNWWAwK7Vb_S-cR1gWwlMcIdFlSo8cHW1LsHKwIyKtJHlub5r5-aP4vUBtEjR3fvYZvDcibcoxkWJwJOnIGcIfzC-uXPS1rkAI4f?key=nQL0RT6dNr_BeWtx8fgyhA)
+
+  
+  
+  
+
+![](https://lh7-us.googleusercontent.com/docsz/AD_4nXeHILW4uVywubaztQsphUjy2-OeQxCjjl7X5u09N5svH2ImkMZ3aBLbFHmAwAx5dPytiSkvjSQK_0GdjhRk7d1_IivradVi5UI8w0HqFlMcj2df61W-PfzPVtxVSYRRcM3iK_4u3NHy9hfQY0WwKQbbeDI?key=nQL0RT6dNr_BeWtx8fgyhA)
 
 ## Progreso y Logros
 - **Investigación**: Se investigaron HDFS y Ceph para almacenamiento distribuido y se exploraron las bibliotecas pycryptodome y cryptography para criptografía.
