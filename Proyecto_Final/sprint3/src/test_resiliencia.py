@@ -1,28 +1,58 @@
 
+# test_resiliencia.py
 
 import requests
+import docker
+import time
+from Crypto.Cipher import AES
+import os
 
-def simular_fallo_nodo(nodo):
-    try:
-        response = requests.post(f"{nodo}/fallo")
-        if response.status_code == 200:
-            print(f"Fallo simulado exitosamente en {nodo}")
-        else:
-            print(f"Error simulando fallo en {nodo}")
-    except Exception as e:
-        print(f"Error: {e}")
+# Configuración
+client = docker.from_env()
+url_cargar = 'http://localhost:5000/cargar'
+url_descargar = 'http://localhost:5000/descargar/Actividad.txt'
+key = b'This_is_a16b_key'
+UPLOAD_FOLDER = 'cargas'
 
-def verificar_recuperacion_datos(nodo, archivo):
-    try:
-        response = requests.get(f"{nodo}/descargar/{archivo}")
-        if response.status_code == 200:
-            print(f"Recuperación de datos exitosa desde {nodo}")
-        else:
-            print(f"Error recuperando datos desde {nodo}")
-    except Exception as e:
-        print(f"Error: {e}")
+# Cargar archivo
+files = {'archivo': open('Actividad.txt', 'rb')}
+response = requests.post(url_cargar, files=files)
+print("Archivo cargado exitosamente. Ejecutando prueba de fallo de nodo...")
 
-if __name__ == "__main__":
-    simular_fallo_nodo("http://localhost:5001")
-    verificar_recuperacion_datos("http://localhost:5000", "Actividad.txt")
+# Simular fallo de nodo
+try:
+    container = client.containers.get('storage-node-1')
+    container.stop()
+    print("Nodo storage-node-1 detenido.")
+    
+    # Esperar un momento
+    time.sleep(5)
+    
+    # Intentar descargar el archivo
+    response = requests.get(url_descargar)
+    with open('descargado_resiliencia.txt', 'wb') as f:
+        f.write(response.content)
+    
+    print("Archivo descargado exitosamente después del fallo del nodo.")
+    
+    # Descifrar el archivo descargado
+    ruta_archivo = 'descargado_resiliencia.txt'
+    with open(ruta_archivo, 'rb') as file_enc:
+        nonce = file_enc.read(16)
+        tag = file_enc.read(16)
+        ciphertext = file_enc.read()
+    
+    cipher = AES.new(key, AES.MODE_EAX, nonce=nonce)
+    data = cipher.decrypt_and_verify(ciphertext, tag)
+    
+    with open('descifrado_resiliencia.txt', 'wb') as f:
+        f.write(data)
+    
+    print("Archivo descifrado exitosamente.")
+    
+    # Reiniciar el nodo
+    container.start()
+    print("Nodo storage-node-1 reiniciado.")
+except Exception as e:
+    print(f"Error durante la prueba de fallo de nodo: {e}")
 
