@@ -36,41 +36,6 @@ Se implementaron pruebas para garantizar que los datos cifrados no pudieran ser 
 
 Este script se utiliza para probar la seguridad del sistema de almacenamiento distribuido asegurándose de que los datos cifrados no se puedan acceder sin la clave correcta. A continuación, se presenta una explicación general del código:
 
-#### Código Completo
-
-     ```python
-     import requests
-     from Crypto.Cipher import AES
-     import os
-
-     # Configuración
-     key = b'This_is_a16b_key'
-     UPLOAD_FOLDER = 'cargas'
-     os.makedirs(UPLOAD_FOLDER, exist_ok=True)
-     url_cargar = 'http://localhost:5000/cargar'
-
-     # Cargar archivo
-      files = {'archivo': open('Actividad.txt', 'rb')}
-     response = requests.post(url_cargar, files=files)
-     print(response.text)
-
-     print("Carga exitosa. Probando acceso sin clave...")
-
-     # Intentar descifrar sin clave correcta
-     ruta_archivo = os.path.join(UPLOAD_FOLDER, 'Actividad.txt')
-     try:
-        with open(ruta_archivo, 'rb') as file_enc:
-            nonce = file_enc.read(16)
-            tag = file_enc.read(16)
-            ciphertext = file_enc.read()
-    
-         cipher = AES.new(b'Incorrect_Key123', AES.MODE_EAX, nonce=nonce)
-         data = cipher.decrypt_and_verify(ciphertext, tag)
-         print("Prueba de seguridad fallida: Se pudo descifrar el archivo con una clave incorrecta.")
-     except Exception as e:
-         print("Prueba de seguridad exitosa: No se pudo descifrar el archivo con una clave incorrecta.")
-
-
 
 #### Pruebas de resiliencia
 
@@ -80,44 +45,7 @@ Se simularon fallos en los nodos para verificar que los datos pudieran ser recup
 
 Este script `test_resiliencia.py` se utiliza para probar la resiliencia del sistema de almacenamiento distribuido simulando un fallo en uno de los nodos y verificando que el sistema sigue siendo capaz de descargar los archivos replicados desde otros nodos. A continuación, se presenta una explicación detallada del código:
 
-        ```python
-         # test_resiliencia.py
-         import requests
-         import docker
-         import time
-
-         # Configuración
-         client = docker.from_env()
-         url_cargar = 'http://localhost:5000/cargar'
-         url_descargar = 'http://localhost:5000/descargar/Actividad.txt'
-
-         # Cargar archivo
-         files = {'archivo': open('Actividad.txt', 'rb')}
-         response = requests.post(url_cargar, files=files)
-         print("Archivo cargado exitosamente. Ejecutando prueba de fallo de nodo...")
-
-         # Simular fallo de nodo
-         try:
-             container = client.containers.get('storage-node-1')
-             container.stop()
-             print("Nodo storage-node-1 detenido.")
-    
-             # Esperar un momento
-              time.sleep(5)
-    
-              # Intentar descargar el archivo
-              response = requests.get(url_descargar)
-              with open('descargado_resiliencia.txt', 'wb') as f:
-                  f.write(response.content)
-    
-                   print("Archivo descargado exitosamente después del fallo del nodo.")
-    
-              # Reiniciar el nodo
-               container.start()
-               print("Nodo storage-node-1 reiniciado.")
-               except Exception as e:
-               print(f"Error durante la prueba de fallo de nodo: {e}")
-
+      
 
 #### Optimización del Sistema
 
