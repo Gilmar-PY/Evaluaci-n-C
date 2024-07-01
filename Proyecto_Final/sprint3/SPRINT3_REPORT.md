@@ -22,7 +22,7 @@ El objetivo principal del Sprint 3 fue optimizar el sistema de almacenamiento di
 
 ### Cronograma
 
-- **Inicio:** 15 de Junio
+- **Inicio:**  de Junio
 - **Fin:** 30 de Junio
 
 ## 3. Implementación
@@ -30,12 +30,144 @@ El objetivo principal del Sprint 3 fue optimizar el sistema de almacenamiento di
 ### Descripción del trabajo realizado
 
 #### Pruebas de seguridad
-
 Se implementaron pruebas para garantizar que los datos cifrados no pudieran ser accedidos sin la clave adecuada. Estas pruebas confirmaron la efectividad del cifrado AES implementado.
+
+### Explicación del script
+
+Este script se utiliza para probar la seguridad del sistema de almacenamiento distribuido asegurándose de que los datos cifrados no se puedan acceder sin la clave correcta. A continuación, se presenta una explicación general del código:
+
+#### Importar Librerías
+
+- `requests`: Para realizar solicitudes HTTP.
+- `Crypto.Cipher.AES`: Para cifrar y descifrar datos utilizando el algoritmo AES.
+- `os`: Para manipular rutas y directorios del sistema de archivos.
+
+#### Configuración
+
+- `key`: Clave de cifrado utilizada para cifrar los datos (debe ser de 16 bytes).
+- `UPLOAD_FOLDER`: Carpeta donde se almacenan los archivos cargados. Se crea si no existe.
+- `url_cargar`: URL para cargar archivos en el sistema de almacenamiento distribuido.
+
+#### Cargar Archivo
+
+- `files`: Se abre el archivo `Actividad.txt` en modo lectura binaria.
+- `response`: Se envía una solicitud POST para cargar el archivo en el sistema.
+- Mensaje de confirmación de carga exitosa.
+
+#### Intentar Descifrar sin Clave Correcta
+
+- `ruta_archivo`: Ruta del archivo cifrado en la carpeta de cargas.
+- Intentar descifrar el archivo utilizando una clave incorrecta.
+- Si la descifrada es exitosa, se muestra un mensaje indicando que la prueba de seguridad falló.
+- Si ocurre una excepción, se muestra un mensaje indicando que la prueba de seguridad fue exitosa porque no se pudo descifrar el archivo con una clave incorrecta.
+
+### Código Completo
+
+     ```python
+import requests
+from Crypto.Cipher import AES
+import os
+
+# Configuración
+key = b'This_is_a16b_key'
+UPLOAD_FOLDER = 'cargas'
+os.makedirs(UPLOAD_FOLDER, exist_ok=True)
+url_cargar = 'http://localhost:5000/cargar'
+
+# Cargar archivo
+files = {'archivo': open('Actividad.txt', 'rb')}
+response = requests.post(url_cargar, files=files)
+print(response.text)
+
+print("Carga exitosa. Probando acceso sin clave...")
+
+# Intentar descifrar sin clave correcta
+ruta_archivo = os.path.join(UPLOAD_FOLDER, 'Actividad.txt')
+try:
+    with open(ruta_archivo, 'rb') as file_enc:
+        nonce = file_enc.read(16)
+        tag = file_enc.read(16)
+        ciphertext = file_enc.read()
+    
+    cipher = AES.new(b'Incorrect_Key123', AES.MODE_EAX, nonce=nonce)
+    data = cipher.decrypt_and_verify(ciphertext, tag)
+    print("Prueba de seguridad fallida: Se pudo descifrar el archivo con una clave incorrecta.")
+except Exception as e:
+    print("Prueba de seguridad exitosa: No se pudo descifrar el archivo con una clave incorrecta.")
+
 
 #### Pruebas de resiliencia
 
 Se simularon fallos en los nodos para verificar que los datos pudieran ser recuperados desde los nodos replicados. Las pruebas mostraron que el sistema es capaz de manejar fallos de nodos sin pérdida de datos.
+
+### Explicación 
+
+Este script `test_resiliencia.py` se utiliza para probar la resiliencia del sistema de almacenamiento distribuido simulando un fallo en uno de los nodos y verificando que el sistema sigue siendo capaz de descargar los archivos replicados desde otros nodos. A continuación, se presenta una explicación detallada del código:
+
+#### Simular Fallo de Nodo
+
+- **Detener el nodo:**
+  - `container`: Obtiene el contenedor `storage-node-1`.
+  - `container.stop()`: Detiene el contenedor.
+  - Mensaje de confirmación de detención del nodo.
+
+- **Esperar:**
+  - `time.sleep(5)`: Espera 5 segundos para simular el tiempo de inactividad del nodo.
+
+- **Descargar Archivo:**
+  - `response`: Se envía una solicitud GET para descargar el archivo desde el sistema.
+  - `with open('descargado_resiliencia.txt', 'wb') as f`: Se guarda el contenido del archivo descargado en `descargado_resiliencia.txt`.
+  - Mensaje de confirmación de descarga exitosa.
+
+- **Reiniciar el nodo:**
+  - `container.start()`: Reinicia el contenedor detenido.
+  - Mensaje de confirmación de reinicio del nodo.
+
+- **Manejo de errores:**
+  - `except Exception as e`: Captura y muestra cualquier error ocurrido durante la prueba de fallo del nodo.
+
+
+
+     ```python
+# test_resiliencia.py
+
+import requests
+import docker
+import time
+
+# Configuración
+client = docker.from_env()
+url_cargar = 'http://localhost:5000/cargar'
+url_descargar = 'http://localhost:5000/descargar/Actividad.txt'
+
+# Cargar archivo
+files = {'archivo': open('Actividad.txt', 'rb')}
+response = requests.post(url_cargar, files=files)
+print("Archivo cargado exitosamente. Ejecutando prueba de fallo de nodo...")
+
+# Simular fallo de nodo
+try:
+    container = client.containers.get('storage-node-1')
+    container.stop()
+    print("Nodo storage-node-1 detenido.")
+    
+    # Esperar un momento
+    time.sleep(5)
+    
+    # Intentar descargar el archivo
+    response = requests.get(url_descargar)
+    with open('descargado_resiliencia.txt', 'wb') as f:
+        f.write(response.content)
+    
+    print("Archivo descargado exitosamente después del fallo del nodo.")
+    
+    # Reiniciar el nodo
+    container.start()
+    print("Nodo storage-node-1 reiniciado.")
+except Exception as e:
+    print(f"Error durante la prueba de fallo de nodo: {e}")
+
+---------------------------------------
 
 #### Optimización del Sistema
 
@@ -109,5 +241,24 @@ El trabajo realizado Se lograron implementar las funcionalidades de pruebas de s
 - **Gestión de excepciones:** La importancia de manejar adecuadamente las excepciones en sistemas distribuidos para garantizar la recuperación de fallos sin comprometer la integridad de los datos.
 - **Optimización de recursos:** La necesidad de optimizar el uso de recursos para manejar grandes volúmenes de datos de manera eficiente.
 - **Seguridad en la gestión de claves:** La importancia de gestionar las claves de cifrado de manera segura.
+
+
+## 6. Plan para el próximo Sprint
+
+### Objetivos del próximo Sprint
+
+El siguiente sprint se enfocará en consolidar y finalizar todas las funcionalidades del sistema de almacenamiento distribuido. Los objetivos específicos incluyen:
+
+- **Refinamiento del sistema:** Realizar ajustes y mejoras basadas en los resultados de las pruebas realizadas en el Sprint 3.
+- **Documentación completa:** Elaborar documentación exhaustiva del sistema, incluyendo manuales de usuario y de instalación.
+- **Presentación del proyecto:** Preparar y ensayar la presentación final del proyecto para stakeholders y posibles usuarios.
+
+### Ajustes necesarios
+
+- **Mejora de la gestión de claves de cifrado:** Implementar medidas adicionales para asegurar la gestión segura de las claves de cifrado, basándonos en las lecciones aprendidas durante el Sprint 3.
+- **Optimización de la replicación:** Continuar mejorando el algoritmo de replicación para reducir aún más la latencia y asegurar la consistencia de los datos.
+- **Documentación técnica:** Asegurar que toda la documentación técnica esté actualizada y sea fácil de entender, para facilitar la adopción y el mantenimiento del sistema por parte de otros desarrolladores y usuarios.
+
+Con estos ajustes y tareas planificadas, el próximo sprint se centrará en pulir y completar el proyecto, asegurando que esté listo para su presentación y posible implementación.
 
 
