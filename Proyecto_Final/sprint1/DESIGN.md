@@ -26,6 +26,4 @@ nodos.
 - **Gestión de Claves**: Las claves deben ser gestionadas y almacenadas de manera segura.
 - **Logs**: Implementación de logging para monitoreo y auditoría.
 
-## Pruebas y Validación
-- **Pruebas Automatizadas**: Uso de `pytest` para validar las funcionalidades del sistema.
-- **Pruebas de Carga**: Simulación de múltiples usuarios cargando y descargando archivos simultáneamente.
+
