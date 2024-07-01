@@ -1,4 +1,4 @@
-oviedo@oviedo:~/Evaluaci-n-C/Proyecto_Final/sprint3/src$ cat test_seguridad.py 
+
 from app.routes import cifrar_archivo, descifrar_archivo
 
 def probar_cifrado_descifrado():
