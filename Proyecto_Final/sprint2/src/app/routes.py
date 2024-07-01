@@ -1,40 +1,18 @@
 from flask import request, send_file, jsonify
-from app import app
-import os
 from Crypto.Cipher import AES
-from Crypto.Random import get_random_bytes
+import os
 import logging
-import threading
 import asyncio
 import aiohttp
+import threading
 from queue import Queue
 
-UPLOAD_FOLDER = 'cargas'
-os.makedirs(UPLOAD_FOLDER, exist_ok=True)
-
+UPLOAD_FOLDER = '/app/cargas'
 key = b'This_is_a16b_key'
 NODOS = ["http://storage-node-1:5000", "http://storage-node-2:5000"]
-queue = Queue()
 
 logging.basicConfig(level=logging.DEBUG)
-logging.debug(f"Longitud de la clave AES: {len(key)}")
 
-def worker():
-    while True:
-        nodo, ruta_archivo = queue.get()
-        if nodo is None:
-            break
-        replicar_archivo(nodo, ruta_archivo)
-        queue.task_done()
-
-num_worker_threads = 5
-threads = []
-for _ in range(num_worker_threads):
-    t = threading.Thread(target=worker)
-    t.start()
-    threads.append(t)
-
-@app.route('/cargar', methods=['POST'])
 def cargar_archivo():
     archivo = request.files['archivo']
     ruta_archivo = os.path.join(UPLOAD_FOLDER, archivo.filename)
@@ -49,33 +27,40 @@ def cargar_archivo():
             file_enc.write(tag)
             file_enc.write(ciphertext)
 
-        logging.info(f"Archivo {archivo.filename} cargado y cifrado exitosamente")
+        nonce = cipher.nonce
 
         for nodo in NODOS:
-            queue.put((nodo, ruta_archivo))
+            queue.put((nodo, ruta_archivo, nonce, tag))
 
+        logging.debug(f"Archivo {archivo.filename} cargado y cifrado exitosamente")
         return 'Archivo cargado y cifrado exitosamente', 200
     except Exception as e:
         logging.error(f"Error al cargar y cifrar el archivo: {e}")
         return jsonify({'error': f'Error al cargar y cifrar el archivo: {e}'}), 500
 
-async def replicar_archivo_async(nodo, ruta_archivo):
+async def replicar_archivo_async(nodo, ruta_archivo, nonce, tag):
     try:
         form = aiohttp.FormData()
-        form.add_field('archivo', open(ruta_archivo, 'rb'), filename=os.path.basename(ruta_archivo))
+        with open(ruta_archivo, 'rb') as file_enc:
+            data = file_enc.read()
+        form.add_field('archivo', data, filename=os.path.basename(ruta_archivo))
+        form.add_field('nonce', nonce.hex())
+        form.add_field('tag', tag.hex())
         async with aiohttp.ClientSession() as session:
             async with session.post(f"{nodo}/cargar", data=form) as response:
-                logging.debug(f"Replicación en {nodo} completada con estado {response.status}")
+                if response.status != 200:
+                    logging.error(f"Error replicando en {nodo}: {response.status}")
+                else:
+                    logging.debug(f"Replicación en {nodo} completada con estado {response.status}")
     except Exception as e:
         logging.error(f"Error replicando en {nodo}: {e}")
 
-def replicar_archivo(nodo, ruta_archivo):
+def replicar_archivo(nodo, ruta_archivo, nonce, tag):
     loop = asyncio.new_event_loop()
     asyncio.set_event_loop(loop)
-    loop.run_until_complete(replicar_archivo_async(nodo, ruta_archivo))
+    loop.run_until_complete(replicar_archivo_async(nodo, ruta_archivo, nonce, tag))
     loop.close()
 
-@app.route('/descargar/<nombre_archivo>', methods=['GET'])
 def descargar_archivo(nombre_archivo):
     try:
         ruta_archivo = os.path.join(UPLOAD_FOLDER, nombre_archivo)
@@ -96,23 +81,29 @@ def descargar_archivo(nombre_archivo):
         logging.error(f"Error al descargar y descifrar el archivo: {e}")
         return jsonify({'error': f'Error al descargar y descifrar el archivo: {e}'}), 500
 
-@app.route('/eliminar/<nombre_archivo>', methods=['DELETE'])
 def eliminar_archivo(nombre_archivo):
     ruta_archivo = os.path.join(UPLOAD_FOLDER, nombre_archivo)
     try:
         os.remove(ruta_archivo)
-        logging.info(f"Archivo {nombre_archivo} eliminado exitosamente")
         return 'Archivo eliminado exitosamente', 200
     except Exception as e:
         logging.error(f"Error al eliminar el archivo: {e}")
         return jsonify({'error': 'Error al eliminar el archivo'}), 500
 
+def worker():
+    while True:
+        nodo, ruta_archivo, nonce, tag = queue.get()
+        if nodo is None:
+            break
+        replicar_archivo(nodo, ruta_archivo, nonce, tag)
+        queue.task_done()
+
+num_worker_threads = 5
+queue = Queue()
+
+threads = []
 for _ in range(num_worker_threads):
-    queue.put((None, None))
-for t in threads:
-    t.join()
-
-
-for rule in app.url_map.iter_rules():
-    logging.debug(f"Ruta registrada: {rule}")
+    t = threading.Thread(target=worker)
+    t.start()
+    threads.append(t)
 
