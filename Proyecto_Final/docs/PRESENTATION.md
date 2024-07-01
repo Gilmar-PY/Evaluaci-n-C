@@ -114,3 +114,54 @@ Se realizaron mejoras en el algoritmo de replicación para reducir la latencia y
 - **Carga de archivos:**
   ```bash
   curl -X POST -F 'archivo=@Actividad.txt' http://localhost:5000/cargar
+
+
+
+  -------------------------------------------------------------------------------------------------------
+
+  # ANÁLISIS Y EVALUACIÓN
+
+## Comparación con los objetivos del Sprint
+
+El trabajo realizado se alinea bien con los objetivos del sprint. Se lograron implementar las funcionalidades de pruebas de seguridad y resiliencia, así como la optimización del sistema.
+
+## Lecciones aprendidas
+
+- **Gestión de excepciones:** La importancia de manejar adecuadamente las excepciones en sistemas distribuidos para garantizar la recuperación de fallos sin comprometer la integridad de los datos.
+- **Optimización de recursos:** La necesidad de optimizar el uso de recursos para manejar grandes volúmenes de datos de manera eficiente.
+- **Seguridad en la gestión de claves:** La importancia de gestionar las claves de cifrado de manera segura.
+
+# CONCLUSIÓN Y FUTURO TRABAJO
+
+## Logros
+
+- Las funciones de preprocesamiento de datos y cifrado cumplieron con los objetivos planteados.
+- Se logró crear una arquitectura de red para la gestión de archivos en un entorno distribuido.
+- Se implementaron técnicas de replicación y sincronización para asegurar la disponibilidad de los datos.
+- Se mejoró el rendimiento del sistema mediante la optimización del algoritmo de replicación.
+
+## Mejoras
+
+- Implementar una cola de tareas para mejorar la gestión de las cargas de trabajo.
+- Considerar la cuantización aware-training para optimizar la precisión y el tiempo de procesamiento.
+
+# Plan para el próximo Sprint
+
+## Objetivos del próximo Sprint
+
+- Integrar pruebas de carga y estrés para evaluar el rendimiento del sistema bajo condiciones extremas.
+- Implementar mecanismos de monitoreo y alerta para detectar y responder a fallos en tiempo real.
+- Documentar y presentar los resultados finales del proyecto.
+
+## Tareas planificadas
+
+- **Pruebas de carga y estrés:** Realizar pruebas intensivas para evaluar el rendimiento y la estabilidad del sistema.
+- **Monitoreo y alerta:** Implementar herramientas para monitorear el estado del sistema y alertar en caso de problemas.
+- **Documentación final:** Preparar la documentación detallada del proyecto, incluyendo los resultados de las pruebas y las conclusiones.
+
+## Ajustes necesarios
+
+- Mejorar la gestión de excepciones para manejar mejor los fallos inesperados.
+- Optimizar la replicación de datos para reducir aún más la latencia.
+- Documentar más detalladamente el código y los procesos implementados.
+
