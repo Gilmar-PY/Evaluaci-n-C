@@ -25,7 +25,7 @@ El objetivo principal del Sprint 2 fue implementar funciones de seguridad y repl
 
 ### Cronograma
 | Tarea                               | Inicio | Fin   | Hitos Importantes              |
-|-------------------------------------|-----   |       |--------------------------------|
+|-------------------------------------|--------|       |--------------------------------|
 | Implementación del cifrado de datos |        |       | Cifrado funcional              |
 | Desarrollo de replicación de datos  |        |       | Replicación funcional          |
 | Configuración de sincronización     |        |       | Sincronización configurada     |
