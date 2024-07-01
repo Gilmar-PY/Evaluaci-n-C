@@ -80,47 +80,44 @@ Se simularon fallos en los nodos para verificar que los datos pudieran ser recup
 
 Este script `test_resiliencia.py` se utiliza para probar la resiliencia del sistema de almacenamiento distribuido simulando un fallo en uno de los nodos y verificando que el sistema sigue siendo capaz de descargar los archivos replicados desde otros nodos. A continuación, se presenta una explicación detallada del código:
 
-```python
-# test_resiliencia.py
+        ```python
+         # test_resiliencia.py
+         import requests
+         import docker
+         import time
 
-import requests
-import docker
-import time
+         # Configuración
+         client = docker.from_env()
+         url_cargar = 'http://localhost:5000/cargar'
+         url_descargar = 'http://localhost:5000/descargar/Actividad.txt'
 
-# Configuración
-client = docker.from_env()
-url_cargar = 'http://localhost:5000/cargar'
-url_descargar = 'http://localhost:5000/descargar/Actividad.txt'
+         # Cargar archivo
+         files = {'archivo': open('Actividad.txt', 'rb')}
+         response = requests.post(url_cargar, files=files)
+         print("Archivo cargado exitosamente. Ejecutando prueba de fallo de nodo...")
 
-# Cargar archivo
-files = {'archivo': open('Actividad.txt', 'rb')}
-response = requests.post(url_cargar, files=files)
-print("Archivo cargado exitosamente. Ejecutando prueba de fallo de nodo...")
-
-# Simular fallo de nodo
-try:
-    container = client.containers.get('storage-node-1')
-    container.stop()
-    print("Nodo storage-node-1 detenido.")
+         # Simular fallo de nodo
+         try:
+             container = client.containers.get('storage-node-1')
+             container.stop()
+             print("Nodo storage-node-1 detenido.")
     
-    # Esperar un momento
-    time.sleep(5)
+             # Esperar un momento
+              time.sleep(5)
     
-    # Intentar descargar el archivo
-    response = requests.get(url_descargar)
-    with open('descargado_resiliencia.txt', 'wb') as f:
-        f.write(response.content)
+              # Intentar descargar el archivo
+              response = requests.get(url_descargar)
+              with open('descargado_resiliencia.txt', 'wb') as f:
+                  f.write(response.content)
     
-    print("Archivo descargado exitosamente después del fallo del nodo.")
+                   print("Archivo descargado exitosamente después del fallo del nodo.")
     
-    # Reiniciar el nodo
-    container.start()
-    print("Nodo storage-node-1 reiniciado.")
-except Exception as e:
-    print(f"Error durante la prueba de fallo de nodo: {e}")
+              # Reiniciar el nodo
+               container.start()
+               print("Nodo storage-node-1 reiniciado.")
+               except Exception as e:
+               print(f"Error durante la prueba de fallo de nodo: {e}")
 
-
----------------------------------------
 
 #### Optimización del Sistema
 
