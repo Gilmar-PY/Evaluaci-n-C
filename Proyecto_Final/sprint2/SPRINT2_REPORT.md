@@ -140,16 +140,55 @@ Para lograr la sincronización, se crearon funciones que permiten replicar los a
 ------------------------------------------------------------------------------------------------------------------------------
 ### Demostración de funcionalidades
 
-- **Carga de archivos:**
-  ```bash
-  curl -X POST -F 'archivo=@Actividad.txt' http://localhost:5000/cargar
+Construcción y Ejecución del Contenedor Docker:
 
-    ```bash
-    curl -O http://localhost:5000/descargar/Actividad.txt
+Construir la imagen Docker:
 
-- **Eliminar archivos:**
-  ```bash
-  curl -X DELETE http://localhost:5000/eliminar/Actividad.txt
+- docker build -t storage-system src
+
+![](https://lh7-us.googleusercontent.com/docsz/AD_4nXdPDICUVzqPDRyetf_MZ-eCXAGn3kBVXSqZtMddmnkOeJF8dI82PQhuLXw_EaGtbwntrHzh06d05nzwRgG1a5WaeNcPfQ1PZwrt2rnD1C5FnHAe_HeOFzY_bUHwjgj6ZUYlW8651FArSja-XaHuP_YNVnKr?key=nQL0RT6dNr_BeWtx8fgyhA)
+
+creacion de la rede de docker 👍
+
+![](https://lh7-us.googleusercontent.com/docsz/AD_4nXcFUJtLOgDyr8kynCaT4_IaZyaDlJwFYT4KAk0QlFx70JAq8AgzclNtTlpqJJhdysUSH8foS5vrJkbwib08UGeR6nFouBbIbz4-W9kS2igRwign-rz59GGSSuqA5a0mw-YQiFffh-762dvNmOdvGlPLv0ec?key=nQL0RT6dNr_BeWtx8fgyhA)
+
+Paso 2: Construir y Ejecutar los Contenedores
+
+![](https://lh7-us.googleusercontent.com/docsz/AD_4nXez3Qob72c9UU2KRr1behxYd99xvuMv4Ub0TaCfy2UKAXHFgTWU0NR3okRbFVPBvTKyQjblydvLUpWT5T4p88SFopU29gJmG_X_b-65O5pz58EJ64S79a5LS7mFTs8uB1dxrTUtO0haLzXRRM37m2YfLCqL?key=nQL0RT6dNr_BeWtx8fgyhA)
+
+![](https://lh7-us.googleusercontent.com/docsz/AD_4nXciZxWUMUIhJmA-1gXbxkCFdy-SV8xzyELgOlYb91KBC_QuXcoqiCf6NL7x570S0Jp65FNWt6HuL7Hgk_LWyAS45rXzr1uwc-355kqebDyjR2PeNUmpxt0XdMpM8hIYKVqwGubfx0PNz1fxDSNKrEMpjiO_?key=nQL0RT6dNr_BeWtx8fgyhA)
+
+### Pruebas de la API
+
+Cargar un archivo (asegúrate de tener un archivo para probar, por ejemplo, test_file.txt):
+
+![](https://lh7-us.googleusercontent.com/docsz/AD_4nXfW6qoNwWh-dYnfE5DXfuQh3FwiGV7_Xe-BPkSnhd0AtuZrxmJBqLC_Kl3jt9a1xquleYfA7QMBiDp2Xsk2LBq2aIQnLSLOzIdrCinOliV-ZRg8iVRecDGWliWdcsq-N7B30u58gH_BiF4aiQ-ZA5iPkXw?key=nQL0RT6dNr_BeWtx8fgyhA)
+
+Descargar el archivo:
+
+curl http://localhost:5000/descargar/Actividad.txt --output descargado.txt
+
+![](https://lh7-us.googleusercontent.com/docsz/AD_4nXcNIfhVeLmDyJu3kKPdObt8S0AbrG_t1oZBIqxa42M_Dim9zyDw1mJ3L1XJb1O1_Pl-8G0fP9fToy3EaCDbrVWKijHxyJs4CCc9aetGF5uNbUNXHqAVl3WqjnMkmCVUDhSycK2nMeQ8kgYJDXtwhKqqXBE?key=nQL0RT6dNr_BeWtx8fgyhA)
+
+Eliminar el archivo:
+
+curl -X DELETE [http://localhost:5000/eliminar/Actividad.txt](http://localhost:5000/eliminar/Actividad.txt)
+
+![](https://lh7-us.googleusercontent.com/docsz/AD_4nXf6w7LdAlfoN0lug4AFJq4HbA6r4tGqO9ljecjcDBC1yN1kvuJH6chcK59Jrr1YAqfa8N-hH8x4eyO-pNL4vVUure7V_4AV6r7utokqX_U9iwzE_Za4Tl73l9WbSYqhW6R0WtcQODgh4jvnCg-F8JGQn9qN?key=nQL0RT6dNr_BeWtx8fgyhA)
+
+Comprobacion de la replicacion de los archivos:
+
+nodo1
+
+![](https://lh7-us.googleusercontent.com/docsz/AD_4nXeoqEFI3ZzRGl6J10AWrqWBGUModNSmi6fzAe5OV24pPOZF17-ZBmAKZK7OOlFjFcV_jAcAyghgmwJMI49o0V2vmsvEiW8jounoYc7S267jjuedzg5N119RO__uWwTGbI2Fo4Kij7hyw7u6U41X1ssTkszF?key=nQL0RT6dNr_BeWtx8fgyhA)
+
+nodo2
+
+![](https://lh7-us.googleusercontent.com/docsz/AD_4nXdp20i0PkMnD7T-NQ56nZviZ8PT9dfHTfwGNp1ekgEMp_9RhNOHMNMdCIomKuf1WkkD2RbGhfvAQQgHfvwJklI3FO1hu_rx8OhEyXLAjFzrAAirlApY0nYMCKf0QylH9BtzPiJAYkrrIHdgEe5qx2kpQ-8H?key=nQL0RT6dNr_BeWtx8fgyhA)
+
+nodo 3
+
+![](https://lh7-us.googleusercontent.com/docsz/AD_4nXfLpQEauwNdJWP_S41d4J8gmgOG8ermMaC-_jsPjM-SFHecMTVnd-a5ff7KkVkh7GkVxk62onLOjzYsUZ_rILYyDawbHSl38gttX_YDjr5kS5ponAa-ShIzSXcV6J1O0DwWEEZ20fsBQbFsuIgvbfH3ZNM?key=nQL0RT6dNr_BeWtx8fgyhA)
 
 -----------------------------------------------------------------------------------------------------------------------------
 ## Análisis y evaluación
