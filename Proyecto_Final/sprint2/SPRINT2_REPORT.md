@@ -152,12 +152,6 @@ Para abordar este desafío, se deben considerar las siguientes acciones:
 - Replicación de archivos entre nodos utilizando asyncio y threading.
 - Sincronización de archivos en tiempo real.
 
-### Pruebas realizadas
-
-- **Pruebas unitarias:** Validación de cifrado y descifrado de archivos.
-- **Pruebas de integración:** Verificación de la replicación de archivos entre nodos.
-- **Pruebas de rendimiento:** Evaluación de la eficiencia del sistema bajo carga.
-
 ### Demostración de funcionalidades
 
   - **Carga de archivos:**
@@ -184,8 +178,11 @@ El trabajo realizado se alinea bien con los objetivos del sprint. Se lograron im
 
 ### Lecciones aprendidas
 
-- **Gestión de excepciones:** La importancia de manejar adecuadamente las excepciones en sistemas distribuidos.
-- **Optimización de recursos:** Necesidad de optimizar el uso de recursos para manejar grandes volúmenes de datos.
+### Lecciones aprendidas
+
+- **Gestión de excepciones:** La importancia de manejar adecuadamente las excepciones en sistemas distribuidos. Al enfrentar varios errores de red y problemas de concurrencia, aprendí que es crucial implementar un manejo de excepciones robusto para garantizar que el sistema pueda recuperarse de fallos inesperados sin comprometer la integridad de los datos.
+- **Optimización de recursos:** Necesidad de optimizar el uso de recursos para manejar  datos. A través de la implementación y pruebas de la replicación de archivos, comprendí la importancia de optimizar tanto el uso de la CPU como la memoria. Implementar técnicas de programación concurrente y asíncrona me permitió mejorar significativamente el rendimiento del sistema bajo carga.
+- **Seguridad en la gestión de claves:** La experiencia me enseñó la importancia de gestionar las claves de cifrado de manera segura. Al trabajar con datos cifrados, es esencial asegurar que las claves no se almacenen en texto plano y que se implementen medidas adicionales para protegerlas, si embargo tengo en cuenta que el resultado no fue  como lo esperaba.
 
 
 ## Plan para el próximo Sprint
