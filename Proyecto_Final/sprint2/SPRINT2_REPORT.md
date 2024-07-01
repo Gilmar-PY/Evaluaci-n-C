@@ -3,7 +3,15 @@
 ## 1. Introducción
 
 ### Objetivos del Sprint
-El objetivo principal del Sprint 2 fue implementar funciones de seguridad y replicación de datos en el sistema de almacenamiento distribuido. Estos objetivos se alinean con los objetivos generales del proyecto al asegurar la disponibilidad y la tolerancia a fallos del sistema. Los objetivos específicos fueron:
+## 1. Introducción
+
+### Objetivos del Sprint
+Después de implementar las funcionalidades básicas de carga, descarga y eliminación de archivos en el Sprint 1, el objetivo principal del Sprint 2 fue agregar funciones de seguridad y replicación de datos al sistema de almacenamiento distribuido, que buscan asegurar la disponibilidad y la tolerancia a fallos del sistema. Los objetivos específicos del Sprint 2 fueron:
+
+- Añadir cifrado de datos utilizando bibliotecas de criptografía en Python.
+- Implementar técnicas de replicación de datos para garantizar la disponibilidad.
+- Utilizar asyncio y threading para manejar la sincronización entre nodos.
+
 
 - Añadir cifrado de datos utilizando bibliotecas de criptografía en Python.
 - Implementar técnicas de replicación de datos para garantizar la disponibilidad.
