@@ -72,18 +72,15 @@ Se utilizó la metodología ágil para el desarrollo incremental del proyecto, d
 ![](https://lh7-us.googleusercontent.com/docsz/AD_4nXc9Dcy0Vs0fc34RK2GBrp2DDpxDgAaxnA-mUCd-L9xB2CDKGyOwigOBKlKVzcb4rkOV6aUMmpO47oalr3ynnW0Z4h2OyNfzFsYQz55B-7p_61RGzLQyQfjrEktP83h3Rancrwg_9jXK9ylh3WMhmWtY5I7-?key=nQL0RT6dNr_BeWtx8fgyhA)
 - **Tarea 2: Implementar la API RESTful para gestión de archivos**
   - Creación de rutas para cargar, descargar y eliminar archivos.
- ![](https://lh7-us.googleusercontent.com/docsz/AD_4nXc4xCrza7jfW6apk4oMHzJkYwdtqeP_z9bT7hI84roPkhOKO4R-ODUV2K0u_nhvX-P3Nn95QmfAP4m0tNlaZWqeCFoo3vW4Dg24-nwIWOFfS8GAZRQIKHsmyu3LsNnpBZN-kkwAxP0oXIE1vcvvxT1rpxo?key=nQL0RT6dNr_BeWtx8fgyhA)
+![](https://lh7-us.googleusercontent.com/docsz/AD_4nXc4xCrza7jfW6apk4oMHzJkYwdtqeP_z9bT7hI84roPkhOKO4R-ODUV2K0u_nhvX-P3Nn95QmfAP4m0tNlaZWqeCFoo3vW4Dg24-nwIWOFfS8GAZRQIKHsmyu3LsNnpBZN-kkwAxP0oXIE1vcvvxT1rpxo?key=nQL0RT6dNr_BeWtx8fgyhA)
+
+![](https://lh7-us.googleusercontent.com/docsz/AD_4nXeVs3BCrT2Q2FXzle0Fccb5TB8706HB7u3AFcr3Ut9_QL11FloAWag8-m2xXyQiEgYMWEcVHdsJafqMHL9wboH0mR9stBizHG9OnI7th5I9aoLpj0xcF2VEf0Nal2y0Z04JLRSnfFS6Yo9yHxUksGwA2l6O?key=nQL0RT6dNr_BeWtx8fgyhA)
 
   
-  
- ![](https://lh7-us.googleusercontent.com/docsz/AD_4nXeVs3BCrT2Q2FXzle0Fccb5TB8706HB7u3AFcr3Ut9_QL11FloAWag8-m2xXyQiEgYMWEcVHdsJafqMHL9wboH0mR9stBizHG9OnI7th5I9aoLpj0xcF2VEf0Nal2y0Z04JLRSnfFS6Yo9yHxUksGwA2l6O?key=nQL0RT6dNr_BeWtx8fgyhA)
-
-  
-
 ![](https://lh7-us.googleusercontent.com/docsz/AD_4nXdEoX0UmhKek51f6qt8CV_K7BquK6af1A8pomkeDtOeYskA_NJJfVAbbWyipb1192a-9WjImYUUzYsHvZmRBpaqEJjaayuvOGP--ta3Q75wLPV0NUMY-tOiO0gdyb0MxPEKCBtwNg-gDN6YYM9sTGExSePW?key=nQL0RT6dNr_BeWtx8fgyhA)
 - **Tarea 3: Configurar la comunicación básica entre nodos**
   - Establecimiento de la estructura de red para la comunicación entre contenedores Docker.
-   - ![](https://lh7-us.googleusercontent.com/docsz/AD_4nXdYSZVUXWWYaLnRPHMAflmXcLISNSZ7sOEtYdyNjLXK2qypQ961V_UUe637c9OUp9Yfcv_SNRRZ1EHJ0c7WwX8sUpqI5vqLSMgrOXcBd_0HDxxq9CI0XFFa4HlKYQ-GtrwBP5q9ofT73gnvBvVQJRn7a93J?key=nQL0RT6dNr_BeWtx8fgyhA)**
+![](https://lh7-us.googleusercontent.com/docsz/AD_4nXdYSZVUXWWYaLnRPHMAflmXcLISNSZ7sOEtYdyNjLXK2qypQ961V_UUe637c9OUp9Yfcv_SNRRZ1EHJ0c7WwX8sUpqI5vqLSMgrOXcBd_0HDxxq9CI0XFFa4HlKYQ-GtrwBP5q9ofT73gnvBvVQJRn7a93J?key=nQL0RT6dNr_BeWtx8fgyhA)**
 ## SPRINT 2
 
 ### Tareas planificadas
