@@ -63,11 +63,9 @@ Se utilizó la metodología ágil para el desarrollo incremental del proyecto, d
   - Configuración de Docker para la creación y gestión de contenedores.
 ![](https://lh7-us.googleusercontent.com/docsz/AD_4nXdKM8hhmhLbBs9DhYx9FfW8FvAC9us2OlpT3b5yAL50htZ31wD0XvMAluyZuP-ExK4ms2qSFMgGV07D1-hKOx9U10fZ-i5oeRiwOfEJCpmPpIja5982xOYZfbfxfA_PqR8qxoppiX3uZRk_kWeLT9CoQ2US?key=nQL0RT6dNr_BeWtx8fgyhA)
 
-       UPLOAD_FOLDER: Define la carpeta donde se almacenarán los archivos cargados. Se asegura de que la carpeta exista utilizando os.makedirs.
-
-    key: Define la clave de cifrado AES de 16 bytes.
-
-    logging: Configura el nivel de registro a DEBUG y verifica la longitud de la clave AES.
+UPLOAD_FOLDER: Define la carpeta donde se almacenarán los archivos cargados. Se asegura de que la carpeta exista utilizando os.makedirs.
+key: Define la clave de cifrado AES de 16 bytes.
+logging: Configura el nivel de registro a DEBUG y verifica la longitud de la clave AES.
 
 ![](https://lh7-us.googleusercontent.com/docsz/AD_4nXc9Dcy0Vs0fc34RK2GBrp2DDpxDgAaxnA-mUCd-L9xB2CDKGyOwigOBKlKVzcb4rkOV6aUMmpO47oalr3ynnW0Z4h2OyNfzFsYQz55B-7p_61RGzLQyQfjrEktP83h3Rancrwg_9jXK9ylh3WMhmWtY5I7-?key=nQL0RT6dNr_BeWtx8fgyhA)
 - **Tarea 2: Implementar la API RESTful para gestión de archivos**
