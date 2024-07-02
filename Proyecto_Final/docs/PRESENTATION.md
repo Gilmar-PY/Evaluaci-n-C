@@ -91,6 +91,27 @@ logging: Configura el nivel de registro a DEBUG y verifica la longitud de la cla
 
 - **Tarea 3: Configurar la sincronización asíncrona y concurrente**
   - Uso de asyncio y threading para manejar la sincronización entre nodos.
+![](https://lh7-us.googleusercontent.com/docsz/AD_4nXcXnpQospDUMDndXhsc9NuYWcEaFOkq0vvGfuQhKymVdkuRAMKcd8FfqqWCwi9TLD8gt_2mBtzJjEV92LQyRfXKUP_GsRnNpIOIFkveEt-t6hCOcINHU2PwiVeESFTzSevY6_IkyEGcJzPcTlyGplAFc3e_?key=nQL0RT6dNr_BeWtx8fgyhA)
+
+Descripción:
+
+-   Objetivo: Esta función se encarga de replicar el archivo cifrado en otros nodos de forma asíncrona.
+    
+-   Paso 1: Se prepara un formulario de datos que incluye el archivo cifrado y sus metadatos.
+    
+-   Paso 2: Se envía una solicitud POST asíncrona al nodo especificado para replicar el archivo.
+    
+-   Paso 3: Se maneja cualquier excepción que pueda ocurrir durante la replicación
+    
+
+![](https://lh7-us.googleusercontent.com/docsz/AD_4nXdavXJpFyLuF22l1t3YoluiaBEyF7MBp8WEz4wPs-3brJG-mdgWkE4V2FneCmVdAjF2eVWQ4-6M-WFsFQdHdI_HCcATX0eCPtJwXCOPZr4Gu0rmC6KSgRiAfSKkwa2Nw6VnYTXSuSWFU12CIK8rgHOPU41_?key=nQL0RT6dNr_BeWtx8fgyhA)
+
+Descripción:
+
+-   Objetivo: Esta función configura la sincronización asíncrona y concurrente utilizando una cola de tareas y varios hilos de trabajo.  
+Paso 1: La función worker toma tareas de la cola y llama a replicar_archivo para replicar los archivos entre nodos.
+Paso 2: Se configuran y se inician varios hilos de trabajo para manejar las tareas en paralelo.
+
 
 ## SPRINT 3
 
