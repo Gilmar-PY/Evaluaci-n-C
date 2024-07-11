@@ -1,1 +1,246 @@
 Modelos de programación distribuida
+Modelos de Programación Distribuida
+
+Arquitectura de MPI:
+
+    MPI_Send y MPI_Recv:
+        Envío y recepción de mensajes de forma bloqueante.
+        Ejemplo: MPI_Send(&data, count, MPI_INT, dest, tag, MPI_COMM_WORLD);
+
+    MPI_Isend y MPI_Irecv:
+        Envío y recepción de mensajes de forma no bloqueante.
+        Ejemplo: MPI_Isend(&data, count, MPI_INT, dest, tag, MPI_COMM_WORLD, &request);
+
+    MPI_Bcast:
+        Difusión de un mensaje desde un proceso a todos los demás.
+        Ejemplo: MPI_Bcast(&data, count, MPI_INT, root, MPI_COMM_WORLD);
+
+    MPI_Scatter y MPI_Gather:
+        Distribución y recolección de datos desde y hacia todos los procesos.
+        Ejemplo Scatter: MPI_Scatter(sendbuf, sendcount, MPI_INT, recvbuf, recvcount, MPI_INT, root, MPI_COMM_WORLD);
+        Ejemplo Gather: MPI_Gather(sendbuf, sendcount, MPI_INT, recvbuf, recvcount, MPI_INT, root, MPI_COMM_WORLD);
+
+    MPI_Allgather y MPI_Alltoall:
+        Todos los procesos envían y reciben datos de todos los demás procesos.
+        Ejemplo Allgather: MPI_Allgather(sendbuf, sendcount, MPI_INT, recvbuf, recvcount, MPI_INT, MPI_COMM_WORLD);
+        Ejemplo Alltoall: MPI_Alltoall(sendbuf, sendcount, MPI_INT, recvbuf, recvcount, MPI_INT, MPI_COMM_WORLD);
+
+Comunicación Colectiva:
+
+    MPI_Barrier:
+        Sincronización de todos los procesos en un punto específico.
+        Ejemplo: MPI_Barrier(MPI_COMM_WORLD);
+
+    MPI_Reduce y MPI_Allreduce:
+        Reducción de datos combinando los resultados de todos los procesos.
+        Ejemplo Reduce: MPI_Reduce(&sendbuf, &recvbuf, count, MPI_INT, MPI_SUM, root, MPI_COMM_WORLD);
+        Ejemplo Allreduce: MPI_Allreduce(&sendbuf, &recvbuf, count, MPI_INT, MPI_SUM, MPI_COMM_WORLD);
+
+Topologías de Comunicación:
+
+    MPI_Cart_create:
+        Creación de una topología cartesiana para organizar procesos en una malla o cuadrícula.
+        Ejemplo: MPI_Cart_create(MPI_COMM_WORLD, ndims, dims, periods, reorder, &cart_comm);
+
+    MPI_Graph_create:
+        Definición de una topología gráfica arbitraria.
+        Ejemplo: MPI_Graph_create(MPI_COMM_WORLD, nnodes, index, edges, reorder, &graph_comm);
+
+Grupos y Comunicadores:
+
+    Grupos:
+        Colección ordenada de procesos.
+        Ejemplo: MPI_Group_incl(group, n, ranks, &newgroup);
+
+    Comunicadores:
+        Contexto de comunicación dentro de un grupo.
+        Ejemplo: MPI_Comm_create_group(MPI_COMM_WORLD, group, tag, &newcomm);
+
+Sincronización y Consistencia:
+
+    MPI_Wait y MPI_Test:
+        Espera y prueba de operaciones no bloqueantes.
+        Ejemplo Wait: MPI_Wait(&request, &status);
+        Ejemplo Test: MPI_Test(&request, &flag, &status);
+
+    MPI_Barrier:
+        Sincronización de procesos.
+        Ejemplo: MPI_Barrier(MPI_COMM_WORLD);
+
+Implementaciones y Optimización:
+
+    Optimización de Redes:
+        Uso de técnicas como multiplexación de mensajes y compresión de datos para reducir latencia.
+        Ejemplo: MPI_Init_thread(&argc, &argv, MPI_THREAD_MULTIPLE, &provided);
+
+    Binding de Procesos:
+        Vinculación de procesos a núcleos específicos del procesador.
+        Ejemplo: MPI_Comm_split_type(MPI_COMM_WORLD, MPI_COMM_TYPE_SHARED, 0, MPI_INFO_NULL, &node_comm);
+
+    Tolerancia a Fallos:
+        Uso de ULFM (User Level Failure Mitigation) para manejar fallos de procesos.
+        Ejemplo: MPIX_Comm_agree(MPI_COMM_WORLD, &flag);
+
+Herramientas y Bibliotecas Complementarias:
+
+    Herramientas de Depuración:
+        TotalView y DDT para rastreo y solución de problemas.
+        Ejemplo de uso en TotalView: mpirun -np 4 ./program
+
+    Bibliotecas de Alto Nivel:
+        PETSc y Trilinos para estructuras de datos y algoritmos paralelos.
+        Ejemplo con PETSc: VecCreateMPI(MPI_COMM_WORLD, PETSC_DECIDE, n, &x);
+
+Rendimiento y Escalabilidad:
+
+    Overhead de Comunicación:
+        Minimizar usando comunicaciones no bloqueantes y agregación de mensajes.
+        Ejemplo: MPI_Ibcast(&data, count, MPI_INT, root, MPI_COMM_WORLD, &request);
+
+    Balance de Carga:
+        Uso de técnicas de balanceo dinámico para redistribuir tareas.
+        Ejemplo: MPI_Scatterv(sendbuf, sendcounts, displs, MPI_INT, recvbuf, recvcount, MPI_INT, root, MPI_COMM_WORLD);
+
+    Modelos Híbridos:
+        Combinación de MPI con OpenMP para aprovechar el paralelismo a nivel de nodo y red.
+        Ejemplo: #pragma omp parallel for
+
+Remote Procedure Call (RPC)
+
+Arquitectura de RPC:
+
+    Stub del Cliente:
+        Empaqueta parámetros y envía la solicitud al servidor.
+        Ejemplo en C: xdr_callmsg(xdrs, &callmsg);
+
+    Stub del Servidor:
+        Desempaqueta parámetros y llama al procedimiento solicitado.
+        Ejemplo en C: xdr_replymsg(xdrs, &replymsg);
+
+    Protocolo de Comunicación:
+        Define cómo se transmiten los mensajes.
+        Ejemplo: Uso de TCP/IP para comunicación confiable.
+
+    Middleware de RPC:
+        Facilita la comunicación, localización del servidor y seguridad.
+        Ejemplo: gRPC o Apache Thrift.
+
+Funcionamiento de RPC:
+
+    Invocación del Cliente:
+        El cliente llama a un procedimiento remoto a través del stub.
+        Ejemplo en gRPC: response = stub.Add(request);
+
+    Serialización y Envío:
+        El stub serializa parámetros y envía la solicitud.
+        Ejemplo en Protobuf: message AddRequest { int32 a = 1; int32 b = 2; }
+
+    Recepción y Deserialización:
+        El stub del servidor recibe y deserializa los parámetros.
+        Ejemplo en gRPC: request.ParseFromString(serialized_request);
+
+    Ejecución del Procedimiento:
+        El servidor ejecuta el procedimiento solicitado.
+        Ejemplo en gRPC: int result = request.a() + request.b();
+
+    Serialización de la Respuesta:
+        El resultado del procedimiento se serializa y se envía de vuelta.
+        Ejemplo en Protobuf: response.SerializeToString(&serialized_response);
+
+    Recepción de la Respuesta:
+        El stub del cliente recibe y deserializa la respuesta.
+        Ejemplo en gRPC: response.ParseFromString(serialized_response);
+
+Tipos de RPC:
+
+    Síncrono:
+        El cliente espera la respuesta antes de continuar.
+        Ejemplo en gRPC: response = stub.Add(request);
+
+    Asíncrono:
+        El cliente no espera la respuesta inmediata y puede continuar con otras tareas.
+        Ejemplo en gRPC: future = stub.Add.future(request);
+
+Manejo de Errores y Excepciones:
+
+    Errores de Conexión:
+        Problemas al intentar conectar al servidor.
+        Ejemplo en gRPC: grpc::StatusCode::UNAVAILABLE
+
+    Errores de Transmisión:
+        Problemas durante el envío o recepción de datos.
+        Ejemplo en gRPC: grpc::StatusCode::DATA_LOSS
+
+    Errores de Ejecución:
+        Errores durante la ejecución del procedimiento remoto.
+        Ejemplo en gRPC: grpc::StatusCode::INTERNAL
+
+Seguridad en RPC:
+
+    Autenticación:
+        Verificación de identidad de cliente y servidor.
+        Ejemplo en gRPC: context.AddMetadata("authorization", "Bearer token");
+
+    Autorización:
+        Control de acceso para asegurar permisos adecuados.
+        Ejemplo en gRPC: Uso de políticas de IAM.
+
+    Encriptación:
+        Protección de datos transmitidos.
+        Ejemplo en gRPC: Uso de SSL/TLS.
+
+    Integridad:
+        Asegurar que los datos no han sido alterados.
+        Ejemplo en gRPC: Uso de checksums.
+
+Implementaciones de RPC:
+
+    XML-RPC:
+        Usa XML para codificar llamadas a procedimientos y HTTP como transporte.
+        Ejemplo: client.call("methodName", params);
+
+    JSON-RPC:
+        Usa JSON para codificación de mensajes.
+        Ejemplo: {"jsonrpc": "2.0", "method": "methodName", "params": [1, 2], "id": 1}
+
+    gRPC:
+        Usa Protocol Buffers para serialización de datos.
+        Ejemplo: response = stub.Add(request);
+
+    Apache Thrift:
+        Usa un IDL para definir servicios y tipos de datos.
+        Ejemplo: thrift -gen cpp service.thrift
+
+Casos de Uso de RPC:
+
+    Microservicios:
+        Comunicación entre servicios en una arquitectura de microservicios.
+        Ejemplo: Uso de gRPC para llamadas entre servicios.
+
+    Aplicaciones Distribuidas:
+        Ejecución de procedimientos en múltiples nodos.
+        Ejemplo: Uso de Apache Thrift en sistemas distribuidos.
+
+    Servicios Web:
+        RPC como base para APIs RESTful y SOAP.
+        Ejemplo: Uso de JSON-RPC para APIs web.
+
+Optimización y Rendimiento:
+
+    Compresión de Datos:
+        Reducir tamaño de mensajes transmitidos.
+        Ejemplo en gRPC: grpc::ClientContext::set_compression_level(GZIP);
+
+    Batching de Solicitudes:
+        Agrupar múltiples solicitudes en un solo mensaje.
+        Ejemplo: Envío de múltiples operaciones en una llamada RPC.
+
+    Caching de Resultados:
+        Almacenar resultados para evitar llamadas repetidas.
+        Ejemplo: Uso de caché de resultados en cliente.
+
+    Load Balancing:
+        Distribuir solicitudes entre múltiples servidores.
+        Ejemplo: Uso de balanceadores de carga.
+
+Estos puntos clave proporcionan una base sólida para entender la programación distribuida, MPI y RPC, así como sus implementaciones y optimizaciones.
