@@ -1,12 +1,131 @@
 ### Salida completa:
 
-
-
-
-
-
-
-
+INFO:__main__:Network started
+INFO:__main__:Node 1 received message from Node 0: SYNC
+INFO:__main__:Proceso 0 envió un mensaje a 1
+INFO:__main__:Node 0 sent message to Node 1: SYNC
+INFO:__main__:Node 2 received message from Node 0: SYNC
+INFO:__main__:Proceso 0 envió un mensaje a 2
+INFO:__main__:Node 0 sent message to Node 2: SYNC
+INFO:__main__:Node 3 received message from Node 0: SYNC
+INFO:__main__:Proceso 0 envió un mensaje a 3
+INFO:__main__:Node 0 sent message to Node 3: SYNC
+INFO:__main__:Node 4 received message from Node 0: SYNC
+INFO:__main__:Proceso 0 envió un mensaje a 4
+INFO:__main__:Node 0 sent message to Node 4: SYNC
+INFO:__main__:Node 0 synchronized clock
+INFO:__main__:Node 0 received message from Node 1: SYNC
+INFO:__main__:Proceso 1 envió un mensaje a 0
+INFO:__main__:Node 1 sent message to Node 0: SYNC
+INFO:__main__:Node 2 received message from Node 1: SYNC
+INFO:__main__:Proceso 1 envió un mensaje a 2
+INFO:__main__:Node 1 sent message to Node 2: SYNC
+INFO:__main__:Node 3 received message from Node 1: SYNC
+INFO:__main__:Proceso 1 envió un mensaje a 3
+INFO:__main__:Node 1 sent message to Node 3: SYNC
+INFO:__main__:Node 4 received message from Node 1: SYNC
+INFO:__main__:Proceso 1 envió un mensaje a 4
+INFO:__main__:Node 1 sent message to Node 4: SYNC
+INFO:__main__:Node 1 synchronized clock
+INFO:__main__:Node 0 received message from Node 2: SYNC
+INFO:__main__:Proceso 3 reportó terminación a 1
+INFO:__main__:Proceso 2 envió un mensaje a 0
+INFO:__main__:Proceso 4 reportó terminación a 1
+INFO:__main__:Proceso 3 marcado como inactivo
+INFO:__main__:Node 2 sent message to Node 0: SYNC
+INFO:__main__:Proceso 4 marcado como inactivo
+INFO:__main__:Node 1 received message from Node 2: SYNC
+INFO:__main__:Proceso 2 envió un mensaje a 1
+INFO:__main__:Node 2 sent message to Node 1: SYNC
+INFO:__main__:Node 3 received message from Node 2: SYNC
+INFO:__main__:Proceso 2 envió un mensaje a 3
+INFO:__main__:Node 2 sent message to Node 3: SYNC
+INFO:__main__:Node 4 received message from Node 2: SYNC
+INFO:__main__:Proceso 2 envió un mensaje a 4
+INFO:__main__:Node 2 sent message to Node 4: SYNC
+INFO:__main__:Node 2 synchronized clock
+INFO:__main__:Node 0 received message from Node 3: SYNC
+INFO:__main__:Proceso 3 envió un mensaje a 0
+INFO:__main__:Node 3 sent message to Node 0: SYNC
+INFO:__main__:Node 1 received message from Node 3: SYNC
+INFO:__main__:Proceso 3 envió un mensaje a 1
+INFO:__main__:Node 3 sent message to Node 1: SYNC
+INFO:__main__:Node 2 received message from Node 3: SYNC
+INFO:__main__:Proceso 3 envió un mensaje a 2
+INFO:__main__:Node 3 sent message to Node 2: SYNC
+INFO:__main__:Node 4 received message from Node 3: SYNC
+INFO:__main__:Proceso 3 envió un mensaje a 4
+INFO:__main__:Node 3 sent message to Node 4: SYNC
+INFO:__main__:Node 3 synchronized clock
+INFO:__main__:Node 0 received message from Node 4: SYNC
+INFO:__main__:Proceso 4 envió un mensaje a 0
+INFO:__main__:Node 4 sent message to Node 0: SYNC
+INFO:__main__:Node 1 received message from Node 4: SYNC
+INFO:__main__:Proceso 4 envió un mensaje a 1
+INFO:__main__:Node 4 sent message to Node 1: SYNC
+INFO:__main__:Node 2 received message from Node 4: SYNC
+INFO:__main__:Proceso 4 envió un mensaje a 2
+INFO:__main__:Node 4 sent message to Node 2: SYNC
+INFO:__main__:Node 3 received message from Node 4: SYNC
+INFO:__main__:Proceso 4 envió un mensaje a 3
+INFO:__main__:Node 4 sent message to Node 3: SYNC
+INFO:__main__:Node 4 synchronized clock
+INFO:__main__:All clocks synchronized
+INFO:__main__:Node 1 received message from Node 0: REQUEST
+INFO:__main__:Proceso 0 envió un mensaje a 1
+INFO:__main__:Node 0 sent message to Node 1: REQUEST
+INFO:__main__:Node 2 received message from Node 0: REQUEST
+INFO:__main__:Proceso 0 envió un mensaje a 2
+INFO:__main__:Node 0 sent message to Node 2: REQUEST
+INFO:__main__:Node 3 received message from Node 0: REQUEST
+INFO:__main__:Proceso 0 envió un mensaje a 3
+INFO:__main__:Node 0 sent message to Node 3: REQUEST
+INFO:__main__:Node 4 received message from Node 0: REQUEST
+INFO:__main__:Proceso 0 envió un mensaje a 4
+INFO:__main__:Node 0 sent message to Node 4: REQUEST
+INFO:__main__:Node 0 sent REQUEST to all neighbors
+INFO:__main__:Node 0 received message from Node 4: REPLY
+INFO:__main__:Proceso 4 envió un mensaje a 0
+INFO:__main__:Node 4 sent message to Node 0: REPLY
+INFO:__main__:Node 0 received message from Node 3: REPLY
+INFO:__main__:Proceso 3 envió un mensaje a 0
+INFO:__main__:Node 3 sent message to Node 0: REPLY
+INFO:__main__:Node 0 received message from Node 2: REPLY
+INFO:__main__:Proceso 2 envió un mensaje a 0
+INFO:__main__:Node 2 sent message to Node 0: REPLY
+INFO:__main__:Node 0 received message from Node 1: REPLY
+INFO:__main__:Proceso 1 envió un mensaje a 0
+INFO:__main__:Node 1 sent message to Node 0: REPLY
+INFO:__main__:Node 0 received REPLY, replies needed: 3
+INFO:__main__:Node 0 received REPLY, replies needed: 2
+INFO:__main__:Node 0 received REPLY, replies needed: 1
+INFO:__main__:Node 0 received REPLY, replies needed: 0
+INFO:__main__:Node 0 entering critical section
+INFO:__main__:Node 0 received message from Node 1: REQUEST
+INFO:__main__:Proceso 1 envió un mensaje a 0
+INFO:__main__:Node 1 sent message to Node 0: REQUEST
+INFO:__main__:Node 2 received message from Node 1: REQUEST
+INFO:__main__:Proceso 1 envió un mensaje a 2
+INFO:__main__:Node 1 sent message to Node 2: REQUEST
+INFO:__main__:Node 3 received message from Node 1: REQUEST
+INFO:__main__:Proceso 1 envió un mensaje a 3
+INFO:__main__:Node 1 sent message to Node 3: REQUEST
+INFO:__main__:Node 4 received message from Node 1: REQUEST
+INFO:__main__:Proceso 1 envió un mensaje a 4
+INFO:__main__:Node 1 sent message to Node 4: REQUEST
+INFO:__main__:Node 1 sent REQUEST to all neighbors
+INFO:__main__:Node 1 received message from Node 2: REPLY
+INFO:__main__:Proceso 2 envió un mensaje a 1
+INFO:__main__:Node 2 sent message to Node 1: REPLY
+INFO:__main__:Node 1 received message from Node 3: REPLY
+INFO:__main__:Proceso 3 envió un mensaje a 1
+INFO:__main__:Node 3 sent message to Node 1: REPLY
+INFO:__main__:Node 1 received message from Node 4: REPLY
+INFO:__main__:Proceso 4 envió un mensaje a 1
+INFO:__main__:Node 4 sent message to Node 1: REPLY
+INFO:__main__:Node 1 received REPLY, replies needed: 3
+INFO:__main__:Node 1 received REPLY, replies needed: 2
+INFO:__main__:Node 1 received REPLY, replies needed: 1
 
 
 
