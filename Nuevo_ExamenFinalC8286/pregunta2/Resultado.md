@@ -191,4 +191,4 @@ Robot 0 tomó una instantánea: {'id': 0, 'state': 'Soldadura', 'clock': [20, 0,
 
 
 
-La salida muestra un sistema de robots industriales coordinados que realizan tareas, envían mensajes, toman instantáneas de su estado, y gestionan el acceso a la sección crítica mediante el algoritmo de Raymond. La simulación incluye la captura de instantáneas utilizando el algoritmo de Chandy-Lamport y mantiene la consistencia temporal con relojes vectoriales. La gran cantidad de mensajes y estados capturados. 
+La salida muestra un sistema de robots industriales coordinados que realizan tareas, envían mensajes, toman instantáneas de su estado, y gestionan el acceso a la sección crítica mediante el algoritmo de Raymond. en cuanto a  a simulación incluye la captura de instantáneas utilizando el algoritmo de Chandy-Lamport y mantiene la consistencia temporal con relojes vectoriales. La gran cantidad de mensajes y estados capturados. 
