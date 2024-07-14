@@ -76,4 +76,4 @@ async def main():
 
 # Punto de entrada del script.
 if __name__ == "__main__":
-    asyncio.run(main())  # Ejecuta la función principal asíncrona.
+    asyncio.run(main())  
