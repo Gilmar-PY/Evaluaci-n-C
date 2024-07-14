@@ -1,4 +1,8 @@
 
+
+
+
+
 INFO:__main__:Evento agregado: execute - Celda 1 con prioridad 2
 INFO:__main__:Evento agregado: execute - Celda 2 con prioridad 1
 INFO:__main__:Evento agregado: execute - Celda 3 con prioridad 3
