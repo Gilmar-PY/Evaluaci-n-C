@@ -1,3 +1,148 @@
+  Node 2 has become the leader
+  Node 1 has become the leader
+  Node 3 has become the leader
+  Node 0 appended entry: {'key': 'y', 'value': 18}
+  Node 0 appended entry: {'key': 'z', 'value': 23}
+  Node 0 appended entry: {'key': 'z', 'value': 70}
+  Node 0 has become the leader
+  Node 1 appended entry: {'key': 'z', 'value': 34}
+  Node 1 appended entry: {'key': 'x', 'value': 30}
+  Node 1 appended entry: {'key': 'z', 'value': 62}
+  Node 2 appended entry: {'key': 'x', 'value': 1}
+  Node 2 appended entry: {'key': 'x', 'value': 87}
+  Node 4 appended entry: {'key': 'z', 'value': 71}
+  Node 4 has become the leader
+  Node 3 appended entry: {'key': 'x', 'value': 52}
+  Node 2 appended entry: {'key': 'x', 'value': 65}
+  Node 3 appended entry: {'key': 'y', 'value': 75}
+  Node 4 appended entry: {'key': 'x', 'value': 6}
+  Node 0 appended entry: {'key': 'x', 'value': 76}
+  Node 3 has become the leader
+  Node 3 appended entry: {'key': 'y', 'value': 89}
+  Node 4 appended entry: {'key': 'y', 'value': 46}
+  Node 0 appended entry: {'key': 'x', 'value': 17}
+  Node 2 has become the leader
+  Node 4 appended entry: {'key': 'y', 'value': 73}
+  Node 0 appended entry: {'key': 'z', 'value': 70}
+  Node 1 appended entry: {'key': 'x', 'value': 62}
+  Node 1 appended entry: {'key': 'z', 'value': 94}
+  Node 1 appended entry: {'key': 'z', 'value': 46}
+  Node 1 has become the leader
+  Node 2 appended entry: {'key': 'x', 'value': 83}
+  Node 2 has failed.
+  Node 0 has become the leader
+  Node 3 appended entry: {'key': 'z', 'value': 17}
+  Node 3 appended entry: {'key': 'y', 'value': 76}
+  Node 4 appended entry: {'key': 'x', 'value': 56}
+  Node 1 appended entry: {'key': 'y', 'value': 63}
+  Node 0 appended entry: {'key': 'x', 'value': 42}
+  Node 4 appended entry: {'key': 'x', 'value': 19}
+  Node 3 appended entry: {'key': 'y', 'value': 32}
+  Node 4 has become the leader
+  Node 4 appended entry: {'key': 'z', 'value': 6}
+  Node 3 appended entry: {'key': 'z', 'value': 25}
+  Node 0 appended entry: {'key': 'z', 'value': 45}
+  Node 1 appended entry: {'key': 'y', 'value': 43}
+  Node 1 has become the leader
+  Node 4 appended entry: {'key': 'y', 'value': 27}
+  Node 0 appended entry: {'key': 'y', 'value': 71}
+  Node 3 has become the leader
+  Node 3 appended entry: {'key': 'x', 'value': 73}
+  Node 3 appended entry: {'key': 'y', 'value': 43}
+  Node 0 appended entry: {'key': 'z', 'value': 4}
+  Node 4 appended entry: {'key': 'x', 'value': 21}
+  Node 0 has become the leader
+  Node 1 appended entry: {'key': 'y', 'value': 36}
+  Node 1 appended entry: {'key': 'y', 'value': 38}
+  Node 4 appended entry: {'key': 'z', 'value': 40}
+  Node 3 appended entry: {'key': 'z', 'value': 69}
+  Node 4 appended entry: {'key': 'z', 'value': 57}
+  Node 0 appended entry: {'key': 'y', 'value': 5}
+  Node 1 appended entry: {'key': 'z', 'value': 65}
+  Node 0 appended entry: {'key': 'x', 'value': 4}
+  Node 3 appended entry: {'key': 'z', 'value': 97}
+  Node 3 appended entry: {'key': 'y', 'value': 67}
+  Node 0 appended entry: {'key': 'x', 'value': 19}
+  Node 4 appended entry: {'key': 'x', 'value': 39}
+  Node 1 appended entry: {'key': 'x', 'value': 92}
+  Node 1 appended entry: {'key': 'x', 'value': 85}
+  Node 3 appended entry: {'key': 'x', 'value': 74}
+  Node 4 appended entry: {'key': 'x', 'value': 16}
+  Node 3 has healed.
+  Node 4 appended entry: {'key': 'y', 'value': 71}
+  Node 0 appended entry: {'key': 'y', 'value': 19}
+  Node 0 appended entry: {'key': 'z', 'value': 12}
+  Node 3 appended entry: {'key': 'z', 'value': 60}
+  Node 4 appended entry: {'key': 'z', 'value': 58}
+  Node 1 appended entry: {'key': 'x', 'value': 80}
+  Node 1 appended entry: {'key': 'z', 'value': 46}
+  Node 3 appended entry: {'key': 'x', 'value': 94}
+  Node 3 appended entry: {'key': 'z', 'value': 19}
+  Node 4 appended entry: {'key': 'y', 'value': 36}
+  Node 0 appended entry: {'key': 'y', 'value': 62}
+  Node 1 appended entry: {'key': 'z', 'value': 16}
+  Node 0 appended entry: {'key': 'x', 'value': 87}
+  Node 4 appended entry: {'key': 'z', 'value': 79}
+  Node 1 appended entry: {'key': 'z', 'value': 13}
+  Node 3 appended entry: {'key': 'y', 'value': 2}
+  Node 0 appended entry: {'key': 'y', 'value': 99}
+  Node 3 appended entry: {'key': 'y', 'value': 1}
+  Node 4 appended entry: {'key': 'x', 'value': 8}
+  Node 1 has failed.
+  Node 0 appended entry: {'key': 'z', 'value': 26}
+  Node 0 appended entry: {'key': 'x', 'value': 82}
+  Node 3 appended entry: {'key': 'x', 'value': 45}
+  Node 4 appended entry: {'key': 'y', 'value': 92}
+  Node 3 appended entry: {'key': 'x', 'value': 21}
+  Node 0 appended entry: {'key': 'y', 'value': 69}
+  Node 4 appended entry: {'key': 'z', 'value': 52}
+  Node 3 appended entry: {'key': 'x', 'value': 67}
+  Node 4 appended entry: {'key': 'z', 'value': 5}
+  Node 3 appended entry: {'key': 'x', 'value': 91}
+  Node 4 appended entry: {'key': 'y', 'value': 41}
+  Node 0 appended entry: {'key': 'y', 'value': 7}
+  Node 3 appended entry: {'key': 'x', 'value': 12}
+  Node 0 appended entry: {'key': 'y', 'value': 4}
+  Node 4 appended entry: {'key': 'x', 'value': 48}
+  Node 3 appended entry: {'key': 'x', 'value': 60}
+  Node 4 appended entry: {'key': 'x', 'value': 85}
+  Node 4 has healed.
+  Node 0 appended entry: {'key': 'x', 'value': 65}
+  Node 3 appended entry: {'key': 'x', 'value': 10}
+  Node 3 appended entry: {'key': 'y', 'value': 43}
+  Node 4 appended entry: {'key': 'y', 'value': 62}
+  Node 0 appended entry: {'key': 'y', 'value': 93}
+  Node 4 appended entry: {'key': 'y', 'value': 83}
+  Node 0 appended entry: {'key': 'y', 'value': 30}
+  Node 3 appended entry: {'key': 'z', 'value': 88}
+  Node 3 appended entry: {'key': 'z', 'value': 75}
+  Node 4 appended entry: {'key': 'y', 'value': 62}
+  Node 3 has failed.
+  Node 0 appended entry: {'key': 'z', 'value': 11}
+  Node 4 appended entry: {'key': 'x', 'value': 49}
+  Node 0 appended entry: {'key': 'z', 'value': 88}
+  Node 4 appended entry: {'key': 'y', 'value': 95}
+  Node 4 appended entry: {'key': 'y', 'value': 65}
+  Node 4 has healed.
+  Node 0 appended entry: {'key': 'x', 'value': 73}
+  Node 4 appended entry: {'key': 'z', 'value': 100}
+  Node 4 appended entry: {'key': 'z', 'value': 64}
+  Node 0 appended entry: {'key': 'y', 'value': 3}
+  Node 4 appended entry: {'key': 'y', 'value': 19}
+  Node 2 has failed.
+  Node 0 appended entry: {'key': 'z', 'value': 30}
+  Node 0 appended entry: {'key': 'y', 'value': 63}
+  Node 4 appended entry: {'key': 'x', 'value': 67}
+  Node 4 appended entry: {'key': 'y', 'value': 43}
+  Node 0 has healed.
+  Node 0 appended entry: {'key': 'x', 'value': 54}
+  Node 4 appended entry: {'key': 'y', 'value': 47}
+  Node 0 appended entry: {'key': 'z', 'value': 53}
+  Node 4 appended entry: {'key': 'z', 'value': 53}
+  Node 0 has failed.
+  Node 4 appended entry: {'key': 'x', 'value': 44}
+  Node 1 has healed.
+  Simulation complete. Stopping all nodes.
 
 ### 1. Elección del Líder
 
