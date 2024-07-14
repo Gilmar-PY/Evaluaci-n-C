@@ -7,29 +7,29 @@ import copy
 # Clase de Reloj Vectorial
 class VectorClock:
     def __init__(self, num_nodes, node_id):
-        self.clock = [0] * num_nodes  # Inicializa el reloj vectorial con ceros
-        self.node_id = node_id  # ID del nodo
+        self.clock = [0] * num_nodes  # Inicializa el reloj vectorial 
+        self.node_id = node_id  
 
     def tick(self):
         self.clock[self.node_id] += 1  # Incrementa el contador del reloj local
 
     def send_event(self):
-        self.tick()  # Incrementa el reloj local antes de enviar
+        self.tick()  
         return self.clock[:]  # Devuelve una copia del reloj vectorial actual
 
     def receive_event(self, received_vector):
         for i in range(len(self.clock)):
             self.clock[i] = max(self.clock[i], received_vector[i])  # Actualiza el reloj local con el máximo entre el local y el recibido
-        self.clock[self.node_id] += 1  # Incrementa el contador del reloj local
+        self.clock[self.node_id] += 1  
 
 # Clase de Recolector de Basura Generacional
 class GenerationalCollector:
     def __init__(self, size):
-        self.size = size  # Tamaño del espacio de memoria
+        self.size = size  
         self.young_gen = [None] * size  # Inicializa la generación joven
         self.old_gen = [None] * size  # Inicializa la generación vieja
-        self.young_ptr = 0  # Puntero para la generación joven
-        self.old_ptr = 0  # Puntero para la generación vieja
+        self.young_ptr = 0  
+        self.old_ptr = 0  
 
     def allocate(self, obj, old=False):
         if old:
@@ -66,7 +66,7 @@ class RaymondMutex:
         self.neighbors = []  # Vecinos del nodo
 
     def add_neighbor(self, neighbor):
-        self.neighbors.append(neighbor)  # Agrega un vecino a la lista
+        self.neighbors.append(neighbor)  
 
     def request_access(self, requester_id):
         if self.token_holder:
@@ -126,7 +126,7 @@ class Robot:
         self.channels = {i: [] for i in range(total_robots) if i != id}  # Canales de comunicación
         self.snapshots = []  # Lista de instantáneas
         self.mutex = RaymondMutex(id)  # Algoritmo de exclusión mutua de Raymond
-        self.iterations = 0  # Contador de iteraciones
+        self.iterations = 0  
 
     def set_state(self, state):
         self.state = state  # Cambia el estado del robot
@@ -166,12 +166,12 @@ class Robot:
             if random.choice([True, False]):
                 self.take_snapshot()
 
-            self.iterations += 1  # Incrementa el contador de iteraciones
+            self.iterations += 1  
 
     def start(self):
         thread = threading.Thread(target=self.execute_task)  # Crea un hilo para ejecutar la tarea del robot
-        thread.start()  # Inicia el hilo
-        return thread  # Retorna el hilo
+        thread.start()  
+        return thread  
 
 def main():
     total_robots = 3  # Número total de robots
@@ -188,7 +188,7 @@ def main():
 
     threads = [robot.start() for robot in robots]  # Inicia los hilos de los robots
     for thread in threads:
-        thread.join()  # Espera a que todos los hilos terminen
+        thread.join()  
 
 if __name__ == "__main__":
-    main()  # Ejecuta la función principal
+    main()  
