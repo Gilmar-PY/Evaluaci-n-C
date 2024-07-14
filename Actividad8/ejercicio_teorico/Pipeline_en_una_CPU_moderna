@@ -1,0 +1,66 @@
+Ejercicio 1: Pipeline en una CPU moderna
+
+Pipeline en una CPU moderna: El pipeline es una técnica que permite a la CPU trabajar en varias instrucciones a la vez, pero en diferentes etapas de su ejecución. Esto se hace dividiendo el proceso de ejecución de una instrucción en varias etapas y permitiendo que diferentes etapas trabajen en diferentes instrucciones simultáneamente.
+
+Etapas típicas del pipeline:
+
+    Fetch (Búsqueda): La CPU toma la próxima instrucción de la memoria.
+    Decode (Decodificación): La CPU interpreta qué hace la instrucción.
+    Execute (Ejecución): La CPU realiza la operación indicada por la instrucción.
+    Memory Access (Acceso a memoria): Si la instrucción necesita leer o escribir datos en la memoria, se hace en esta etapa.
+    Write-back (Escritura): El resultado de la instrucción se escribe de vuelta en un registro de la CPU.
+
+Cómo funciona el pipeline:
+
+    un ejemplo practico seria  una línea de ensamblaje en una fábrica donde se construyen coches. En una parte de la línea (fetch), se toma una carrocería; en otra parte (decode), se añaden las puertas; en otra parte (execute), se instala el motor, y así sucesivamente. Cada coche en la línea está en una etapa diferente del ensamblaje al mismo tiempo.
+    De manera similar, en un pipeline de CPU, mientras una instrucción está siendo buscada, otra está siendo decodificada, otra está siendo ejecutada, y así sucesivamente. Esto significa que múltiples instrucciones están en diferentes fases de ejecución al mismo tiempo.
+
+Mejora del rendimiento:
+
+    Sin pipeline, cada instrucción tendría que esperar a que la anterior se complete antes de empezar.
+    Con pipeline, se pueden tener varias instrucciones en diferentes etapas del proceso, lo que significa que la CPU puede hacer más trabajo en el mismo tiempo.
+
+
+
+
+Ejercicio 2: Reordenamiento de instrucciones (out-of-order execution)
+
+Reordenamiento de instrucciones:
+
+    En los procesadores modernos, las instrucciones no siempre se ejecutan en el orden en que aparecen en el programa. En su lugar, la CPU puede reordenarlas para aprovechar mejor los recursos disponibles y mejorar el rendimiento.
+
+Cómo funciona:
+
+    ejemplo se tienes tres instrucciones: A, B, y C.
+        Instrucción A necesita un dato que está siendo calculado por la instrucción B.
+        Mientras espera que B termine, la CPU podría quedarse sin hacer nada si sigue el orden.
+        En lugar de eso, la CPU puede buscar instrucciones como C, que no dependen de B, y ejecutarlas mientras espera.
+
+Ejemplo ilustrativo:
+
+    Si la instrucción A es "sumar X y Y", y está esperando que B termine de calcular Y, la CPU puede ejecutar una instrucción C, como "multiplicar M y N", que no necesita el resultado de B.
+    De esta manera, la CPU sigue trabajando y no se queda esperando.
+
+
+
+
+
+Ejercicio 3: Predicción de bifurcaciones (branch prediction)
+
+Predicción de bifurcaciones:
+
+    Cuando el programa tiene una bifurcación (una decisión, como un if), la CPU tiene que decidir qué camino tomar antes de saber el resultado de la condición. Esto puede causar demoras.
+    Para mitigar esto, las CPUs modernas intentan predecir cuál será el resultado de la bifurcación y continuar ejecutando instrucciones en el camino predicho.
+
+Predicción estática:
+
+    La predicción se basa en reglas fijas. Por ejemplo, siempre predecir que la bifurcación no se tomará, o siempre predecir que se tomará.
+
+Predicción dinámica:
+
+    La CPU usa el historial de ejecuciones pasadas para tomar decisiones. Por ejemplo, si en el pasado la bifurcación se tomó 90% de las veces, la CPU predecirá que se tomará esta vez también.
+
+Mejora del flujo de instrucciones:
+
+    La predicción reduce los ciclos de burbuja (esperas) en el pipeline al anticipar la dirección de las bifurcaciones.
+    Si la predicción es correcta, la CPU no pierde tiempo esperando el resultado de la condición y puede seguir trabajando sin interrupciones.

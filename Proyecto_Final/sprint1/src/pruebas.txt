@@ -1,0 +1,8 @@
+# Pruebas para cargar un archivo
+curl -X POST -F 'archivo=@path/to/your/file' http://localhost:5000/cargar
+
+# Pruebas para descargar un archivo
+curl http://localhost:5000/descargar/nombre_archivo
+
+# Pruebas para eliminar un archivo
+curl -X DELETE http://localhost:5000/eliminar/nombre_archivo

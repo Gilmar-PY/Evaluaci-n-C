@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  storage-node-1:
+    build: .
+    container_name: storage-node-1
+    ports:
+      - "5000:5000"
+  storage-node-2:
+    build: .
+    container_name: storage-node-2
+    ports:
+      - "5001:5000"
+  storage-node-3:
+    build: .
+    container_name: storage-node-3
+    ports:
+      - "5002:5000"

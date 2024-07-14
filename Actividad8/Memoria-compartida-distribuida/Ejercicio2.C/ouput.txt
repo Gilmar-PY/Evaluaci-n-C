@@ -1,0 +1,1 @@
+Final value of shared_variable: 5000000
