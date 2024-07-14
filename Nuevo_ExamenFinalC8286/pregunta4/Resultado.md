@@ -148,7 +148,7 @@
 
 ### 1. Elección del Líder
 
-Durante la ejecución, varios nodos se convierten en líderes. Aquí hay algunas líneas que indican este comportamiento:
+Durante la ejecución, varios nodos se convierten en líderes. lo cual se muestran en estas líneas que indican este comportamiento:
   
     Node 2 has become the leader
     Node 1 has become the leader
@@ -158,7 +158,7 @@ Durante la ejecución, varios nodos se convierten en líderes. Aquí hay algunas
 
   
 Cada vez que un nodo se convierte en líder, se asegura de que haya un líder activo en el sistema. Esto es fundamental para la consistencia, ya que el líder es responsable de replicar los datos en los nodos seguidores.
-La frecuencia con la que los líderes cambian puede indicar la estabilidad del sistema o la cantidad de fallos simulados. Si los líderes cambian frecuentemente, podría significar que los nodos líderes fallan o que hay particiones en la red que desencadenan nuevas elecciones de líder.
+La frecuencia con la que los líderes cambian puede indicar la estabilidad del sistema o la cantidad de fallos simulados.
 
  #### Adición de Entradas al Log
 
@@ -169,7 +169,7 @@ Durante la simulación, los nodos líderes añaden entradas al log, lo cual se r
       Node 4 appended entry: {'key': 'y', 'value': 73}
   
 #### Interpretación:
-Los líderes están realizando operaciones y replicando estos cambios en los nodos seguidores. Cada entrada indica una operación de escritura que se está propagando a través del clúster.
+Los líderes están realizando operaciones y replicando estos cambios en los nodos seguidores. En este caso cada entrada indica una operación de escritura que se está propagando a través del clúster.
 Esto demuestra la consistencia del sistema, ya que las operaciones de los líderes se reflejan en los nodos seguidores, garantizando que todos los nodos tengan la misma información.
 
 3. Fallos y Recuperaciones de Nodos
@@ -183,7 +183,7 @@ La simulación incluye fallos y recuperaciones de nodos:
 
 ### Interpretación:
 Estos mensajes simulan fallos de red y la recuperación de nodos. La capacidad de los nodos para fallar y recuperarse demuestra la tolerancia a particiones del sistema.
-tambien cuando los nodos fallan, otros nodos pueden asumir el rol de líder y continuar operando, lo que demuestra la disponibilidad del sistema. La recuperación de nodos permite que el sistema vuelva a su estado normal después de una partición o fallo.
+tambien cuando los nodos fallan, otros nodos pueden asumir el rol de líder y continuar operando, lo quese esta  demostrando la disponibilidad del sistema. La recuperación de nodos permite que el sistema vuelva a su estado normal después de una partición o fallo.
 
 #### Consistencia y Replicación de Datos
 
