@@ -11,11 +11,11 @@
             import copy
 
 
-threading: Para crear y manejar hilos.
-time: Para controlar el tiempo de espera y simular retrasos.
-random: Para seleccionar tareas y destinatarios de mensajes de forma aleatoria.
-PriorityQueue: Para manejar colas de prioridad, aunque no se usa directamente en este código.
-copy: Para realizar copias profundas de objetos.
+-threading: Para crear y manejar hilos.
+-time: Para controlar el tiempo de espera y simular retrasos.
+-random: Para seleccionar tareas y destinatarios de mensajes de forma aleatoria.
+-PriorityQueue: Para manejar colas de prioridad, aunque no se usa directamente en este código.
+-copy: Para realizar copias profundas de objetos.
 
 
 #### Bloque 2: Clase de Reloj Vectorial
