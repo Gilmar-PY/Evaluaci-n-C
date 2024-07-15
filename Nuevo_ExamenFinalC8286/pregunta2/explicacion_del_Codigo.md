@@ -46,7 +46,7 @@ copy: Para realizar copias profundas de objetos.
 
 
 ```python
-__init__: Inicializa el reloj vectorial con ceros y asigna el ID del nodo.
+__init__:# Inicializa el reloj vectorial con ceros y asigna el ID del nodo.
 
 ```
 tick: Incrementa el contador del reloj del nodo local.
@@ -96,7 +96,7 @@ receive_event: Actualiza el reloj local tomando el máximo entre su valor actual
 
 #### Explicación:
 ```python
-__init__: Inicializa las generaciones joven y vieja con un tamaño dado y punteros para la asignación de memoria.
+__init__:# Inicializa las generaciones joven y vieja con un tamaño dado y punteros para la asignación de memoria.
 ```
 
 allocate: Asigna un objeto a la generación joven o vieja según el parámetro old.
@@ -170,7 +170,7 @@ collect_old: Recolecta los objetos no referenciados en la generación vieja y aj
 ```
 #### Explicación:
 ```
-__init__: Inicializa el nodo con su ID, su padre (si lo tiene), una bandera indicando si posee el token, una cola de solicitudes y una lista de vecinos.
+__init__: # Inicializa el nodo con su ID, su padre (si lo tiene), una bandera indicando si posee el token, una cola de solicitudes y una lista de vecinos.
 ```
 add_neighbor: Agrega un vecino a la lista de vecinos.
 request_access: Solicita acceso a la sección crítica. Si el nodo tiene el token, entra a la sección crítica, si no, envía la solicitud a su padre.
@@ -243,7 +243,7 @@ leave_critical_section: Sale de la sección crítica y envía el token al siguie
 
 #### Explicación:
 ```python
-__init__: Inicializa el robot con su ID, el número total de robots, su reloj vectorial, su recolector de basura, su estado inicial, sus canales de comunicación, su lista de instantáneas, su exclusión mutua y el contador de iteraciones.
+__init__:# Inicializa el robot con su ID, el número total de robots, su reloj vectorial, su recolector de basura, su estado inicial, sus canales de comunicación, su lista de instantáneas, su exclusión mutua y el contador de iteraciones.
 ```
 set_state: Establece el estado del robot.
 send_message: Envía un mensaje a otro robot y lo registra en los canales de comunicación.
