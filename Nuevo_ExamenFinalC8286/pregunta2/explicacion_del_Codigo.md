@@ -48,7 +48,7 @@ receive_event: Actualiza el reloj local tomando el máximo entre su valor actual
 
 
 #### Bloque 3: Clase de Recolector de Basura Generacional
-''' python
+
       # Clase de Recolector de Basura Generacional
       class GenerationalCollector:
           def __init__(self, size):
@@ -93,7 +93,7 @@ collect_old: Recolecta los objetos no referenciados en la generación vieja y aj
 
 
 #### Bloque 4: Algoritmo de Raymond para la Exclusión Mutua
-  '''python
+
       # Algoritmo de Raymond para la Exclusión Mutua
       class RaymondMutex:
           def __init__(self, node_id, parent=None):
@@ -165,7 +165,7 @@ leave_critical_section: Sale de la sección crítica y envía el token al siguie
 
 
 #### Bloque 5: Clase de Robot
-      python
+     
       # Clase de Robot que incluye todas las funcionalidades requeridas
       class Robot:
           def __init__(self, id, total_robots, collector):
@@ -233,7 +233,7 @@ execute_task: Ejecuta tareas de manera aleatoria, envía mensajes, solicita acce
 start: Inicia un hilo para ejecutar la tarea del robot.
 
 #### Bloque 6: Función Principal
-```python
+
 def main():
     total_robots = 3  # Número total de robots
     collector = GenerationalCollector(10)  # Inicializa el recolector de basura generacional
