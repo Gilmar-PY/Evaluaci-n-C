@@ -1,11 +1,14 @@
 
 #### Bloque 1: Importación de Módulos
-            ```python
-                        import threading
-                        import time
-                        import random
-                        from queue import PriorityQueue
-                        import copy
+
+#### Bloque 1: Importación de Módulos
+
+```python
+import threading
+import time
+import random
+from queue import PriorityQueue
+import copy
 
 
 threading: Para crear y manejar hilos.
