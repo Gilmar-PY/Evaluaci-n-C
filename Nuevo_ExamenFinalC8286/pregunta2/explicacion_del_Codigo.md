@@ -1,11 +1,10 @@
 #### Bloque 1: Importación de Módulos
-            ''' python
-                 
-                  import threading
-                  import time
-                  import random
-                  from queue import PriorityQueue
-                  import copy
+```python
+import threading
+import time
+import random
+from queue import PriorityQueue
+import copy
 Este bloque importa los módulos necesarios:
 
 threading: Para crear y manejar hilos.
@@ -232,31 +231,28 @@ take_snapshot: Toma una instantánea del estado actual del robot y sus canales d
 execute_task: Ejecuta tareas de manera aleatoria, envía mensajes, solicita acceso a la sección crítica y toma instantáneas en un bucle controlado por el número de iteraciones.
 start: Inicia un hilo para ejecutar la tarea del robot.
 
-
 #### Bloque 6: Función Principal
-            ```python
-            def main():
-                total_robots = 3  # Número total de robots
-                collector = GenerationalCollector(10)  # Inicializa el recolector de basura generacional
-                robots = [Robot(id, total_robots, collector) for id in range(total_robots)]  # Crea los robots
-            
-                # Configurar los vecinos y padres para el algoritmo de Raymond
-                robots[0].mutex.add_neighbor(robots[1])
-                robots[1].mutex.add_neighbor(robots[0])
-                robots[1].mutex.add_neighbor(robots[2])
-                robots[2].mutex.add_neighbor(robots[1])
-                robots[1].mutex.parent = robots[0]
-                robots[2].mutex.parent = robots[1]
-            
-                threads = [robot.start() for robot in robots]  # Inicia los hilos de los robots
-                for thread in threads:
-                    thread.join()  # Espera a que todos los hilos terminen
-            
-            if __name__ == "__main__":
-                main()  # Ejecuta la función principal
+```python
+def main():
+    total_robots = 3  # Número total de robots
+    collector = GenerationalCollector(10)  # Inicializa el recolector de basura generacional
+    robots = [Robot(id, total_robots, collector) for id in range(total_robots)]  # Crea los robots
 
-           
+    # Configurar los vecinos y padres para el algoritmo de Raymond
+    robots[0].mutex.add_neighbor(robots[1])
+    robots[1].mutex.add_neighbor(robots[0])
+    robots[1].mutex.add_neighbor(robots[2])
+    robots[2].mutex.add_neighbor(robots[1])
+    robots[1].mutex.parent = robots[0]
+    robots[2].mutex.parent = robots[1]
 
+    threads = [robot.start() for robot in robots]  # Inicia los hilos de los robots
+    for thread in threads:
+        thread.join()  # Espera a que todos los hilos terminen
+
+if __name__ == "__main__":
+    main()  # Ejecuta la función principal
+          
 
 #### Explicación:
 main: Configura y ejecuta la simulación de robots.
