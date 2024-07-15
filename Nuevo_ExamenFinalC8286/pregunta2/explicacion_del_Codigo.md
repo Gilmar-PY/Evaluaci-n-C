@@ -173,13 +173,18 @@ collect_old: Recolecta los objetos no referenciados en la generación vieja y aj
 __init__: # Inicializa el nodo con su ID, su padre (si lo tiene), una bandera indicando si posee el token, una cola de solicitudes y una lista de vecinos.
 ```
 add_neighbor: Agrega un vecino a la lista de vecinos.
-request_access: Solicita acceso a la sección crítica. Si el nodo tiene el token, entra a la sección crítica, si no, envía la solicitud a su padre.
-receive_request: Maneja la recepción de una solicitud de acceso. Si no tiene el token, reenvía la solicitud a su padre, si tiene el token, lo envía al solicitante.
-send_token: Envía el token al vecino solicitante.
-receive_token: Maneja la recepción del token. Si hay solicitudes pendientes, envía el token al siguiente en la cola.
-enter_critical_section: Entra a la sección crítica y simula el tiempo de permanencia.
-leave_critical_section: Sale de la sección crítica y envía el token al siguiente en la cola si hay solicitudes pendientes.
 
+request_access: Solicita acceso a la sección crítica. Si el nodo tiene el token, entra a la sección crítica, si no, envía la solicitud a su padre.
+
+receive_request: Maneja la recepción de una solicitud de acceso. Si no tiene el token, reenvía la solicitud a su padre, si tiene el token, lo envía al solicitante.
+
+send_token: Envía el token al vecino solicitante.
+
+receive_token: Maneja la recepción del token. Si hay solicitudes pendientes, envía el token al siguiente en la cola.
+
+enter_critical_section: Entra a la sección crítica y simula el tiempo de permanencia.
+
+leave_critical_section: Sale de la sección crítica y envía el token al siguiente en la cola si hay solicitudes pendientes.
 
 #### Bloque 5: Clase de Robot
      ```python
@@ -246,9 +251,13 @@ leave_critical_section: Sale de la sección crítica y envía el token al siguie
 __init__:# Inicializa el robot con su ID, el número total de robots, su reloj vectorial, su recolector de basura, su estado inicial, sus canales de comunicación, su lista de instantáneas, su exclusión mutua y el contador de iteraciones.
 ```
 set_state: Establece el estado del robot.
+
 send_message: Envía un mensaje a otro robot y lo registra en los canales de comunicación.
+
 take_snapshot: Toma una instantánea del estado actual del robot y sus canales de comunicación.
+
 execute_task: Ejecuta tareas de manera aleatoria, envía mensajes, solicita acceso a la sección crítica y toma instantáneas en un bucle controlado por el número de iteraciones.
+
 start: Inicia un hilo para ejecutar la tarea del robot.
 
 #### Bloque 6: Función Principal
@@ -277,9 +286,13 @@ def main():
 #### Explicación:
 
 main: Configura y ejecuta la simulación de robots.
+
 Inicializa el número total de robots y el recolector de basura generacional.
+
 Crea los robots.
+
 Configura los vecinos y los padres para el algoritmo de exclusión mutua de Raymond.
+
 Inicia los hilos de los robots y espera a que todos terminen.
 
 
