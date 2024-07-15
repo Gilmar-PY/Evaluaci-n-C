@@ -1,3 +1,4 @@
+
 #### Bloque 1: Importación de Módulos
       ```python
       import threading
@@ -5,7 +6,7 @@
       import random
       from queue import PriorityQueue
       import copy
-      Este bloque importa los módulos necesarios:
+
 
 threading: Para crear y manejar hilos.
 time: Para controlar el tiempo de espera y simular retrasos.
@@ -15,7 +16,7 @@ copy: Para realizar copias profundas de objetos.
 
 
 #### Bloque 2: Clase de Reloj Vectorial
-    '''python
+    ```python
 
             # Clase de Reloj Vectorial
             class VectorClock:
