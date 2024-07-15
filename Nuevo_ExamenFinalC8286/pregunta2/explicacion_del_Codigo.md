@@ -58,7 +58,7 @@ receive_event: Actualiza el reloj local tomando el máximo entre su valor actual
 ```
 
 #### Bloque 3: Clase de Recolector de Basura Generacional
-
+```python
       # Clase de Recolector de Basura Generacional
       class GenerationalCollector:
           def __init__(self, size):
@@ -92,10 +92,12 @@ receive_event: Actualiza el reloj local tomando el máximo entre su valor actual
               self.old_gen = [obj for obj in self.old_gen if obj is not None]  # Recolecta la generación vieja, eliminando los objetos no referenciados
               self.old_ptr = len(self.old_gen)  # Ajusta el puntero de la generación vieja
               self.old_gen.extend([None] * (self.size - self.old_ptr))  # Extiende la generación vieja con espacios vacíos
-
+```
 
 #### Explicación:
+```python
 __init__: Inicializa las generaciones joven y vieja con un tamaño dado y punteros para la asignación de memoria.
+```
 
 allocate: Asigna un objeto a la generación joven o vieja según el parámetro old.
 
@@ -106,7 +108,7 @@ collect_old: Recolecta los objetos no referenciados en la generación vieja y aj
 
 
 #### Bloque 4: Algoritmo de Raymond para la Exclusión Mutua
-
+```python
       # Algoritmo de Raymond para la Exclusión Mutua
       class RaymondMutex:
           def __init__(self, node_id, parent=None):
@@ -165,9 +167,11 @@ collect_old: Recolecta los objetos no referenciados en la generación vieja y aj
               print(f"Nodo {self.node_id} dejando la sección crítica")
               if self.request_queue:
                   self.send_token_to_next_in_queue()  # Envía el token al siguiente en la cola
-
+```
 #### Explicación:
+```
 __init__: Inicializa el nodo con su ID, su padre (si lo tiene), una bandera indicando si posee el token, una cola de solicitudes y una lista de vecinos.
+```
 add_neighbor: Agrega un vecino a la lista de vecinos.
 request_access: Solicita acceso a la sección crítica. Si el nodo tiene el token, entra a la sección crítica, si no, envía la solicitud a su padre.
 receive_request: Maneja la recepción de una solicitud de acceso. Si no tiene el token, reenvía la solicitud a su padre, si tiene el token, lo envía al solicitante.
@@ -178,7 +182,7 @@ leave_critical_section: Sale de la sección crítica y envía el token al siguie
 
 
 #### Bloque 5: Clase de Robot
-     
+     ```python
       # Clase de Robot que incluye todas las funcionalidades requeridas
       class Robot:
           def __init__(self, id, total_robots, collector):
@@ -238,7 +242,9 @@ leave_critical_section: Sale de la sección crítica y envía el token al siguie
               return thread
 
 #### Explicación:
+```python
 __init__: Inicializa el robot con su ID, el número total de robots, su reloj vectorial, su recolector de basura, su estado inicial, sus canales de comunicación, su lista de instantáneas, su exclusión mutua y el contador de iteraciones.
+```
 set_state: Establece el estado del robot.
 send_message: Envía un mensaje a otro robot y lo registra en los canales de comunicación.
 take_snapshot: Toma una instantánea del estado actual del robot y sus canales de comunicación.
@@ -246,7 +252,7 @@ execute_task: Ejecuta tareas de manera aleatoria, envía mensajes, solicita acce
 start: Inicia un hilo para ejecutar la tarea del robot.
 
 #### Bloque 6: Función Principal
-
+```python
 def main():
     total_robots = 3  # Número total de robots
     collector = GenerationalCollector(10)  # Inicializa el recolector de basura generacional
@@ -266,7 +272,7 @@ def main():
 
 
 
-          
+   ```       
 
 #### Explicación:
 
