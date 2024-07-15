@@ -41,7 +41,6 @@ copy: Para realizar copias profundas de objetos.
 
                     self.clock[self.node_id] += 1  # Incrementa el contador del reloj local
 
-```
 #### Explicación:
 
 
@@ -53,7 +52,7 @@ send_event: Incrementa el reloj local y devuelve una copia del reloj vectorial p
 
 receive_event: Actualiza el reloj local tomando el máximo entre su valor actual y el valor recibido, luego incrementa el contador local.
 
-
+```
 
 #### Bloque 3: Clase de Recolector de Basura Generacional
 
