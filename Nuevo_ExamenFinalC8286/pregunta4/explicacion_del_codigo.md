@@ -15,7 +15,7 @@ from collections import defaultdict
 
 # Definición de la Clase Node
 
-
+```python
 class Node:
     def __init__(self, node_id, cluster):
         self.node_id = node_id
@@ -27,22 +27,24 @@ class Node:
         self.votes = 0
         self.alive = True
         self.term = 0
+```
 
-    Node: Representa un nodo en el clúster.
-        Atributos:
-            node_id: Identificador único del nodo.
-            cluster: Referencia al clúster al que pertenece el nodo.
-            data: Diccionario para almacenar los datos del nodo.
-            log: Lista para almacenar las entradas de registro del nodo.
-            leader: Referencia al líder actual del clúster.
-            is_leader: Booleano que indica si el nodo es el líder.
-            votes: Contador de votos recibidos en el proceso de elección de líder.
-            alive: Booleano que indica si el nodo está activo.
-            term: Término actual del nodo utilizado en el algoritmo de consenso.
+  - **Node**: Representa un nodo en el clúster.
+    - **Atributos**:
+        - `node_id`: Identificador único del nodo.
+        - `cluster`: Referencia al clúster al que pertenece el nodo.
+        - `data`: Diccionario para almacenar los datos del nodo.
+        - `log`: Lista para almacenar las entradas de registro del nodo.
+        - `leader`: Referencia al líder actual del clúster.
+        - `is_leader`: Booleano que indica si el nodo es el líder.
+        - `votes`: Contador de votos recibidos en el proceso de elección de líder.
+        - `alive`: Booleano que indica si el nodo está activo.
+        - `term`: Término actual del nodo utilizado en el algoritmo de consenso.
 
-Método send_message
 
-python
+#### Método send_message
+
+```python
 
 def send_message(self, target_node, message):
     if not target_node.alive:
@@ -54,11 +56,14 @@ def send_message(self, target_node, message):
         Parámetros:
             target_node: Nodo de destino.
             message: Mensaje a enviar.
-        Funcionalidad: Si el nodo de destino está activo, se introduce una latencia de red simulada antes de enviar el mensaje.
+```
+
+
+Funcionalidad: Si el nodo de destino está activo, se introduce una latencia de red simulada antes de enviar el mensaje.
 
 Método receive_message
 
-python
+```python
 
 def receive_message(self, message):
     if message['type'] == 'vote_request':
@@ -73,9 +78,12 @@ def receive_message(self, message):
             message: Mensaje recibido.
         Funcionalidad: Dependiendo del tipo de mensaje, se llama al método correspondiente (handle_vote_request, handle_vote_response, handle_append_entries).
 
-Método handle_vote_request
+```
 
-python
+
+### Método handle_vote_request
+
+```python
 
 def handle_vote_request(self, message):
     if self.alive:
@@ -87,9 +95,11 @@ def handle_vote_request(self, message):
             message: Mensaje de solicitud de voto.
         Funcionalidad: Si el nodo está activo, envía una respuesta de voto afirmativo al candidato solicitante.
 
-Método handle_vote_response
+```
 
-python
+#### Método handle_vote_response
+
+```python 
 
 def handle_vote_response(self, message):
     if message['vote_granted']:
@@ -100,29 +110,31 @@ def handle_vote_response(self, message):
             print(f'Node {self.node_id} has become the leader')
             self.broadcast_append_entries()
 
+```
     handle_vote_response: Maneja las respuestas de voto.
         Parámetros:
             message: Mensaje de respuesta de voto.
         Funcionalidad: Si se concede el voto, incrementa el contador de votos y verifica si ha alcanzado la mayoría para convertirse en líder. Si es así, se declara líder y difunde entradas de registro.
 
-Método handle_append_entries
+#### Método handle_append_entries
 
-python
+```python
 
 def handle_append_entries(self, message):
     if self.alive:
         self.log.append(message['entry'])
         self.data.update(message['entry'])
         print(f'Node {self.node_id} appended entry: {message["entry"]}')
+```
 
     handle_append_entries: Maneja la recepción de entradas de registro.
         Parámetros:
             message: Mensaje con la entrada de registro.
         Funcionalidad: Si el nodo está activo, añade la entrada al registro y actualiza los datos.
 
-Método request_votes
+#### Método request_votes
 
-python
+```python
 
 def request_votes(self):
     self.votes = 1
@@ -132,12 +144,14 @@ def request_votes(self):
             message = {'type': 'vote_request', 'candidate': self, 'term': self.term}
             self.send_message(node, message)
 
+```
+
     request_votes: Solicita votos de otros nodos.
         Funcionalidad: Inicializa el contador de votos, incrementa el término y envía solicitudes de voto a otros nodos activos en el clúster.
 
-Método broadcast_append_entries
+#### Método broadcast_append_entries
 
-python
+```python
 
 def broadcast_append_entries(self):
     for node in self.cluster.nodes:
@@ -148,12 +162,15 @@ def broadcast_append_entries(self):
             message = {'type': 'append_entries', 'entry': entry}
             self.send_message(node, message)
 
+
+```
+
     broadcast_append_entries: Difunde entradas de registro a otros nodos.
         Funcionalidad: Genera una nueva entrada aleatoria, la añade al registro y actualiza los datos, luego envía la entrada a otros nodos activos.
 
-Método run
+#### Método run
 
-python
+```python
 
 def run(self):
     while self.alive:
@@ -162,13 +179,15 @@ def run(self):
             self.broadcast_append_entries()
         else:
             self.request_votes()
+```
+
 
     run: Método principal de ejecución del nodo.
         Funcionalidad: Bucle de ejecución continua que alterna entre solicitar votos y difundir entradas de registro, dependiendo de si el nodo es líder o no.
 
-Definición de la Clase Cluster
+### Definición de la Clase Cluster
 
-python
+```python
 
 class Cluster:
     def __init__(self, num_nodes):
@@ -177,10 +196,10 @@ class Cluster:
     Cluster: Representa el conjunto de nodos.
         Atributos:
             nodes: Lista de nodos que componen el clúster.
+```
+#### Método start
 
-Método start
-
-python
+```python
 
 def start(self):
     self.threads = []
@@ -189,36 +208,41 @@ def start(self):
         self.threads.append(t)
         t.start()
 
-    start: Inicia los hilos de ejecución de todos los nodos del clúster.
-        Funcionalidad: Crea y arranca un hilo para cada nodo en el clúster.
+```
 
-Método simulate_failure
+start: Inicia los hilos de ejecución de todos los nodos del clúster.
 
-python
+Funcionalidad: Crea y arranca un hilo para cada nodo en el clúster.
+
+#### Método simulate_failure
+
+```python
 
 def simulate_failure(self):
     node = random.choice(self.nodes)
     node.alive = False
     print(f'Node {node.node_id} has failed.')
+```
 
-    simulate_failure: Simula la falla de un nodo aleatorio del clúster.
-        Funcionalidad: Selecciona un nodo aleatorio y lo marca como inactivo.
+simulate_failure: Simula la falla de un nodo aleatorio del clúster.
+ Funcionalidad: Selecciona un nodo aleatorio y lo marca como inactivo.
 
-Método heal_failure
+#### Método heal_failure
 
-python
+```python
 
 def heal_failure(self):
     node = random.choice(self.nodes)
     node.alive = True
     print(f'Node {node.node_id} has healed.')
 
-    heal_failure: Simula la recuperación de un nodo aleatorio del clúster.
-        Funcionalidad: Selecciona un nodo aleatorio y lo marca como activo.
+```
+heal_failure: Simula la recuperación de un nodo aleatorio del clúster.
+Funcionalidad: Selecciona un nodo aleatorio y lo marca como activo.
 
-Método run_simulation
+#### Método run_simulation
 
-python
+```python
 
 def run_simulation(self, cycles):
     for _ in range(cycles):
@@ -229,13 +253,14 @@ def run_simulation(self, cycles):
     print("Simulation complete. Stopping all nodes.")
     for node in self.nodes:
         node.alive = False
+```
+run_simulation: Ejecuta la simulación con un número especificado de ciclos de fallos y recuperaciones.
 
-    run_simulation: Ejecuta la simulación con un número especificado de ciclos de fallos y recuperaciones.
-        Funcionalidad: Alterna entre simular fallos y recuperaciones de nodos durante un número fijo de ciclos, luego detiene todos los nodos.
+Funcionalidad: Alterna entre simular fallos y recuperaciones de nodos durante un número fijo de ciclos, luego detiene todos los nodos.
 
-Inicialización y Ejecución del Clúster
+### Inicialización y Ejecución del Clúster
 
-python
+```python
 
 cluster = Cluster(5)
 cluster.start()
@@ -244,20 +269,22 @@ cluster.run_simulation(5)
 for t in cluster.threads:
     t.join()
 
-    Inicialización: Crea un clúster con 5 nodos.
-    Inicio: Inicia la ejecución de los nodos.
-    Simulación: Corre la simulación con un número fijo de ciclos de fallos y recuperaciones.
-    Esperar: Espera a que todos los hilos terminen su ejecución.
+```
+- **Inicialización**: Crea un clúster con 5 nodos.
+- **Inicio**: Inicia la ejecución de los nodos.
+- **Simulación**: Corre la simulación con un número fijo de ciclos de fallos y recuperaciones.
+- **Esperar**: Espera a que todos los hilos terminen su ejecución.
 
-Resumen del Comportamiento del Sistema
+#### Resumen del Comportamiento del Sistema
 
-    Consistencia:
-        El algoritmo de consenso (similar a Raft) asegura que solo un líder puede añadir entradas de registro, garantizando que todos los nodos tengan un registro consistente de operaciones.
+- **Consistencia**:
+    - El algoritmo de consenso (similar a Raft) asegura que solo un líder puede añadir entradas de registro, garantizando que todos los nodos tengan un registro consistente de operaciones.
 
-    Disponibilidad:
-        Los nodos intentan mantenerse disponibles, incluso si algunos fallan. El clúster intenta elegir un nuevo líder si el líder actual falla.
+- **Disponibilidad**:
+    - Los nodos intentan mantenerse disponibles, incluso si algunos fallan. El clúster intenta elegir un nuevo líder si el líder actual falla.
 
-    Tolerancia a Particiones:
-        Los mensajes se envían con latencia simulada y los nodos pueden fallar aleatoriamente, simulando particiones de red. El sistema sigue intentando mantener la consistencia y la disponibilidad mediante la elección de líderes y la difusión de entradas de registro.
+- **Tolerancia a Particiones**:
+    - Los mensajes se envían con latencia simulada y los nodos pueden fallar aleatoriamente, simulando particiones de red. El sistema sigue intentando mantener la consistencia y la disponibilidad mediante la elección de líderes y la difusión de entradas de registro.
 
 Este sistema simula de manera efectiva las tres propiedades del Teorema CAP, mostrando cómo un sistema distribuido puede manejar la consistencia, disponibilidad y tolerancia a particiones bajo diferentes configuraciones y condiciones de red.
+
