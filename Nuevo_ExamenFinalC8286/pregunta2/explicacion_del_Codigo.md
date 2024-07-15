@@ -254,9 +254,9 @@ def main():
     for thread in threads:
         thread.join()  # Espera a que todos los hilos terminen
 
-```python
-if __name__ == "__main__":
-    main()  # Ejecuta la función principal
+
+            if __name__ == "__main__":
+                main()  # Ejecuta la función principal
           
 
 #### Explicación:
