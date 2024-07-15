@@ -20,28 +20,28 @@ copy: Para realizar copias profundas de objetos.
 
 
 #### Bloque 2: Clase de Reloj Vectorial
-
-```python
-            # Clase de Reloj Vectorial
-            class VectorClock:
-                def __init__(self, num_nodes, node_id):
-                    self.clock = [0] * num_nodes  # Inicializa el reloj vectorial con ceros
-                    self.node_id = node_id  # ID del nodo
             
-                def tick(self):
-                    self.clock[self.node_id] += 1  # Incrementa el contador del reloj local
+            ```python
+                        # Clase de Reloj Vectorial
+                        class VectorClock:
+                            def __init__(self, num_nodes, node_id):
+                                self.clock = [0] * num_nodes  # Inicializa el reloj vectorial con ceros
+                                self.node_id = node_id  # ID del nodo
+                        
+                            def tick(self):
+                                self.clock[self.node_id] += 1  # Incrementa el contador del reloj local
+                        
+                            def send_event(self):
+                                self.tick()  # Incrementa el reloj local antes de enviar
+                                return self.clock[:]  # Devuelve una copia del reloj vectorial actual
+                        
+                            def receive_event(self, received_vector):
+                                for i in range(len(self.clock)):
+                                    self.clock[i] = max(self.clock[i], received_vector[i])  # Actualiza el reloj local con el máximo entre el local y el recibido
             
-                def send_event(self):
-                    self.tick()  # Incrementa el reloj local antes de enviar
-                    return self.clock[:]  # Devuelve una copia del reloj vectorial actual
-            
-                def receive_event(self, received_vector):
-                    for i in range(len(self.clock)):
-                        self.clock[i] = max(self.clock[i], received_vector[i])  # Actualiza el reloj local con el máximo entre el local y el recibido
+                                self.clock[self.node_id] += 1  # Incrementa el contador del reloj local
+            ```
 
-                    self.clock[self.node_id] += 1  # Incrementa el contador del reloj local
-
-```
 #### Explicación:
 
 
@@ -58,41 +58,41 @@ receive_event: Actualiza el reloj local tomando el máximo entre su valor actual
 ```
 
 #### Bloque 3: Clase de Recolector de Basura Generacional
-```python
-      # Clase de Recolector de Basura Generacional
-      class GenerationalCollector:
-          def __init__(self, size):
-              self.size = size  # Tamaño del espacio de memoria
-              self.young_gen = [None] * size  # Inicializa la generación joven
-              self.old_gen = [None] * size  # Inicializa la generación vieja
-              self.young_ptr = 0  # Puntero para la generación joven
-              self.old_ptr = 0  # Puntero para la generación vieja
-      
-          def allocate(self, obj, old=False):
-              if old:
-                  if self.old_ptr >= self.size:
-                      self.collect_old()  # Recolecta la generación vieja si está llena
-                  addr = self.old_ptr
-                  self.old_gen[addr] = obj
-                  self.old_ptr += 1
-              else:
-                  if self.young_ptr >= self.size:
-                      self.collect_young()  # Recolecta la generación joven si está llena
-                  addr = self.young_ptr
-                  self.young_gen[addr] = obj
-                  self.young_ptr += 1
-              return addr
-      
-          def collect_young(self):
-              self.old_gen.extend([obj for obj in self.young_gen if obj is not None])  # Mueve objetos vivos de la generación joven a la vieja
-              self.young_gen = [None] * self.size  # Reinicia la generación joven
-              self.young_ptr = 0  # Reinicia el puntero de la generación joven
-      
-          def collect_old(self):
-              self.old_gen = [obj for obj in self.old_gen if obj is not None]  # Recolecta la generación vieja, eliminando los objetos no referenciados
-              self.old_ptr = len(self.old_gen)  # Ajusta el puntero de la generación vieja
-              self.old_gen.extend([None] * (self.size - self.old_ptr))  # Extiende la generación vieja con espacios vacíos
-```
+            ```python
+                  # Clase de Recolector de Basura Generacional
+                  class GenerationalCollector:
+                      def __init__(self, size):
+                          self.size = size  # Tamaño del espacio de memoria
+                          self.young_gen = [None] * size  # Inicializa la generación joven
+                          self.old_gen = [None] * size  # Inicializa la generación vieja
+                          self.young_ptr = 0  # Puntero para la generación joven
+                          self.old_ptr = 0  # Puntero para la generación vieja
+                  
+                      def allocate(self, obj, old=False):
+                          if old:
+                              if self.old_ptr >= self.size:
+                                  self.collect_old()  # Recolecta la generación vieja si está llena
+                              addr = self.old_ptr
+                              self.old_gen[addr] = obj
+                              self.old_ptr += 1
+                          else:
+                              if self.young_ptr >= self.size:
+                                  self.collect_young()  # Recolecta la generación joven si está llena
+                              addr = self.young_ptr
+                              self.young_gen[addr] = obj
+                              self.young_ptr += 1
+                          return addr
+                  
+                      def collect_young(self):
+                          self.old_gen.extend([obj for obj in self.young_gen if obj is not None])  # Mueve objetos vivos de la generación joven a la vieja
+                          self.young_gen = [None] * self.size  # Reinicia la generación joven
+                          self.young_ptr = 0  # Reinicia el puntero de la generación joven
+                  
+                      def collect_old(self):
+                          self.old_gen = [obj for obj in self.old_gen if obj is not None]  # Recolecta la generación vieja, eliminando los objetos no referenciados
+                          self.old_ptr = len(self.old_gen)  # Ajusta el puntero de la generación vieja
+                          self.old_gen.extend([None] * (self.size - self.old_ptr))  # Extiende la generación vieja con espacios vacíos
+            ```
 
 #### Explicación:
 ```python
