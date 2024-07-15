@@ -2,7 +2,7 @@
 
 ## Descripción
 
-Este script simula un sistema de eventos asincrónicos que maneja la ejecución de celdas en un "notebook". A continuación, se proporciona una explicación detallada de cada parte del código.
+Este script simula un sistema de eventos asincrónicos que maneja la ejecución de celdas en un "notebook". 
 
 ## Importaciones y Configuración
 
