@@ -1,11 +1,11 @@
 #### Bloque 1: Importación de Módulos
- ```python
- import threading
- import time
- import random
- from queue import PriorityQueue
- import copy
- Este bloque importa los módulos necesarios:
+  ```python
+  import threading
+  import time
+  import random
+  from queue import PriorityQueue
+  import copy
+  Este bloque importa los módulos necesarios:
 
 threading: Para crear y manejar hilos.
 time: Para controlar el tiempo de espera y simular retrasos.
