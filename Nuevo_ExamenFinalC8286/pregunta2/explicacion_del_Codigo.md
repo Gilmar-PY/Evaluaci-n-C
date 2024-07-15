@@ -19,7 +19,7 @@ Este script implementa un sistema de coordinación de tareas para robots industr
     - `threading`: Para crear y manejar hilos.
     - `time`: Para controlar el tiempo de espera y simular retrasos.
     - `random`: Para seleccionar tareas y destinatarios de mensajes de forma aleatoria.
-    - `PriorityQueue`: Para manejar colas de prioridad, aunque no se usa directamente en este código.
+    - `PriorityQueue`: Para manejar colas de prioridad.
     - `copy`: Para realizar copias profundas de objetos.
 
 ## Clase `VectorClock`
