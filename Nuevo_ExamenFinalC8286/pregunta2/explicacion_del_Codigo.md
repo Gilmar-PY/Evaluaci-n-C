@@ -234,7 +234,7 @@ start: Inicia un hilo para ejecutar la tarea del robot.
 
 
 #### Bloque 6: Función Principal
-    ```python
+            ```python
             def main():
                 total_robots = 3  # Número total de robots
                 collector = GenerationalCollector(10)  # Inicializa el recolector de basura generacional
