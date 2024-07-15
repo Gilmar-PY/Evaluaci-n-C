@@ -1,6 +1,6 @@
 
 #### Bloque 1: Importación de Módulos
-      ```python
+```python
             import threading
             import time
             import random
