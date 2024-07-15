@@ -2,8 +2,7 @@
 
 ## Descripción
 
-Este script implementa un sistema de coordinación de tareas para nodos distribuidos utilizando el algoritmo de Ricart-Agrawala para exclusión mutua y el algoritmo de Dijkstra-Scholten para detección de terminación distribuida. A continuación, se proporciona una explicación detallada de cada parte del código.
-
+Este script implementa un sistema de coordinación de tareas para nodos distribuidos utilizando el algoritmo de Ricart-Agrawala para exclusión mutua y el algoritmo de Dijkstra-Scholten para detección de terminación distribuida.
 ## Importaciones y Configuración
 
 1. **Importaciones**:
@@ -297,24 +296,4 @@ Este script implementa un sistema de coordinación de tareas para nodos distribu
 3. **Implementación de Algoritmos**: Los nodos utilizan el algoritmo de Ricart-Agrawala para solicitar y liberar acceso a la sección crítica, y el algoritmo de Dijkstra-Scholten para detección de terminación distribuida.
 4. **Función Principal**: Configura y ejecuta la red de nodos, sincroniza relojes, maneja secciones críticas, realiza la recolección de basura y detiene la red.
 
-## Diagrama de Funcionamiento
-
-```plaintext
-+----------------------------------------+
-|                Network                 |
-|                                        |
-|  +------------+  +------------+        |
-|  |   Node 0   |  |   Node 1   |  ...   |
-|  +------------+  +------------+        |
-|  | Message Queue |  | Message Queue |  |
-|  +------------+  +------------+        |
-|  | Clock      |  | Clock      |        |
-|  +------------+  +------------+        |
-|  | Run Thread |  | Run Thread |        |
-|  +------------+  +------------+        |
-|                                        |
-|       +------------+                   |
-|       | DijkstraScholten               |
-|       +------------+                   |
-+----------------------------------------+
 
