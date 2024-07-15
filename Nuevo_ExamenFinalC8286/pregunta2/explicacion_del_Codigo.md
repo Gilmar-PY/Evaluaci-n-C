@@ -235,25 +235,25 @@ start: Inicia un hilo para ejecutar la tarea del robot.
 
 #### Bloque 6: Función Principal
             ```python
-            def main():
-                total_robots = 3  # Número total de robots
-                collector = GenerationalCollector(10)  # Inicializa el recolector de basura generacional
-                robots = [Robot(id, total_robots, collector) for id in range(total_robots)]  # Crea los robots
-            
-                # Configurar los vecinos y padres para el algoritmo de Raymond
-                robots[0].mutex.add_neighbor(robots[1])
-                robots[1].mutex.add_neighbor(robots[0])
-                robots[1].mutex.add_neighbor(robots[2])
-                robots[2].mutex.add_neighbor(robots[1])
-                robots[1].mutex.parent = robots[0]
-                robots[2].mutex.parent = robots[1]
-            
-                threads = [robot.start() for robot in robots]  # Inicia los hilos de los robots
-                for thread in threads:
-                    thread.join()  # Espera a que todos los hilos terminen
-            
-            if __name__ == "__main__":
-                main()  # Ejecuta la función principal
+                        def main():
+                            total_robots = 3  # Número total de robots
+                            collector = GenerationalCollector(10)  # Inicializa el recolector de basura generacional
+                            robots = [Robot(id, total_robots, collector) for id in range(total_robots)]  # Crea los robots
+                        
+                            # Configurar los vecinos y padres para el algoritmo de Raymond
+                            robots[0].mutex.add_neighbor(robots[1])
+                            robots[1].mutex.add_neighbor(robots[0])
+                            robots[1].mutex.add_neighbor(robots[2])
+                            robots[2].mutex.add_neighbor(robots[1])
+                            robots[1].mutex.parent = robots[0]
+                            robots[2].mutex.parent = robots[1]
+                        
+                            threads = [robot.start() for robot in robots]  # Inicia los hilos de los robots
+                            for thread in threads:
+                                thread.join()  # Espera a que todos los hilos terminen
+                        
+                        if __name__ == "__main__":
+                            main()  # Ejecuta la función principal
            
 
 
