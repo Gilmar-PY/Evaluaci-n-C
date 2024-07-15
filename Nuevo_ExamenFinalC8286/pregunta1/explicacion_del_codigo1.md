@@ -1,14 +1,14 @@
 Importaciones y Configuración
 
-    Importaciones:
+Importaciones:
 
-```python
-
-import asyncio 
-import logging  
-from collections import deque  
-from concurrent.futures import ThreadPoolExecutor 
-from threading import Lock  
+        ```python
+        
+        import asyncio 
+        import logging  
+        from collections import deque  
+        from concurrent.futures import ThreadPoolExecutor 
+        from threading import Lock  
 
     asyncio: Proporciona soporte para programación asíncrona en Python.
     logging: Utilizado para registrar eventos y mensajes de log.
