@@ -145,9 +145,9 @@ def request_votes(self):
             self.send_message(node, message)
 
 ```
+- **request_votes**: Solicita votos de otros nodos.
+    - **Funcionalidad**: Inicializa el contador de votos, incrementa el término y envía solicitudes de voto a otros nodos activos en el clúster.
 
-    request_votes: Solicita votos de otros nodos.
-        Funcionalidad: Inicializa el contador de votos, incrementa el término y envía solicitudes de voto a otros nodos activos en el clúster.
 
 #### Método broadcast_append_entries
 
@@ -165,8 +165,8 @@ def broadcast_append_entries(self):
 
 ```
 
-    broadcast_append_entries: Difunde entradas de registro a otros nodos.
-        Funcionalidad: Genera una nueva entrada aleatoria, la añade al registro y actualiza los datos, luego envía la entrada a otros nodos activos.
+- **broadcast_append_entries**: Difunde entradas de registro a otros nodos.
+    - **Funcionalidad**: Genera una nueva entrada aleatoria, la añade al registro y actualiza los datos, luego envía la entrada a otros nodos activos.
 
 #### Método run
 
@@ -181,9 +181,11 @@ def run(self):
             self.request_votes()
 ```
 
+- **run**: Método principal de ejecución del nodo.
+    - **Funcionalidad**: Bucle de ejecución continua que alterna entre solicitar votos y difundir entradas de registro, dependiendo de si el nodo es líder o no.
 
-    run: Método principal de ejecución del nodo.
-        Funcionalidad: Bucle de ejecución continua que alterna entre solicitar votos y difundir entradas de registro, dependiendo de si el nodo es líder o no.
+
+  
 
 ### Definición de la Clase Cluster
 
@@ -225,7 +227,8 @@ def simulate_failure(self):
 ```
 
 simulate_failure: Simula la falla de un nodo aleatorio del clúster.
- Funcionalidad: Selecciona un nodo aleatorio y lo marca como inactivo.
+
+Funcionalidad: Selecciona un nodo aleatorio y lo marca como inactivo.
 
 #### Método heal_failure
 
@@ -238,6 +241,7 @@ def heal_failure(self):
 
 ```
 heal_failure: Simula la recuperación de un nodo aleatorio del clúster.
+
 Funcionalidad: Selecciona un nodo aleatorio y lo marca como activo.
 
 #### Método run_simulation
@@ -278,7 +282,7 @@ for t in cluster.threads:
 #### Resumen del Comportamiento del Sistema
 
 - **Consistencia**:
-    - El algoritmo de consenso (similar a Raft) asegura que solo un líder puede añadir entradas de registro, garantizando que todos los nodos tengan un registro consistente de operaciones.
+    - El algoritmo de consenso asegura que solo un líder puede añadir entradas de registro, garantizando que todos los nodos tengan un registro consistente de operaciones.
 
 - **Disponibilidad**:
     - Los nodos intentan mantenerse disponibles, incluso si algunos fallan. El clúster intenta elegir un nuevo líder si el líder actual falla.
