@@ -90,12 +90,12 @@ def handle_vote_request(self, message):
         response = {'type': 'vote_response', 'vote_granted': True, 'term': message['term']}
         self.send_message(message['candidate'], response)
 
-    handle_vote_request: Maneja las solicitudes de voto.
-        Parámetros:
-            message: Mensaje de solicitud de voto.
-        Funcionalidad: Si el nodo está activo, envía una respuesta de voto afirmativo al candidato solicitante.
-
 ```
+- **handle_vote_request**: Maneja las solicitudes de voto.
+    - **Parámetros**:
+        - `message`: Mensaje de solicitud de voto.
+    - **Funcionalidad**: Si el nodo está activo, envía una respuesta de voto afirmativo al candidato solicitante.
+
 
 #### Método handle_vote_response
 
@@ -111,10 +111,11 @@ def handle_vote_response(self, message):
             self.broadcast_append_entries()
 
 ```
-    handle_vote_response: Maneja las respuestas de voto.
-        Parámetros:
-            message: Mensaje de respuesta de voto.
-        Funcionalidad: Si se concede el voto, incrementa el contador de votos y verifica si ha alcanzado la mayoría para convertirse en líder. Si es así, se declara líder y difunde entradas de registro.
+- **handle_vote_response**: Maneja las respuestas de voto.
+    - **Parámetros**:
+        - `message`: Mensaje de respuesta de voto.
+    - **Funcionalidad**: Si se concede el voto, incrementa el contador de votos y verifica si ha alcanzado la mayoría para convertirse en líder. Si es así, se declara líder y difunde entradas de registro.
+
 
 #### Método handle_append_entries
 
@@ -127,10 +128,11 @@ def handle_append_entries(self, message):
         print(f'Node {self.node_id} appended entry: {message["entry"]}')
 ```
 
-    handle_append_entries: Maneja la recepción de entradas de registro.
-        Parámetros:
-            message: Mensaje con la entrada de registro.
-        Funcionalidad: Si el nodo está activo, añade la entrada al registro y actualiza los datos.
+- **handle_append_entries**: Maneja la recepción de entradas de registro.
+    - **Parámetros**:
+        - `message`: Mensaje con la entrada de registro.
+    - **Funcionalidad**: Si el nodo está activo, añade la entrada al registro y actualiza los datos.
+
 
 #### Método request_votes
 
@@ -290,5 +292,5 @@ for t in cluster.threads:
 - **Tolerancia a Particiones**:
     - Los mensajes se envían con latencia simulada y los nodos pueden fallar aleatoriamente, simulando particiones de red. El sistema sigue intentando mantener la consistencia y la disponibilidad mediante la elección de líderes y la difusión de entradas de registro.
 
-Este sistema simula de manera efectiva las tres propiedades del Teorema CAP, mostrando cómo un sistema distribuido puede manejar la consistencia, disponibilidad y tolerancia a particiones bajo diferentes configuraciones y condiciones de red.
+Este sistema simula  las tres propiedades del Teorema CAP, mostrando cómo un sistema distribuido puede manejar la consistencia, disponibilidad y tolerancia a particiones bajo diferentes configuraciones y condiciones de red.
 
