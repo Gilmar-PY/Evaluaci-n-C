@@ -6,15 +6,15 @@ import threading
 import time
 import random
 from collections import defaultdict
+```
 
-    threading: Módulo para crear y gestionar hilos en Python.
-    time: Módulo para manejar operaciones relacionadas con el tiempo (pausas, latencia).
-    random: Módulo para generar números aleatorios, utilizado para simular fallos y latencia de red.
-    collections.defaultdict: Estructura de datos para manejar diccionarios con valores por defecto.
+- `threading`: Módulo para crear y gestionar hilos en Python.
+- `time`: Módulo para manejar operaciones relacionadas con el tiempo (pausas, latencia).
+- `random`: Módulo para generar números aleatorios, utilizado para simular fallos y latencia de red.
+- `collections.defaultdict`: Estructura de datos para manejar diccionarios con valores por defecto.
 
-Definición de la Clase Node
+# Definición de la Clase Node
 
-python
 
 class Node:
     def __init__(self, node_id, cluster):
