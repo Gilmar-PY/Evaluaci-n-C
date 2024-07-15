@@ -20,8 +20,8 @@ copy: Para realizar copias profundas de objetos.
 
 
 #### Bloque 2: Clase de Reloj Vectorial
-   
 
+```python
             # Clase de Reloj Vectorial
             class VectorClock:
                 def __init__(self, num_nodes, node_id):
@@ -41,6 +41,7 @@ copy: Para realizar copias profundas de objetos.
 
                     self.clock[self.node_id] += 1  # Incrementa el contador del reloj local
 
+```
 #### Explicación:
 
 
