@@ -11,15 +11,15 @@
             import copy
 
 
--threading: Para crear y manejar hilos.
+threading: Para crear y manejar hilos.
 
--time: Para controlar el tiempo de espera y simular retrasos.
+time: Para controlar el tiempo de espera y simular retrasos.
 
--random: Para seleccionar tareas y destinatarios de mensajes de forma aleatoria.
+random: Para seleccionar tareas y destinatarios de mensajes de forma aleatoria.
 
--PriorityQueue: Para manejar colas de prioridad, aunque no se usa directamente en este código.
+PriorityQueue: Para manejar colas de prioridad, aunque no se usa directamente en este código.
 
--copy: Para realizar copias profundas de objetos.
+copy: Para realizar copias profundas de objetos.
 
 
 #### Bloque 2: Clase de Reloj Vectorial
@@ -48,8 +48,11 @@
 
 
 __init__: Inicializa el reloj vectorial con ceros y asigna el ID del nodo.
+
 tick: Incrementa el contador del reloj del nodo local.
+
 send_event: Incrementa el reloj local y devuelve una copia del reloj vectorial para ser enviada con un mensaje.
+
 receive_event: Actualiza el reloj local tomando el máximo entre su valor actual y el valor recibido, luego incrementa el contador local.
 
 
@@ -93,8 +96,11 @@ receive_event: Actualiza el reloj local tomando el máximo entre su valor actual
 
 #### Explicación:
 __init__: Inicializa las generaciones joven y vieja con un tamaño dado y punteros para la asignación de memoria.
+
 allocate: Asigna un objeto a la generación joven o vieja según el parámetro old.
+
 collect_young: Mueve los objetos vivos de la generación joven a la vieja y reinicia la generación joven.
+
 collect_old: Recolecta los objetos no referenciados en la generación vieja y ajusta el puntero de asignación.
 
 
