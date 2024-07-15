@@ -16,7 +16,7 @@ copy: Para realizar copias profundas de objetos.
 
 
 #### Bloque 2: Clase de Reloj Vectorial
-    ```python
+   
 
             # Clase de Reloj Vectorial
             class VectorClock:
