@@ -254,11 +254,13 @@ def main():
     for thread in threads:
         thread.join()  # Espera a que todos los hilos terminen
 
+```python
 if __name__ == "__main__":
     main()  # Ejecuta la función principal
           
 
 #### Explicación:
+
 main: Configura y ejecuta la simulación de robots.
 Inicializa el número total de robots y el recolector de basura generacional.
 Crea los robots.
