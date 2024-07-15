@@ -41,11 +41,14 @@ copy: Para realizar copias profundas de objetos.
 
                     self.clock[self.node_id] += 1  # Incrementa el contador del reloj local
 
+```
 #### Explicación:
 
 
+```python
 __init__: Inicializa el reloj vectorial con ceros y asigna el ID del nodo.
 
+```
 tick: Incrementa el contador del reloj del nodo local.
 
 send_event: Incrementa el reloj local y devuelve una copia del reloj vectorial para ser enviada con un mensaje.
