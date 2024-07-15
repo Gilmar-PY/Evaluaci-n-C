@@ -253,10 +253,10 @@ def main():
     threads = [robot.start() for robot in robots]  # Inicia los hilos de los robots
     for thread in threads:
         thread.join()  # Espera a que todos los hilos terminen
-
-
 if __name__ == "__main__":
     main()  # Ejecuta la función principal
+
+
           
 
 #### Explicación:
