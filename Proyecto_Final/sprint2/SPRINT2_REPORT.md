@@ -166,19 +166,15 @@ Paso 2: Construir y Ejecutar los Contenedores
 
 ### Pruebas de la API
 
-Cargar un archivo (asegúrate de tener un archivo para probar, por ejemplo, test_file.txt):
+Cargar un archivo 
 
 ![](https://lh7-us.googleusercontent.com/docsz/AD_4nXfW6qoNwWh-dYnfE5DXfuQh3FwiGV7_Xe-BPkSnhd0AtuZrxmJBqLC_Kl3jt9a1xquleYfA7QMBiDp2Xsk2LBq2aIQnLSLOzIdrCinOliV-ZRg8iVRecDGWliWdcsq-N7B30u58gH_BiF4aiQ-ZA5iPkXw?key=nQL0RT6dNr_BeWtx8fgyhA)
 
 Descargar el archivo:
 
-curl http://localhost:5000/descargar/Actividad.txt --output descargado.txt
-
 ![](https://lh7-us.googleusercontent.com/docsz/AD_4nXcNIfhVeLmDyJu3kKPdObt8S0AbrG_t1oZBIqxa42M_Dim9zyDw1mJ3L1XJb1O1_Pl-8G0fP9fToy3EaCDbrVWKijHxyJs4CCc9aetGF5uNbUNXHqAVl3WqjnMkmCVUDhSycK2nMeQ8kgYJDXtwhKqqXBE?key=nQL0RT6dNr_BeWtx8fgyhA)
 
 Eliminar el archivo:
-
-curl -X DELETE [http://localhost:5000/eliminar/Actividad.txt](http://localhost:5000/eliminar/Actividad.txt)
 
 ![](https://lh7-us.googleusercontent.com/docsz/AD_4nXf6w7LdAlfoN0lug4AFJq4HbA6r4tGqO9ljecjcDBC1yN1kvuJH6chcK59Jrr1YAqfa8N-hH8x4eyO-pNL4vVUure7V_4AV6r7utokqX_U9iwzE_Za4Tl73l9WbSYqhW6R0WtcQODgh4jvnCg-F8JGQn9qN?key=nQL0RT6dNr_BeWtx8fgyhA)
 
